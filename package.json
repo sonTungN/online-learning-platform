@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/sonTungN/online-learning-platform#readme",
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "sass": "^1.77.8"
   }
 }

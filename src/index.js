@@ -14,15 +14,18 @@ const templatePath = path.join(__dirname, "../templates");
 //CSS Handle
 const publicPath = path.join(__dirname, "../public"); // Ensure publicPath is defined here
 
+// For parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+// For parsing application/json
+app.use(express.json());
+
 // EXPRESS HANDLEBARS CONFIGURATION
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/resources/views"));
 
 // Set the public folder to serve static files
-app.use(express.static(publicPath)); // Now publicPath is defined
-
-app.use(express.urlencoded({ extended: false }));
+app.use(express.static(publicPath));
 
 app.get("/", (req, res) => {
   res.render("login");
