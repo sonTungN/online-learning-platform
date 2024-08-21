@@ -1,18 +1,15 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
 const path = require("path");
-
 const app = express();
 const port = 3000;
 
-const hbs = require("hbs");
-const collection = require("./mongodb");
-const { profile } = require("console");
+// const hbs = require("hbs");
+// const collection = require("./mongodb");
+// const { profile } = require("console");
 
-const templatePath = path.join(__dirname, "../templates");
-
-//CSS Handle
-const publicPath = path.join(__dirname, "../public"); // Ensure publicPath is defined here
+// STATIC FILES
+app.use(express.static(path.join(__dirname, "/public")));
 
 // For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
@@ -23,9 +20,6 @@ app.use(express.json());
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/resources/views"));
-
-// Set the public folder to serve static files
-app.use(express.static(publicPath));
 
 app.get("/", (req, res) => {
   res.render("login");
