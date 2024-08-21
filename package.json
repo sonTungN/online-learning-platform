@@ -1,8 +1,28 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "hbs": "^4.2.0",
+    "express-handlebars": "^8.0.1",
     "mongoose": "^8.5.3",
+    "prettier": "^3.3.3"
+  },
+  "name": "online-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonTungN/online-learning-platform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonTungN/online-learning-platform/issues"
+  },
+  "homepage": "https://github.com/sonTungN/online-learning-platform#readme",
+  "devDependencies": {
     "nodemon": "^3.1.4"
   }
 }
