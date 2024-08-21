@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { engine } = require("express-handlebars");
 const path = require("path");
 
 const app = express();
@@ -14,12 +14,14 @@ const templatePath = path.join(__dirname, "../templates");
 //CSS Handle
 const publicPath = path.join(__dirname, "../public"); // Ensure publicPath is defined here
 
+// EXPRESS HANDLEBARS CONFIGURATION
+app.engine(".hbs", engine({ extname: ".hbs" }));
+app.set("view engine", ".hbs");
+app.set("views", path.join(__dirname, "/resources/views"));
+
 // Set the public folder to serve static files
 app.use(express.static(publicPath)); // Now publicPath is defined
 
-app.use(express.json());
-app.set("view engine", "hbs");
-app.set("views", templatePath);
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
