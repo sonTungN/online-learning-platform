@@ -8,6 +8,8 @@ const port = 3000;
 // const collection = require("./mongodb");
 // const { profile } = require("console");
 
+const db = require("./config/db");
+
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "/public")));
 
@@ -20,6 +22,9 @@ app.use(express.json());
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/resources/views"));
+
+// DATABASE CONNECTION
+db.connect();
 
 app.get("/", (req, res) => {
   res.render("login");
