@@ -4,73 +4,58 @@
   </div>
   <div class="container">
     <label for="email">Email Address: </label>
-    <input type="email" name="email" id="email"/>
+    <input type="email" name="email" id="email" />
   </div>
 
   <div class="container">
-    <label for="phone_num">Phone Number: </label>
-    <label for="phoneNumber"></label><input
-      type="number"
-      id="phoneNumber"
-      name="phoneNumber"
-  />
+    <label for="phoneNumber">Phone Number: </label>
+    <input type="number" id="phoneNumber" name="phoneNumber" />
   </div>
 
   <div class="container">
     <label for="password">Password: </label>
-    <input type="password" id="password" name="password"/>
+    <input type="password" id="password" name="password" />
   </div>
 
   <div class="container">
-    <label for="retype_password">Retype Password: </label>
-    <label for="retypePassword"></label><input
-      type="password"
-      id="retypePassword"
-  />
+    <label for="retypePassword">Retype Password: </label>
+    <input type="password" id="retypePassword" />
   </div>
 
   <div class="container">
     <label for="profile_Img">Profile Picture: </label>
-    <input type="file" name="profileImg" id="profileImg"/>
+    <input type="file" name="profileImg" id="profileImg" />
   </div>
 
   <div class="container">
-    <label for="first_name">First Name: </label>
-    <label for="firstName"></label><input
-      type="text"
-      id="firstName"
-      name="firstName"
-  />
+    <label for="firstName">First Name: </label>
+    <input type="text" id="firstName" name="firstName" />
   </div>
 
   <div class="container">
-    <label for="last_name">Last name: </label>
-    <label for="lastName"></label><input
-      type="text"
-      id="lastName"
-      name="lastName"
-  />
+    <label for="lastName">Last name: </label>
+    <input type="text" id="lastName" name="lastName" />
   </div>
 
   <div class="container">
     <label for="address">Address: </label>
-    <input type="text" id="address" name="address"/>
+    <input type="text" id="address" name="address" />
   </div>
 
   <div class="container">
     <label for="city">City: </label>
-    <input type="text" id="city" name="city"/>
+    <input type="text" id="city" name="city" />
   </div>
 
   <div class="container">
-    <label for="zip_code">Zipcode: </label>
-    <label for="zipCode"></label><input
+    <label for="zipCode">Zipcode: </label>
+    <input
       type="number"
       id="zipCode"
       name="zipCode"
       minlength="4"
       maxlength="6"
-  />
+    />
   </div>
 
   <div class="container">
@@ -114,7 +99,7 @@
         <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
         <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
         <option data-countryCode="CF" value="236">Central African Republic
-                                                  (+236)
+          (+236)
         </option>
         <option data-countryCode="CL" value="56">Chile (+56)</option>
         <option data-countryCode="CN" value="86">China (+86)</option>
@@ -276,7 +261,7 @@
         <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
         <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
         <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands
-                                                   (+1649)
+          (+1649)
         </option>
         <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
         <option data-countryCode="UG" value="256">Uganda (+256)</option>
@@ -289,7 +274,7 @@
         <option data-countryCode="VE" value="58">Venezuela (+58)</option>
         <option data-countryCode="VN" value="84">Vietnam (+84)</option>
         <option data-countryCode="VG" value="84">Virgin Islands - British
-                                                 (+1284)
+          (+1284)
         </option>
         <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option>
         <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option>
@@ -305,32 +290,32 @@
     <label>Account Type:</label>
     <label for="instructor">
       <input
-          type="radio"
-          id="instructor"
-          value="instructor"
-          name="accountType"
+        type="radio"
+        id="instructor"
+        value="instructor"
+        name="accountType"
       />
       Instructor
     </label>
     <label for="learner">
-      <input type="radio" id="learner" value="learner" name="accountType"/>
+      <input type="radio" id="learner" value="learner" name="accountType" />
       Learner
     </label>
   </div>
 
   <div id="instructor-fields" style="display: none;">
     <div class="container">
-      <label for="school_name">School Name: </label>
-      <label for="schoolName"></label><input
+      <label for="schoolName">School Name: </label>
+      <input
         type="text"
         id="schoolName"
         name="schoolName"
-    />
+      />
     </div>
 
     <div class="container">
       <label for="job_title">Job Title: </label>
-      <input type="text" id="job_title" name="jobTitle"/>
+      <input type="text" id="job_title" name="jobTitle" />
     </div>
 
     <div class="container">
@@ -346,8 +331,8 @@
   </div>
 
   <div class="container_button">
-    <input type="submit" value="Register"/>
-    <input type="reset" value="Clear"/>
+    <input type="submit" value="Register" />
+    <input type="reset" value="Clear" />
   </div>
 </form>
 
@@ -356,17 +341,14 @@
     const instructorRadio = document.getElementById("instructor");
     const learnerRadio = document.getElementById("learner");
     const instructorFields = document.getElementById("instructor-fields");
-
     function toggleInstructorFields() {
       if (instructorRadio.checked) {
-        instructorFields.style.display = "block";
-      } else {
+        instructorFields.style.display = "block"; }
+      else {
         instructorFields.style.display = "none";
       }
     }
-
-    instructorRadio.addEventListener("change", toggleInstructorFields);
-    learnerRadio.addEventListener("change", toggleInstructorFields);
-    toggleInstructorFields();
-  });
+  instructorRadio.addEventListener("change", toggleInstructorFields);
+  learnerRadio.addEventListener("change", toggleInstructorFields);
+  toggleInstructorFields(); });
 </script>
