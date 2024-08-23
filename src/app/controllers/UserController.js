@@ -1,5 +1,7 @@
 const User = require("../models/User");
 const { mongooseToObject } = require("../../utils/mongoose");
+//import bcrypt to hash password
+const bcrypt = require('bcrypt');
 
 class UserController {
   create(req, res, next) {
@@ -19,21 +21,30 @@ class UserController {
   async auth(req, res, next) {
     try {
       const matchedUser = await User.findOne({ email: req.body.email });
-      if (mongooseToObject(matchedUser).password === req.body.password) {
-        res.render("home");
+      if (matchedUser) {
+        // Compare the hashed password
+        const isPasswordValid = await bcrypt.compare(req.body.password, matchedUser.password);
+        if (isPasswordValid) {
+          res.render("home");
+        } else {
+          res.send("Wrong Password");
+        }
       } else {
-        res.send("Wrong Password");
+        res.send("User not found");
       }
     } catch (error) {
-      res.send("Wrong details");
+      res.send("An error occurred");
     }
   }
 
   async store(req, res, next) {
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
     const data = {
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
-      password: req.body.password,
+      password: hashedPassword,  // Save the hashed password
       profileImg: req.body.profileImg,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -42,17 +53,15 @@ class UserController {
       zipCode: req.body.zipCode,
       country: req.body.country,
       accountType: req.body.accountType,
-      schoolName:
-        req.body.accountType === "instructor" ? req.body.schoolName : undefined,
-      jobTitle:
-        req.body.accountType === "instructor" ? req.body.jobTitle : undefined,
-      specialization:
-        req.body.accountType === "instructor"
-          ? req.body.specialization
-          : undefined,
     };
-    await User.insertMany([data]);
-    res.redirect("/");
+    // Conditionally add instructor-specific fields
+    if (req.body.accountType === "instructor") {
+      data.schoolName = req.body.schoolName;
+      data.jobTitle = req.body.jobTitle;
+      data.specialization = req.body.specialization;
+    }
+    await User.create(data);
+    res.redirect("/user/sign-in");
   }
 }
 

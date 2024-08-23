@@ -1,10 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables from .env file
 
-function connect() {
-  mongoose
-    .connect("mongodb://localhost:27017/LoginSignUpTutorial")
-    .then(() => console.log("MongoDB Connected!"))
-    .catch((err) => console.log("DB Connection Error: ", err));
+async function connect() {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL);
+    console.log('Database connected successfully');
+  } catch (error) {
+    console.error('Database connection failed:', error);
+  }
 }
 
 module.exports = { connect };

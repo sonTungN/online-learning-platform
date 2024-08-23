@@ -4,12 +4,12 @@
   </div>
   <div class="container">
     <label for="email">Email Address: </label>
-    <input type="email" name="email" id="email" />
+    <input type="email" name="email" id="email">
   </div>
 
   <div class="container">
     <label for="phoneNumber">Phone Number: </label>
-    <input type="number" id="phoneNumber" name="phoneNumber" />
+    <input type="number" id="phoneNumber" name="phoneNumber">
   </div>
 
   <div class="container">
@@ -23,7 +23,7 @@
   </div>
 
   <div class="container">
-    <label for="profile_Img">Profile Picture: </label>
+    <label for="profileImg">Profile Picture: </label>
     <input type="file" name="profileImg" id="profileImg" />
   </div>
 
@@ -303,7 +303,7 @@
     </label>
   </div>
 
-  <div id="instructor-fields" style="display: none;">
+  <div id="instructorFields" style="display: none;">
     <div class="container">
       <label for="schoolName">School Name: </label>
       <input
@@ -314,8 +314,8 @@
     </div>
 
     <div class="container">
-      <label for="job_title">Job Title: </label>
-      <input type="text" id="job_title" name="jobTitle" />
+      <label for="jobTitle">Job Title: </label>
+      <input type="text" id="jobTitle" name="jobTitle" />
     </div>
 
     <div class="container">
@@ -331,24 +331,31 @@
   </div>
 
   <div class="container_button">
-    <input type="submit" value="Register" />
-    <input type="reset" value="Clear" />
+    <button type="submit">Register</button>
+    <button type="reset">Clear</button>
   </div>
 </form>
 
+<!-- JavaScript to show/hide instructor fields -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const instructorRadio = document.getElementById("instructor");
-    const learnerRadio = document.getElementById("learner");
-    const instructorFields = document.getElementById("instructor-fields");
+  document.addEventListener('DOMContentLoaded', function() {
+    const instructorFields = document.getElementById('instructorFields');
+    const instructorRadio = document.getElementById('instructor');
+    const learnerRadio = document.getElementById('learner');
+
     function toggleInstructorFields() {
       if (instructorRadio.checked) {
-        instructorFields.style.display = "block"; }
-      else {
-        instructorFields.style.display = "none";
+        instructorFields.style.display = 'block';
+      } else {
+        instructorFields.style.display = 'none';
       }
     }
-  instructorRadio.addEventListener("change", toggleInstructorFields);
-  learnerRadio.addEventListener("change", toggleInstructorFields);
-  toggleInstructorFields(); });
+
+    // Listen for changes on the account type radios
+    instructorRadio.addEventListener('change', toggleInstructorFields);
+    learnerRadio.addEventListener('change', toggleInstructorFields);
+
+    // Initialize the visibility on page load
+    toggleInstructorFields();
+  });
 </script>
