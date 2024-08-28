@@ -54,11 +54,11 @@ label {
   font-weight: bold;
 }
 
-input[type=text],
-input[type=email],
-input[type=tel],
-input[type=password],
-input[type=file],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="file"],
 select {
   width: 100%;
   padding: 10px;
@@ -67,7 +67,7 @@ select {
   box-sizing: border-box;
 }
 
-button[type=submit] {
+button[type="submit"] {
   display: block;
   width: 100%;
   padding: 12px;
@@ -78,7 +78,7 @@ button[type=submit] {
   cursor: pointer;
   font-size: 16px;
 }
-button[type=submit]:hover {
+button[type="submit"]:hover {
   background: #4d4d4d;
 }
 
@@ -98,7 +98,7 @@ button[type=submit]:hover {
   display: flex;
   align-items: center;
 }
-.form-group.account-type .radio-group input[type=radio] {
+.form-group.account-type .radio-group input[type="radio"] {
   margin-right: 5px;
   margin-bottom: 7px;
 }
@@ -121,7 +121,7 @@ select.error {
   border-color: red;
 }
 
-button[type=submit] {
+button[type="submit"] {
   background: #333;
   color: white;
   padding: 10px 15px;
@@ -129,8 +129,22 @@ button[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-button[type=submit]:hover {
+
+button[type="submit"]:hover {
   background: #4d4d4d;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
+.login-link a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-link a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -243,13 +257,13 @@ button[type=submit]:hover {
   display: flex;
   align-items: center;
 }
-.registration-page .form-group.account-type .radio-group input[type=radio] {
+.registration-page .form-group.account-type .radio-group input[type="radio"] {
   margin-right: 5px;
   margin-bottom: 10px;
   width: auto;
 }
 @media (max-width: 767px) {
-  .registration-page button[type=submit] {
+  .registration-page button[type="submit"] {
     width: calc(100% - 30px);
   }
 }

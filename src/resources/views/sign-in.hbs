@@ -11,7 +11,7 @@
     <div class="form-section">
       <h2>Login</h2>
 
-      <form id="loginForm">
+      <form id="loginForm" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" onblur="validateEmail()" required />
@@ -39,18 +39,40 @@
 </main>
 
 <script>
+  // Form submission
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let isSubmittable = validateEmail() && validatePassword()
+
+    if (isSubmittable) {
+      const emailValue = document.querySelector("#email").value;
+      if (emailValue) {
+        const encodedEmail = encodeURIComponent(emailValue);
+        this.action = `/user/${encodedEmail}/auth`;
+      }
+      this.submit();
+      // console.log(this);
+
+    } else {
+      alert("Please fill in this form with valid inputs!");
+    }
+  });
+
+  // Email Validations
   function validateEmail() {
     const email = document.getElementById('email');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    const pattern = /^\w+('-'?\w+)*@\w+('-'?\w+)*(\.\w{2,3})+$/;
+    if (!pattern.test(email.value)) {
       showError(email, 'Please enter a valid email address');
       return false;
-
     } else {
       clearError(email);
       return true;
     }
   }
 
+  // At least 3 chars long
   function validatePassword() {
     const password = document.getElementById('password');
     if (password.value.length < 3) {
@@ -62,38 +84,25 @@
     }
   }
 
-  // Form submission
-  document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    let isValid = validateEmail() &
-        validatePassword()
-
-    if (isValid) {
-      alert("Form submitted successfully!");
-      // Here you would typically send the form data to a server
-    }
-  });
-
   // Error Message Display
   function showError(input, message) {
     const formGroup = input.closest('.form-group');
-    let error = formGroup.querySelector('.error-message');
-    if (!error) {
-      error = document.createElement('span');
-      error.className = 'error-message';
-      formGroup.appendChild(error);
+    let errorMessage = formGroup.querySelector('.error-message');
+    if (!errorMessage) {
+      errorMessage = document.createElement('span');
+      errorMessage.className = 'error-message';
+      formGroup.appendChild(errorMessage);
     }
-    error.textContent = message;
+    errorMessage.textContent = message;
     input.classList.add('error');
   }
 
   // Error Message Clear
   function clearError(input) {
     const formGroup = input.closest('.form-group');
-    const error = formGroup.querySelector('.error-message');
-    if (error) {
-      error.remove();
+    const errorMessage = formGroup.querySelector('.error-message');
+    if (errorMessage) {
+      errorMessage.remove();
     }
     input.classList.remove('error');
   }

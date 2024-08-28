@@ -340,6 +340,10 @@
         <div class="form-group">
           <button type="submit">Register</button>
         </div>
+
+        <div class="form-group login-link">
+          <p>Already have an account? <a href="/user/sign-in">Sign In</a></p>
+        </div>
       </form>
     </div>
   </div>
@@ -382,7 +386,7 @@
       // console.log(this);
 
     } else {
-      alert("Please fill in the form with valid inputs!");
+      alert("Please fill in this form with valid inputs!");
     }
   });
 
@@ -391,11 +395,9 @@
   function validateEmail() {
     const email = document.getElementById('email');
     const pattern = /^\w+('-'?\w+)*@\w+('-'?\w+)*(\.\w{2,3})+$/;
-
     if (!pattern.test(email.value)) {
       showError(email, 'Please enter a valid email address');
       return false;
-
     } else {
       clearError(email);
       return true;

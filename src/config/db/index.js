@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-require("dotenv").config(); // Load environment variables from .env file
 
 function connect() {
   mongoose
-    .connect(process.env.DATABASE_URL)
+    .connect("mongodb://127.0.0.1:27017/online_learning")
     .then(() => console.log("MongoDB Connected!"))
     .catch((err) => console.log("DB Connection Error: ", err));
 }
