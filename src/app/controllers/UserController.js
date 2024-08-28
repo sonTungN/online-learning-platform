@@ -17,28 +17,19 @@ class UserController {
     });
   }
 
-  // async auth(req, res, next) {
-  //   try {
-  //     const matchedUser = await User.findOne({ email: req.body.email });
-  //     if (matchedUser) {
-  //       // Compare the hashed password
-  //
-  //       const isPasswordValid = comparePassword(
-  //         req.body.password,
-  //         matchedUser.password,
-  //       );
-  //       if (isPasswordValid) {
-  //         res.render("home");
-  //       } else {
-  //         res.send("Wrong Password");
-  //       }
-  //     } else {
-  //       res.send("User not found");
-  //     }
-  //   } catch (error) {
-  //     res.send("An error occurred");
-  //   }
-  // }
+  async auth(req, res, next) {
+    try {
+      req.session.regenerate(function (err) {
+        if (err) next(err);
+
+        req.session.user = req.user;
+
+        res.json({ user: req.session.user });
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
 
   async store(req, res, next) {
     const user = new User({
@@ -49,7 +40,7 @@ class UserController {
     // res.json(user);
     await user
       .save()
-      .then((user) => res.json(user))
+      .then((user) => res.redirect("/user/sign-in"))
       .catch(next);
   }
 }

@@ -2,11 +2,11 @@ const express = require("express");
 const { engine } = require("express-handlebars");
 const path = require("path");
 const app = express();
-const port = process.env.PORT || 3000;  // Use the port from .env or fallback to 3000
-
+const port = 3000;
 
 const route = require("./routes/index");
 const db = require("./config/db");
+const session = require("./config/session/index");
 
 // STATIC FILES
 app.use(express.static(path.join(__dirname, "/public")));
@@ -24,6 +24,9 @@ app.set("views", path.join(__dirname, "/resources/views"));
 
 // DATABASE CONNECTION
 db.connect();
+
+// SESSION CONFIG
+session.config(app);
 
 // APPLICATION ROUTER from src/routes
 route(app);
