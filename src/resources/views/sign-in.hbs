@@ -1,12 +1,39 @@
-<h2>Log in</h2>
-<form action="/user/sign-in" method="POST">
-  <label>
-    <input type="text" name="email"/>
-  </label>
-  <label>
-    <input type="password" name="password"/>
-  </label>
-  <input type="submit"/>
-</form>
+<main class="login-page">
+  <div class="container">
+    <div class="image-section">
+      <img
+          src="https://example.com/path-to-your-login-image.jpg"
+          alt="Login"
+          class="login-image"
+      />
+    </div>
 
-<a href="/user/sign-up">Sign up</a>
+    <div class="form-section">
+      <h2>Login</h2>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div class="form-group">
+          <button type="submit">Log In</button>
+        </div>
+
+        <div class="form-group forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <div class="form-group signup-link">
+          <p>Don't have an account? <a href="/user/sign-up">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

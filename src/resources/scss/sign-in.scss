@@ -1,232 +1,202 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+@import "variables";
+
+body {
+  font-family: Poppins, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+}
+
+.login-page {
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  border-right: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
-  
-  section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: $text-color;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background: lighten($primary-color, 10%);
   }
-  
-  section .bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-  }
-  
-  section .trees {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 100;
-    pointer-events: none;
-  }
-  
-  section .girl {
-    position: absolute;
-    scale: 0.65;
-    pointer-events: none;
-    animation: animateGirl 10s linear infinite;
-  }
-  
-  @keyframes animateGirl {
-    0% {
-      transform: translateX(calc(100% + 100vw));
-    }
-    50% {
-      transform: translateX(calc(-100% - 100vw));
-    }
-    50.01% {
-      transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
-    }
-    100% {
-      transform: translateX(calc(100% + 100vw)) rotateY(180deg);
-    }
-  }
-  
-  .login {
-    position: relative;
-    padding: 60px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(15px);
-    border: 1px solid #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login h2 {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: 600;
-    color: #8f2c24;
-    margin-bottom: 10px;
-  }
-  
-  .login .inputBox {
-    position: relative;
-  }
-  
-  .login .inputBox input {
-    position: relative;
-    width: 100%;
-    padding: 15px 20px;
-    outline: none;
-    font-size: 1.25em;
-    color: #8f2c24;
-    border-radius: 5px;
-    background: #fff;
-    border: none;
-    margin-bottom: 30px;
-  }
-  
-  .login .inputBox ::placeholder {
-    color: #8f2c24;
-  }
-  
-  .login .inputBox #btn {
-    position: relative;
-    border: none;
-    outline: none;
-    background: #8f2c24;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1.25em;
-    font-weight: 500;
-    transition: 0.5s;
-  }
-  
-  .login .inputBox #btn:hover {
-    background: #d64c42;
-  }
-  
-  .login .group {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .login .group a {
-    font-size: 1.25em;
-    color: #8f2c24;
-    font-weight: 500;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 10px;
+
+  a {
+    color: $primary-color;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
-  
-  .login .group a:nth-child(2) {
-    text-decoration: underline;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
-  
-  .leaves {
-    position: absolute;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-section,
+  .form-section {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    pointer-events: none;
   }
-  
-  .leaves .set {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+
+  .form-section {
+    padding: 20px;
   }
-  
-  .leaves .set div {
-    position: absolute;
-    display: block;
+}
+
+// Mixins for media queries
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
   }
-  
-  .leaves .set div:nth-child(1) {
-    left: 20%;
-    animation: animate 20s linear infinite;
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1199px) {
+    @content;
   }
-  
-  .leaves .set div:nth-child(2) {
-    left: 50%;
-    animation: animate 14s linear infinite;
+}
+
+@mixin smartphone {
+  @media (max-width: 767px) {
+    @content;
   }
-  
-  .leaves .set div:nth-child(3) {
-    left: 70%;
-    animation: animate 12s linear infinite;
-  }
-  
-  .leaves .set div:nth-child(4) {
-    left: 5%;
-    animation: animate 15s linear infinite;
-  }
-  
-  .leaves .set div:nth-child(5) {
-    left: 85%;
-    animation: animate 18s linear infinite;
-  }
-  
-  .leaves .set div:nth-child(6) {
-    left: 90%;
-    animation: animate 12s linear infinite;
-  }
-  
-  .leaves .set div:nth-child(7) {
-    left: 15%;
-    animation: animate 14s linear infinite;
-  }
-  
-  .leaves .set div:nth-child(8) {
-    left: 60%;
-    animation: animate 15s linear infinite;
-  }
-  
-  @keyframes animate {
-    0% {
-      opacity: 0;
-      top: -10%;
-      transform: translateX(20px) rotate(0deg);
+}
+
+.login-page {
+  .container {
+    @include tablet {
+      flex-direction: column;
     }
-    10% {
-      opacity: 1;
-    }
-    20% {
-      transform: translateX(-20px) rotate(45deg);
-    }
-    40% {
-      transform: translateX(-20px) rotate(90deg);
-    }
-    60% {
-      transform: translateX(20px) rotate(180deg);
-    }
-    80% {
-      transform: translateX(-20px) rotate(45deg);
-    }
-    100% {
-      top: 110%;
-      transform: translateX(20px) rotate(225deg);
+
+    @include smartphone {
+      flex-direction: column;
+      padding: 10px;
     }
   }
-  
+
+  .image-section {
+    @include tablet {
+      display: none;
+    }
+
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  .form-section {
+    @include smartphone {
+      padding: 20px;
+    }
+
+    .form-group {
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+
+        @include smartphone {
+          width: calc(100% - 30px);
+        }
+      }
+    }
+
+    .forgot-password {
+      @include smartphone {
+        width: calc(100% - 30px);
+        margin-right: 30px;
+      }
+    }
+
+    button[type="submit"] {
+      @include smartphone {
+        width: calc(100% - 30px);
+      }
+    }
+  }
+}
