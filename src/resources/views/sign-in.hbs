@@ -13,13 +13,13 @@
 
       <form id="loginForm">
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" onblur="validateEmail()" required />
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" onblur="validatePassword()" required />
         </div>
 
         <div class="form-group">
@@ -37,3 +37,64 @@
     </div>
   </div>
 </main>
+
+<script>
+  function validateEmail() {
+    const email = document.getElementById('email');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      showError(email, 'Please enter a valid email address');
+      return false;
+
+    } else {
+      clearError(email);
+      return true;
+    }
+  }
+
+  function validatePassword() {
+    const password = document.getElementById('password');
+    if (password.value.length < 3) {
+      showError(password, 'Password must be at least 3 characters long');
+      return false;
+    } else {
+      clearError(password);
+      return true;
+    }
+  }
+
+  // Form submission
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let isValid = validateEmail() &
+        validatePassword()
+
+    if (isValid) {
+      alert("Form submitted successfully!");
+      // Here you would typically send the form data to a server
+    }
+  });
+
+  // Error Message Display
+  function showError(input, message) {
+    const formGroup = input.closest('.form-group');
+    let error = formGroup.querySelector('.error-message');
+    if (!error) {
+      error = document.createElement('span');
+      error.className = 'error-message';
+      formGroup.appendChild(error);
+    }
+    error.textContent = message;
+    input.classList.add('error');
+  }
+
+  // Error Message Clear
+  function clearError(input) {
+    const formGroup = input.closest('.form-group');
+    const error = formGroup.querySelector('.error-message');
+    if (error) {
+      error.remove();
+    }
+    input.classList.remove('error');
+  }
+</script>

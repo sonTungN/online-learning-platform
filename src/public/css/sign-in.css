@@ -102,6 +102,17 @@ button[type=submit]:hover {
   text-decoration: underline;
 }
 
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+input.error,
+select.error {
+  border-color: red;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -165,4 +176,4 @@ button[type=submit]:hover {
   }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-in.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;EACA;EACA;EACA;EACA,kBCNiB;;;ADSnB;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;;AAIJ;EACE;EACA;;;AAGF;EACE;EACA,OCzCW;ED0CX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YCvEc;EDwEd;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE,OCxFY;EDyFZ;;AAEA;EACE;;;AAKN;EACE;EACA;;AAEA;EACE,OCtGY;EDuGZ;EACA;;AAEA;EACE;;;AAMN;EACE;IACE;;EAGF;AAAA;IAEE;;EAGF;IACE;;;AAYF;EAYA;IAEI;;;AARJ;EAMA;IAMI;IACA;;;AAnBJ;EAuBA;IAEI;;;AAnBJ;EAiBA;IAMI;;;AAvBJ;EA2BA;IAEI;;;AAIA;AAAA;EAEE;EACA;EACA;EACA;;AAtCN;EAiCI;AAAA;IAQI;;;AAzCR;EA8CE;IAEI;IACA;;;AAjDN;EAqDE;IAEI%22,%22file%22:%22sign-in.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-in.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;EACA;EACA;EACA;EACA,kBCNiB;;;ADSnB;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;;AAIJ;EACE;EACA;;;AAGF;EACE;EACA,OCzCW;ED0CX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YCvEc;EDwEd;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE,OCxFY;EDyFZ;;AAEA;EACE;;;AAKN;EACE;EACA;;AAEA;EACE,OCtGY;EDuGZ;EACA;;AAEA;EACE;;;AAKN;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAIF;EACE;IACE;;EAGF;AAAA;IAEE;;EAGF;IACE;;;AAYF;EAYA;IAEI;;;AARJ;EAMA;IAMI;IACA;;;AAnBJ;EAuBA;IAEI;;;AAnBJ;EAiBA;IAMI;;;AAvBJ;EA2BA;IAEI;;;AAIA;AAAA;EAEE;EACA;EACA;EACA;;AAtCN;EAiCI;AAAA;IAQI;;;AAzCR;EA8CE;IAEI;IACA;;;AAjDN;EAqDE;IAEI%22,%22file%22:%22sign-in.css%22%7D */
