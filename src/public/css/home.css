@@ -1,3 +1,256 @@
+body {
+  font-family: Poppins, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
+.registration-page {
+  padding: 40px 0;
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%5D,%22names%22:%5B%5D,%22mappings%22:%22%22,%22file%22:%22home.css%22%7D */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+.image-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+input[type=file],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button[type=submit]:hover {
+  background: #4d4d4d;
+}
+
+.form-group.account-type {
+  display: flex;
+  align-items: center;
+}
+.form-group.account-type > label {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+.form-group.account-type .radio-group {
+  display: flex;
+  gap: 20px;
+}
+.form-group.account-type .radio-group div {
+  display: flex;
+  align-items: center;
+}
+.form-group.account-type .radio-group input[type=radio] {
+  margin-right: 5px;
+  margin-bottom: 7px;
+}
+
+#instructorFields {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+input.error,
+select.error {
+  border-color: red;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .image-section,
+  .form-section {
+    width: 100%;
+  }
+  .form-section {
+    padding: 20px;
+  }
+}
+.registration-page .container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .registration-page .container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  .registration-page .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+.registration-page .image-section {
+  flex: 1;
+  padding-right: 20px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .registration-page .image-section {
+    display: none;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .registration-page .image-section {
+    display: none;
+    padding-right: 0;
+    padding-bottom: 10px;
+  }
+}
+.registration-page .image-section img {
+  width: 100%;
+  height: auto;
+}
+.registration-page .form-section {
+  flex: 1;
+}
+.registration-page .form-section h2 {
+  margin-bottom: 20px;
+}
+.registration-page .form-group {
+  margin-bottom: 15px;
+}
+.registration-page .form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+.registration-page .form-group input,
+.registration-page .form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+@media (max-width: 767px) {
+  .registration-page .form-group input,
+  .registration-page .form-group select {
+    width: calc(100% - 30px);
+  }
+}
+.registration-page .form-group.account-type {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .registration-page .form-group.account-type {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.registration-page .form-group.account-type > label {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .registration-page .form-group.account-type > label {
+    margin-bottom: 5px;
+  }
+}
+.registration-page .form-group.account-type .radio-group {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  .registration-page .form-group.account-type .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.registration-page .form-group.account-type .radio-group div {
+  display: flex;
+  align-items: center;
+}
+.registration-page .form-group.account-type .radio-group input[type=radio] {
+  margin-right: 5px;
+  margin-bottom: 10px;
+  width: auto;
+}
+.registration-page button[type=submit] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.registration-page button[type=submit]:hover {
+  background-color: #0056b3;
+}
+@media (max-width: 767px) {
+  .registration-page button[type=submit] {
+    width: calc(100% - 30px);
+  }
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/home.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;EACA;EACA;EACA;EACA,kBCNiB;;;ADSnB;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;;AAKJ;EACE;EACA;;;AAGF;EACE;EACA,OC3CW;ED4CX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YC7Ec;ED8Ed;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;;AAKN;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAIF;EACE;IACE;;EAGF;AAAA;IAEE;;EAGF;IACE;;;AAwBF;EACE;EACA;EACA;EACA;;AAhBF;EAYA;IAOI;;;AAbJ;EAMA;IAWI;IACA;;;AAIJ;EACE;EACA;;AA9BF;EA4BA;IAKI;IACA;IACA;;;AA7BJ;EAsBA;IAWI;IACA;IACA;;;AAGF;EACE;EACA;;AAIJ;EACE;;AAEA;EACE;;AAIJ;EACE;;AAEA;EACE;EACA;;AAGF;AAAA;EAEE;EACA;EACA;EACA;;AAjEJ;EA4DE;AAAA;IAQI;;;AAKN;EACE;EACA;;AA3EF;EAyEA;IAKI;IACA;;;AAGF;EACE;EACA;;AApFJ;EAkFE;IAKI;;;AAIJ;EACE;EACA;;AA7FJ;EA2FE;IAKI;IACA;;;AAGF;EACE;EACA;;AAGF;EACE;EACA;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AA1HJ;EAiHA;IAaI%22,%22file%22:%22home.css%22%7D */
