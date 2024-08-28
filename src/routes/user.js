@@ -2,17 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 const userController = require("../app/controllers/UserController");
+const { checkExistedEmail } = require("../middlewares/isExisted");
 
-// [GET] /sign-in
 router.get("/sign-in", userController.entry);
+router.post("/:email/store", checkExistedEmail, userController.store);
 
-// [POST] /sign-in
-router.post("/sign-in", userController.auth);
+// router.post("/sign-in", userController.auth);
 
-// [GET] /sign-up
 router.get("/sign-up", userController.create);
-
-// [POST] /sign-up
-router.post("/sign-up", userController.store);
 
 module.exports = router;

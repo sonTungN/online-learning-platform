@@ -12,7 +12,7 @@
       <h2>Registration Form</h2>
 
       <!-- FORM SECTION -->
-      <form id="registrationForm">
+      <form id="registrationForm" method="POST">
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" onblur="validateEmail()" required />
@@ -40,11 +40,11 @@
         </div>
 
         <div class="form-group">
-          <label for="profilePicture">Profile Picture</label>
+          <label for="profileImg">Profile Picture</label>
           <input
               type="file"
-              id="profilePicture"
-              name="profilePicture"
+              id="profileImg"
+              name="profileImg"
               accept="image/*"
           />
         </div>
@@ -84,7 +84,7 @@
         <div class="form-group">
           <label for="country">Country</label>
           <select id="country" name="country" required>
-            <option data-countryCode="GB" value="44" Selected>UK (+44)</option>
+            <option data-countryCode="GB" value="UK" Selected>UK (+44)</option>
             <option data-countryCode="US" value="1">USA (+1)</option>
             <option data-countryCode="DZ" value="213">Algeria (+213)</option>
             <option data-countryCode="AD" value="376">Andorra (+376)</option>
@@ -356,11 +356,43 @@
       }
     });
   });
+</script>
+
+<script>
+  // Form submission
+  document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let isSubmittable = validateEmail() &&
+        validatePhone() &&
+        validatePassword() &&
+        validateRetypePassword() &&
+        validateFirstName() &&
+        validateLastName() &&
+        validateCity() &&
+        validateZipcode();
+
+    if (isSubmittable) {
+      const emailValue = document.querySelector("#email").value;
+      if (emailValue) {
+        const encodedEmail = encodeURIComponent(emailValue);
+        this.action = `/user/${encodedEmail}/store`;
+      }
+      this.submit();
+      // console.log(this);
+
+    } else {
+      alert("Please fill in the form with valid inputs!");
+    }
+  });
 
   // Validation functions
+  // Email Validations
   function validateEmail() {
     const email = document.getElementById('email');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    const pattern = /^\w+('-'?\w+)*@\w+('-'?\w+)*(\.\w{2,3})+$/;
+
+    if (!pattern.test(email.value)) {
       showError(email, 'Please enter a valid email address');
       return false;
 
@@ -455,44 +487,25 @@
     }
   }
 
-  // Form submission
-  document.getElementById('registrationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    let isValid = validateEmail() &
-        validatePhone() &
-        validatePassword() &
-        validateRetypePassword() &
-        validateFirstName() &
-        validateLastName() &
-        validateCity() &
-        validateZipcode()
-
-    if (isValid) {
-      alert("Form submitted successfully!");
-      // Here you would typically send the form data to a server
-    }
-  });
-
   // Error Message Display
   function showError(input, message) {
     const formGroup = input.closest('.form-group');
-    let error = formGroup.querySelector('.error-message');
-    if (!error) {
-      error = document.createElement('span');
-      error.className = 'error-message';
-      formGroup.appendChild(error);
+    let errorMessage = formGroup.querySelector('.error-message');
+    if (!errorMessage) {
+      errorMessage = document.createElement('span');
+      errorMessage.className = 'error-message';
+      formGroup.appendChild(errorMessage);
     }
-    error.textContent = message;
+    errorMessage.textContent = message;
     input.classList.add('error');
   }
 
   // Error Message Clear
   function clearError(input) {
     const formGroup = input.closest('.form-group');
-    const error = formGroup.querySelector('.error-message');
-    if (error) {
-      error.remove();
+    const errorMessage = formGroup.querySelector('.error-message');
+    if (errorMessage) {
+      errorMessage.remove();
     }
     input.classList.remove('error');
   }

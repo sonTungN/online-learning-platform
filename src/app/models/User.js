@@ -3,25 +3,29 @@ const Schema = mongoose.Schema;
 
 const User = new Schema({
   email: { type: String, unique: true, required: true },
-  phoneNumber: { type: String, required: true },
+  phone: { type: String, required: true },
   password: { type: String, required: true },
-  profileImg: { type: String, required: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  profileImg: { type: String, default: "none" },
+  firstName: { type: String, required: true, length: 15 },
+  lastName: { type: String, required: true, length: 15 },
   address: { type: String, required: true },
   city: { type: String, required: true },
-  zipCode: { type: String, required: true, minLength: 4, maxLength: 6 },
+  zipcode: { type: String, required: true },
   country: { type: String, required: true },
+
   accountType: {
     type: String,
     required: true,
-    enum: ["instructor", "learner"],
+    enum: ["learner", "instructor"],
   },
+
   schoolName: {
     type: String,
     required: () => this.accountType === "instructor",
   },
+
   jobTitle: { type: String, required: () => this.accountType === "instructor" },
+
   specialization: {
     type: [String],
     required: () => this.accountType === "instructor",
