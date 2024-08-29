@@ -16,19 +16,19 @@ const User = new Schema({
   accountType: {
     type: String,
     required: true,
-    enum: ["learner", "instructor"],
+    enum: ["LEARNER", "INSTRUCTOR"],
   },
 
   schoolName: {
     type: String,
-    required: () => this.accountType === "instructor",
+    required: () => this.accountType === "INSTRUCTOR",
   },
 
-  jobTitle: { type: String, required: () => this.accountType === "instructor" },
+  jobTitle: { type: String, required: () => this.accountType === "INSTRUCTOR" },
 
   specialization: {
     type: [String],
-    required: () => this.accountType === "instructor",
+    required: () => this.accountType === "INSTRUCTOR",
   },
 });
 
