@@ -1,7 +1,6 @@
 # Default ignored files
 /shelf/
 /node_modules
-/workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Ignore public/css directory
