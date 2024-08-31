@@ -16,7 +16,7 @@ const User = new Schema({
     validate: (value) => phonePattern.test(value.replace(/\D/g, "")),
   },
 
-  password: { type: String, required: true, minLength: 3, maxLength: 15 },
+  password: { type: String, required: true, minLength: 3 },
 
   profileImg: { type: String, default: "none" },
 

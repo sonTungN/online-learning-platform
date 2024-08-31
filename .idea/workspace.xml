@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: handle validation in `User` modal and change middleware folder name">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
       <change beforePath="$PROJECT_DIR$/src/app/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/home.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
     </list>
@@ -120,7 +113,7 @@
       <workItem from="1724855330801" duration="52000" />
       <workItem from="1724855385806" duration="14391000" />
       <workItem from="1725001975103" duration="693000" />
-      <workItem from="1725008395371" duration="27395000" />
+      <workItem from="1725008395371" duration="27753000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -234,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725021605681</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="refactor: update credential UI design for `sign-in` and `sign-up`">
+      <option name="closed" value="true" />
+      <created>1725141199242</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1725141199242</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +258,7 @@
     <MESSAGE value="add: implement `session` for user with primitive config" />
     <MESSAGE value="chore: change enum format in model" />
     <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: handle validation in `User` modal and change middleware folder name" />
+    <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update credential UI design for `sign-in` and `sign-up`" />
   </component>
 </project>

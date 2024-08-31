@@ -2,9 +2,9 @@
   <div class="container">
     <div class="image-section">
       <img
-          src="https://example.com/path-to-your-login-image.jpg"
           alt="Login"
           class="login-image"
+          src="/assets/img/tent.png"
       />
     </div>
 
@@ -14,16 +14,28 @@
       <form id="loginForm" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" onblur="validateEmail()" required />
+          <input
+              id="email"
+              name="email"
+              onblur="validateEmail()"
+              type="email"
+          />
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" onblur="validatePassword()" required />
+          <input
+              id="password"
+              name="password"
+              onblur="validatePassword()"
+              type="password"
+          />
         </div>
 
         <div class="form-group">
-          <button type="submit">Log In</button>
+          <button type="submit">
+            <strong>LOG IN</strong>
+          </button>
         </div>
 
         <div class="form-group forgot-password">
@@ -40,31 +52,28 @@
 
 <script>
   // Form submission
-  document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  document.getElementById("loginForm")
+      .addEventListener("submit", function (e) {
+        let isSubmittable = validateEmail() && validatePassword();
 
-    let isSubmittable = validateEmail() && validatePassword()
-
-    if (isSubmittable) {
-      const emailValue = document.querySelector("#email").value;
-      if (emailValue) {
-        const encodedEmail = encodeURIComponent(emailValue);
-        this.action = `/user/${encodedEmail}/auth`;
-      }
-      this.submit();
-      // console.log(this);
-
-    } else {
-      alert("Please fill in this form with valid inputs!");
-    }
-  });
+        if (isSubmittable) {
+          const emailValue = document.querySelector("#email").value;
+          if (emailValue) {
+            const encodedEmail = encodeURIComponent(emailValue);
+            this.action = `/user/${encodedEmail}/auth`;
+          }
+          this.submit();
+        } else {
+          e.preventDefault();
+        }
+      });
 
   // Email Validations
   function validateEmail() {
-    const email = document.getElementById('email');
+    const email = document.getElementById("email");
     const pattern = /^\w+('-'?\w+)*@\w+('-'?\w+)*(\.\w{2,3})+$/;
     if (!pattern.test(email.value)) {
-      showError(email, 'Please enter a valid email address');
+      showError(email, "Please enter a valid email address");
       return false;
     } else {
       clearError(email);
@@ -74,9 +83,9 @@
 
   // At least 3 chars long
   function validatePassword() {
-    const password = document.getElementById('password');
+    const password = document.getElementById("password");
     if (password.value.length < 3) {
-      showError(password, 'Password must be at least 3 characters long');
+      showError(password, "Password must be at least 3 characters long");
       return false;
     } else {
       clearError(password);
@@ -86,24 +95,24 @@
 
   // Error Message Display
   function showError(input, message) {
-    const formGroup = input.closest('.form-group');
-    let errorMessage = formGroup.querySelector('.error-message');
+    const formGroup = input.closest(".form-group");
+    let errorMessage = formGroup.querySelector(".error-message");
     if (!errorMessage) {
-      errorMessage = document.createElement('span');
-      errorMessage.className = 'error-message';
+      errorMessage = document.createElement("span");
+      errorMessage.className = "error-message";
       formGroup.appendChild(errorMessage);
     }
     errorMessage.textContent = message;
-    input.classList.add('error');
+    input.classList.add("error");
   }
 
   // Error Message Clear
   function clearError(input) {
-    const formGroup = input.closest('.form-group');
-    const errorMessage = formGroup.querySelector('.error-message');
+    const formGroup = input.closest(".form-group");
+    const errorMessage = formGroup.querySelector(".error-message");
     if (errorMessage) {
       errorMessage.remove();
     }
-    input.classList.remove('error');
+    input.classList.remove("error");
   }
 </script>
