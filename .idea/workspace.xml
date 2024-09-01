@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
+      <change beforePath="$PROJECT_DIR$/src/app/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2lC6zWTbHXB2jqP3XUQzkzrffGC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="1" id="Remove" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "validation",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/public/assets/img" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="fix: update prettier config and fix label tag ID error">
+      <option name="closed" value="true" />
+      <created>1724265383332</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724265383332</updated>
+    </task>
+    <task id="LOCAL-00002" summary="docs: update README.md">
+      <option name="closed" value="true" />
+      <created>1724265451779</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724265451779</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="docs: update README.md" />
+      <created>1724671973978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724671973978</updated>
+      <workItem from="1724671974844" duration="912000" />
+      <workItem from="1724672916605" duration="39927000" />
+      <workItem from="1724855197133" duration="110000" />
+      <workItem from="1724855330801" duration="52000" />
+      <workItem from="1724855385806" duration="14391000" />
+      <workItem from="1725001975103" duration="693000" />
+      <workItem from="1725008395371" duration="27753000" />
+    </task>
+    <task id="LOCAL-00003" summary="remove: delete `node.module` package">
+      <option name="closed" value="true" />
+      <created>1724672619156</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724672619156</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add: implement the UI design for sign-in">
+      <option name="closed" value="true" />
+      <created>1724828087079</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724828087079</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: refactor file name">
+      <option name="closed" value="true" />
+      <created>1724834067726</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724834067726</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add. refactor file name">
+      <option name="closed" value="true" />
+      <created>1724834127481</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724834127481</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: refactor and update db config `connect` function">
+      <option name="closed" value="true" />
+      <created>1724834634294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724834634294</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add: implement sign-in UI design and styles">
+      <option name="closed" value="true" />
+      <created>1724841802698</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724841802698</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add: implement sign-in UI design and styles">
+      <option name="closed" value="true" />
+      <created>1724843731024</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724843731024</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add: update sign-up UI design and styles">
+      <option name="closed" value="true" />
+      <created>1724843784494</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724843784494</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add: implement input validation for sign-in UI">
+      <option name="closed" value="true" />
+      <created>1724844163632</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724844163632</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add: handle store `User` with input data and hashed password">
+      <option name="closed" value="true" />
+      <created>1724857009071</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724857009071</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add: handle `authentication` for user login">
+      <option name="closed" value="true" />
+      <created>1724863422275</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724863422275</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add: implement `session` for user with primitive config">
+      <option name="closed" value="true" />
+      <created>1724863453244</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1724863453244</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: change enum format in model">
+      <option name="closed" value="true" />
+      <created>1724914677359</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1724914677359</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add: handle validation in `User` modal and change middleware folder name">
+      <option name="closed" value="true" />
+      <created>1725021605681</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725021605681</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor: update credential UI design for `sign-in` and `sign-up`">
+      <option name="closed" value="true" />
+      <created>1725141199242</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1725141199242</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change: implement changed route into form action" />
+    <MESSAGE value="fix: update prettier config and fix label tag ID error" />
+    <MESSAGE value="docs: update README.md" />
+    <MESSAGE value="remove: delete `node.module` package" />
+    <MESSAGE value="add: implement the UI design for sign-in" />
+    <MESSAGE value="chore: refactor file name" />
+    <MESSAGE value="add. refactor file name" />
+    <MESSAGE value="chore: refactor and update db config `connect` function" />
+    <MESSAGE value="add: implement sign-in UI design and styles" />
+    <MESSAGE value="add: update sign-up UI design and styles" />
+    <MESSAGE value="add: implement input validation for sign-in UI" />
+    <MESSAGE value="add: handle store `User` with input data and hashed password" />
+    <MESSAGE value="add: handle `authentication` for user login" />
+    <MESSAGE value="add: implement `session` for user with primitive config" />
+    <MESSAGE value="chore: change enum format in model" />
+    <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
+    <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: update credential UI design for `sign-in` and `sign-up`" />
+  </component>
+</project>

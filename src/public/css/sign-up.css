@@ -1,18 +1,33 @@
+a {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
 body {
   font-family: Poppins, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  font-size: 1rem;
   background-color: #f4f4f4;
 }
 
 .registration-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 40px 0;
 }
 
 .container {
   max-width: 1200px;
-  margin: auto;
+  width: 1200px;
+  margin: 0 auto;
   display: flex;
   background: white;
   border-radius: 5px;
@@ -22,15 +37,15 @@ body {
 
 .image-section {
   flex: 1;
-  border-right: 1px solid black;
+  border-right: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
-  object-fit: cover;
 }
 .image-section img {
   max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .form-section {
@@ -45,7 +60,7 @@ h2 {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 label {
@@ -54,11 +69,11 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="file"],
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password],
+input[type=file],
 select {
   width: 100%;
   padding: 10px;
@@ -67,7 +82,7 @@ select {
   box-sizing: border-box;
 }
 
-button[type="submit"] {
+button[type=submit] {
   display: block;
   width: 100%;
   padding: 12px;
@@ -76,9 +91,9 @@ button[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
-button[type="submit"]:hover {
+button[type=submit]:hover {
   background: #4d4d4d;
 }
 
@@ -98,30 +113,16 @@ button[type="submit"]:hover {
   display: flex;
   align-items: center;
 }
-.form-group.account-type .radio-group input[type="radio"] {
+.form-group.account-type .radio-group input[type=radio] {
   margin-right: 5px;
   margin-bottom: 7px;
 }
 
 #instructorFields {
   display: none;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
 }
 
-.error-message {
-  color: red;
-  font-size: 0.8em;
-  margin-top: 5px;
-}
-
-input.error,
-select.error {
-  border-color: red;
-}
-
-button[type="submit"] {
+button[type=submit] {
   background: #333;
   color: white;
   padding: 10px 15px;
@@ -129,8 +130,7 @@ button[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
 }
-
-button[type="submit"]:hover {
+button[type=submit]:hover {
   background: #4d4d4d;
 }
 
@@ -147,125 +147,25 @@ button[type="submit"]:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  .image-section,
-  .form-section {
-    width: 100%;
-  }
-  .form-section {
-    padding: 20px;
-  }
+.error-message {
+  color: red;
+  font-size: 0.8em;
 }
-.registration-page .container {
-  display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+
+input.error,
+select.error {
+  border-color: red;
 }
-@media (min-width: 768px) and (max-width: 1199px) {
-  .registration-page .container {
-    flex-direction: column;
-  }
-}
-@media (max-width: 767px) {
-  .registration-page .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-}
-.registration-page .image-section {
-  flex: 1;
-  padding-right: 20px;
-}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .registration-page .image-section {
     display: none;
-    padding-right: 0;
-    padding-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
   .registration-page .image-section {
     display: none;
-    padding-right: 0;
-    padding-bottom: 10px;
-  }
-}
-.registration-page .image-section img {
-  width: 100%;
-  height: auto;
-}
-.registration-page .form-section {
-  flex: 1;
-}
-.registration-page .form-section h2 {
-  margin-bottom: 20px;
-}
-.registration-page .form-group {
-  margin-bottom: 15px;
-}
-.registration-page .form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-.registration-page .form-group input,
-.registration-page .form-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-@media (max-width: 767px) {
-  .registration-page .form-group input,
-  .registration-page .form-group select {
-    width: calc(100% - 30px);
-  }
-}
-.registration-page .form-group.account-type {
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 767px) {
-  .registration-page .form-group.account-type {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-.registration-page .form-group.account-type > label {
-  margin-right: 10px;
-  white-space: nowrap;
-}
-@media (max-width: 767px) {
-  .registration-page .form-group.account-type > label {
-    margin-bottom: 5px;
-  }
-}
-.registration-page .form-group.account-type .radio-group {
-  display: flex;
-  gap: 20px;
-}
-@media (max-width: 767px) {
-  .registration-page .form-group.account-type .radio-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-.registration-page .form-group.account-type .radio-group div {
-  display: flex;
-  align-items: center;
-}
-.registration-page .form-group.account-type .radio-group input[type="radio"] {
-  margin-right: 5px;
-  margin-bottom: 10px;
-  width: auto;
-}
-@media (max-width: 767px) {
-  .registration-page button[type="submit"] {
-    width: calc(100% - 30px);
   }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-up.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;EACA;EACA;EACA;EACA,kBCNiB;;;ADSnB;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;;AAKJ;EACE;EACA;;;AAGF;EACE;EACA,OC3CW;ED4CX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YC7Ec;ED8Ed;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;;AAKN;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAGF;EACE,YCrIc;EDsId;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAKJ;EACE;IACE;;EAGF;AAAA;IAEE;;EAGF;IACE;;;AAwBF;EACE;EACA;EACA;EACA;;AAhBF;EAYA;IAOI;;;AAbJ;EAMA;IAWI;IACA;;;AAIJ;EACE;EACA;;AA9BF;EA4BA;IAKI;IACA;IACA;;;AA7BJ;EAsBA;IAWI;IACA;IACA;;;AAGF;EACE;EACA;;AAIJ;EACE;;AAEA;EACE;;AAIJ;EACE;;AAEA;EACE;EACA;;AAGF;AAAA;EAEE;EACA;EACA;EACA;;AAjEJ;EA4DE;AAAA;IAQI;;;AAKN;EACE;EACA;;AA3EF;EAyEA;IAKI;IACA;;;AAGF;EACE;EACA;;AApFJ;EAkFE;IAKI;;;AAIJ;EACE;EACA;;AA7FJ;EA2FE;IAKI;IACA;;;AAGF;EACE;EACA;;AAGF;EACE;EACA;EACA;;AA5GN;EAiHA;IAEI%22,%22file%22:%22sign-up.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-up.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;;;AAGF;EACE;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;EACA,kBChBiB;;;ADmBnB;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAKJ;EACE;EACA;;;AAGF;EACE;EACA,OC1DW;ED2DX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YC5Fc;ED6Fd;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;;;AAKN;EACE;;;AAGF;EACE,YCtIc;EDuId;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE,OCvJY;EDwJZ;EACA;;AAEA;EACE;;;AAKN;EACE;EACA;;;AAGF;AAAA;EAEE;;;AAWA;EAYA;IAEI;;;AARJ;EAMA;IAMI%22,%22file%22:%22sign-up.css%22%7D */
