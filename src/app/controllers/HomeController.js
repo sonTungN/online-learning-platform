@@ -3,8 +3,9 @@ class HomeController {
     res.render("home", {
       title: "Homepage",
       styles: ["home.css", "bootstrap_v5.css"],
-      isHome: true
+      isHome: true,
     });
+  }
 
   aboutUs(req, res, next) {
     res.render("about-us", {

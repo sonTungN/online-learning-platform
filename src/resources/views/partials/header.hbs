@@ -1,11 +1,11 @@
 <header>
     <nav class="navbar">
         <div class="navbar__logo">
-            <img src="/assets/car.jpg" alt="logo" class="navbar__logo-img" />
+            <img src="/assets/car.jpg" alt="logo" class="navbar__logo-img"/>
             <h1 class="navbar__logo-text">SCOUTSKILLZ</h1>
         </div>
         <ul class="navbar__menu">
-            <li class="navbar__item"><a href="./" class="navbar__link">Home</a></li>
+            <li class="navbar__item"><a href="http://localhost:3000/" class="navbar__link">Home</a></li>
             <li class="navbar__item dropdown">
                 <a class="navbar__link">Categories</a>
                 <!-- Dropdown menu -->
@@ -19,12 +19,14 @@
                 </ul>
             </li>
             <li class="navbar__item"><a href="#" class="navbar__link">Browse</a></li>
-            <li class="navbar__item"><a href="./about-us" class="navbar__link">About us</a></li>
-            <li class="navbar__item"><a href="./pricing" class="navbar__link">Pricing</a></li>
-            <li class="navbar__item"><a href="./faq" class="navbar__link">FAQs</a></li>
-            <li class="navbar__item"><a href="./faq" class="navbar__link">Contact us</a></li>
-            <li class="navbar__item account-auth"><a href="#" class="navbar__link">Login</a></li>
-            <li class="navbar__item account-auth"><a href="#" class="navbar__link signup">Register</a></li>
+            <li class="navbar__item"><a href="http://localhost:3000/about-us" class="navbar__link">About us</a></li>
+            <li class="navbar__item"><a href="http://localhost:3000/pricing" class="navbar__link">Pricing</a></li>
+            <li class="navbar__item"><a href="http://localhost:3000/faq" class="navbar__link">FAQs</a></li>
+            <li class="navbar__item"><a href="#" class="navbar__link">Contact us</a></li>
+            <li class="navbar__item account-auth"><a href="http://localhost:3000/user/sign-in" class="navbar__link">Login</a>
+            </li>
+            <li class="navbar__item account-auth"><a href="http://localhost:3000/user/sign-up"
+                                                     class="navbar__link signup">Register</a></li>
         </ul>
         <div class="navbar__hamburger">
             <span class="navbar__line"></span>
@@ -35,16 +37,16 @@
 
     <aside class="sidebar">
         <div class="navbar__logo">
-            <img src="/assets/car.jpg" alt="logo" class="navbar__logo-img" />
+            <img src="/assets/car.jpg" alt="logo" class="navbar__logo-img"/>
             <h1 class="navbar__logo-text">SCOUTSKILLZ</h1>
         </div>
         <div class="sidebar-nav">
             <ul>
                 <li>
-                    <a href="./"><i class="ion-ios-home-outline"></i> <span>Home</span></a>
+                    <a href="http://localhost:3000/"><i class="ion-ios-home-outline"></i> <span>Home</span></a>
                 </li>
                 <li class="chev">
-                    <a href="#" ><i class="ion-ios-list-outline"></i> <span>Categories</span></a>
+                    <a href="#"><i class="ion-ios-list-outline"></i> <span>Categories</span></a>
                     <!-- Nav Flyout for Categories -->
                     <ul class="nav-flyout">
                         <li><a href="#"><i class="ion-ios-navigate-outline"></i> Wilderness Survival</a></li>
@@ -59,25 +61,30 @@
                     <a href="#"><i class="ion-ios-search"></i> <span>Browse</span></a>
                 </li>
                 <li>
-                    <a href="./about-us"><i class="ion-ios-information-outline"></i> <span>About us</span></a>
+                    <a href="http://localhost:3000/about-us"><i class="ion-ios-information-outline"></i>
+                        <span>About us</span></a>
                 </li>
                 <li>
-                    <a href="./pricing"><i class="ion-ios-pricetag-outline"></i> <span>Pricing</span></a>
+                    <a href="http://localhost:3000/pricing"><i class="ion-ios-pricetag-outline"></i>
+                        <span>Pricing</span></a>
                 </li>
                 <li>
-                    <a href="./faq"><i class="ion-ios-help-outline"></i> <span>FAQs</span></a>
+                    <a href="http://localhost:3000/faq"><i class="ion-ios-help-outline"></i> <span>FAQs</span></a>
                 </li>
                 <li>
-                    <a href="./faq"><i class="ion-ios-contact-outline"></i> <span>Contact us</span></a>
+                    <a href="#"><i class="ion-ios-contact-outline"></i> <span>Contact us</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="ion-log-in"></i> <span>Login</span></a>
+                    <a href="http://localhost:3000/user/sign-in"><i class="ion-log-in"></i> <span>Login</span></a>
                 </li>
                 <li>
-                    <a href="#" class="signup"><i class="ion-person-add"></i> <span>Register</span></a>
+                    <a href="http://localhost:3000/user/sign-up" class="signup"><i class="ion-person-add"></i> <span>Register</span></a>
                 </li>
             </ul>
         </div>
     </aside>
     <div class="overlay"></div>
 </header>
+
+
+<script src="/javascript/nav-bar.js"></script>

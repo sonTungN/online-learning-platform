@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
-      <change beforePath="$PROJECT_DIR$/src/app/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24__14_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24__14_15__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/HomeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/faq.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/faq.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bleuucheese&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sonTungN/online-learning-platform.git&quot;,
+    &quot;accountId&quot;: &quot;37abca76-d8df-4794-aa9d-13fbad9b1937&quot;
+  }
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -56,30 +70,31 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "validation",
-    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
+    "git-widget-placeholder": "homeFinal",
+    "last_opened_file_path": "C:/Users/ASUS/WebstormProjects/online-learning-platform/src/public/css",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\ASUS\\WebstormProjects\\online-learning-platform\\node_modules\\prettier",
     "rearrange.code.on.save": "true",
     "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\WebstormProjects\online-learning-platform\src\public\css" />
       <recent name="$PROJECT_DIR$/src/public/assets/img" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
       </set>
     </attachedChunks>
   </component>
@@ -114,6 +129,8 @@
       <workItem from="1724855385806" duration="14391000" />
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
+      <workItem from="1725203183620" duration="405000" />
+      <workItem from="1725204002367" duration="1244000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />

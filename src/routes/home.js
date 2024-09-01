@@ -7,8 +7,8 @@ const homeController = require("../app/controllers/homeController");
 router.get("/", homeController.show);
 
 // About us page, Pricing page, FAQ page, Contact us page, etc.
-router.get("/about-us", HomeRender.aboutUs);
-router.get("/pricing", HomeRender.pricing);
-router.get("/faq", HomeRender.faq);
+router.get("/about-us", homeController.aboutUs);
+router.get("/pricing", homeController.pricing);
+router.get("/faq", homeController.faq);
 
 module.exports = router;
