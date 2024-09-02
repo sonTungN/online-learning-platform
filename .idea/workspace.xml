@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24__14_15__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24__14_15__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/HomeController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/faq.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/faq.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,25 +65,25 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "homeFinal",
-    "last_opened_file_path": "C:/Users/ASUS/WebstormProjects/online-learning-platform/src/public/css",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\ASUS\\WebstormProjects\\online-learning-platform\\node_modules\\prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;homeFinal&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/WebstormProjects/online-learning-platform/src/public/css&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\ASUS\\WebstormProjects\\online-learning-platform\\node_modules\\prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\WebstormProjects\online-learning-platform\src\public\css" />
@@ -130,7 +129,8 @@
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
       <workItem from="1725203183620" duration="405000" />
-      <workItem from="1725204002367" duration="1244000" />
+      <workItem from="1725204002367" duration="1979000" />
+      <workItem from="1725274666165" duration="2391000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />

@@ -1,8 +1,10 @@
+/* Variables */
+/* Styles specifically for the feature course layout */
+/* Making Responsive */
 * {
   font-family: Poppins, sans-serif;
 }
 
-/* Variables */
 :root {
   --brown: #8e2a12;
   --green-color: #464e2e;
@@ -28,7 +30,6 @@ a {
   justify-content: center;
   overflow: hidden;
 }
-
 #hero img {
   width: 100vw;
   height: 100%;
@@ -44,11 +45,9 @@ main {
 }
 
 .section-heading {
-  /*background-color: #acb992;*/
   width: 100%;
   height: fit-content;
   padding: 6px;
-  /*text-align: center;*/
   font-size: 0.5em;
   font-weight: bold;
   margin-bottom: 20px;
@@ -63,7 +62,6 @@ main {
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease;
 }
-
 .course-card:hover {
   box-shadow: 0 4px 20px rgba(0, 123, 123, 0.1);
   background-color: whitesmoke;
@@ -94,7 +92,7 @@ main {
   font-weight: bold;
   color: #6b240c;
   margin-bottom: 10px;
-  background-color: rgba(255, 238, 232, 1);
+  background-color: rgb(255, 238, 232);
   width: fit-content;
   border-radius: 2px;
   padding: 4px;
@@ -109,7 +107,6 @@ main {
   text-align: right;
 }
 
-/* Styles specifically for the feature course layout */
 .feature-course-card {
   border: 1px solid #cc9544;
   background-color: white;
@@ -120,7 +117,6 @@ main {
   transition: box-shadow 0.3s ease;
   margin-bottom: 20px;
 }
-
 .feature-course-card:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -129,7 +125,6 @@ main {
   flex: 0 0 120px;
   margin-right: 15px;
 }
-
 .course-image img {
   border-radius: 8px;
   max-width: 100%;
@@ -150,7 +145,6 @@ main {
   font-size: 14px;
   color: #888;
 }
-
 .course-details .mr-3 {
   margin-right: 5px;
 }
@@ -168,7 +162,6 @@ main {
   background-color: rgba(157, 225, 21, 0.25);
   margin-bottom: 15px;
 }
-
 .invitation p {
   font-size: 20px !important;
   margin-bottom: 2rem;
@@ -179,7 +172,6 @@ main {
   border-radius: 8px;
   border: 1px solid #464e2e;
 }
-
 .become-instructor-btn:hover {
   color: var(--bg-color) !important;
   background-color: var(--brown);
@@ -197,7 +189,6 @@ main {
 .category-box {
   text-align: center;
 }
-
 .category-box img {
   max-width: 185px;
   height: 150px;
@@ -205,17 +196,14 @@ main {
   cursor: pointer;
   transition: transform 0.5s ease;
 }
-
 .category-box img:hover {
   transform: scale(1.1);
   transition: transform 0.5s ease;
 }
-
 .category-box h5 {
   margin-top: 15px !important;
   font-size: 1rem !important;
 }
-
 .category-box p {
   color: var(--text-color);
   opacity: 0.7;
@@ -240,7 +228,6 @@ main {
   transition: box-shadow 0.3s ease;
   min-width: 150px;
 }
-
 .instructor-box img {
   width: 100%;
   height: 200px;
@@ -268,75 +255,64 @@ main {
   flex-direction: column;
   align-items: center;
 }
-
 .meta-info p {
   font-size: 0.7em !important;
   color: #565e64;
 }
 
-/* Making Responsive */
 @media (max-width: 1200px) {
   .instructor-content {
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
   }
 }
-
 @media (max-width: 820px) {
   .btn {
     padding: 14px 24px;
   }
-
   .instructor-content {
     text-align: center;
     gap: 2rem;
   }
-
   .instructor-box h2 {
     line-height: 1.5rem;
   }
-
   .instructor-box .role {
     flex-direction: column;
     gap: 0;
     margin: 1rem 0;
   }
 }
-
 @media (max-width: 768px) {
   .feature-course-card {
-    flex-direction: column; /* Stack items vertically */
-    text-align: center; /* Center-align text */
+    flex-direction: column;
+    text-align: center;
   }
-
   .course-image {
     margin-right: 0;
-    margin-bottom: 10px; /* Add spacing below the image */
+    margin-bottom: 10px;
   }
-
-  .course-info,
-  .course-price,
+  .course-info {
+    width: 100%;
+  }
+  .course-price {
+    width: 100%;
+  }
   .ml-3 {
-    width: 100%; /* Make them full-width */
-  }
-
-  .course-details {
-    justify-content: center; /* Center-align details */
-  }
-
-  .ml-3 {
+    width: 100%;
     margin-left: 0;
     margin-top: 10px;
   }
+  .course-details {
+    justify-content: center;
+  }
 }
-
 @media (max-width: 670px) {
   .instructor-content {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 }
-
 @media (max-width: 450px) {
   .category-content {
     display: flex;
@@ -345,9 +321,10 @@ main {
     align-items: center;
   }
 }
-
 @media (max-width: 380px) {
   .instructor-content {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/home.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAiBA;AACA;AACA;AACA;EACE,aAbc;;;AAgBhB;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAIJ;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA,aA9Dc;;;AAiEhB;EACE;EACA,kBAlEmB;EAmEnB;EACA;EACA;EACA;;AAEA;EACE;EACA,kBAzEiB;;;AA6ErB;EACE;EACA;EACA,OA3FQ;EA4FR;EACA;;;AAGF;EACE,OAhGQ;EAiGR;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA,OA7GQ;EA8GR;EACA,kBArGmB;EAsGnB;EACA;EACA;;;AAGF;EACE;EACA,OAtHQ;EAuHR;EACA;EACA;EACA;;;AAGF;EACE;EACA,kBAxHmB;EAyHnB;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE;EACA;EACA;;;AAIJ;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA,OAnKQ;;AAqKR;EACE;;;AAIJ;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA,kBA1KmB;EA2KnB;;AAEA;EACE;EACA;;;AAIJ;EACE;EACA;EACA;;AAEA;EACE;EACA,kBAzLiB;EA0LjB;;;AAIJ;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EACE;EACA;;AAGF;EACE,OArOM;EAsON;;;AAIJ;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAIJ;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA,kBArQmB;EAsQnB;;;AAGF;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA,OAzRM;;;AA6RV;EACE;IACE;IACA;;;AAIJ;EACE;IACE;;EAEF;IACE;IACA;;EAGA;IACE;;EAGF;IACE;IACA;IACA;;;AAKN;EACE;IACE;IACA;;EAEF;IACE;IACA;;EAEF;IACE;;EAEF;IACE;;EAEF;IACE;IACA;IACA;;EAEF;IACE;;;AAIJ;EACE;IACE;IACA;;;AAIJ;EACE;IACE;IACA;IACA;IACA;;;AAIJ;EACE;IACE%22,%22file%22:%22home.css%22%7D */
