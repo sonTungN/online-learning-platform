@@ -1,8 +1,15 @@
 # Default ignored files
 /shelf/
 /node_modules
-/workspace.xml
+/.idea
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/usage.statistics.xml
+/.idea/dictionaries
+/.idea/shelf
+
 # Editor-based HTTP Client requests
 /httpRequests/
+
 # Ignore public/css directory
 /src/public/css
