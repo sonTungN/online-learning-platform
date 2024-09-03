@@ -8,21 +8,21 @@ class HomeController {
   }
 
   aboutUs(req, res, next) {
-    res.render("about-us", {
+    res.render("support/about-us", {
       title: "About Us",
       styles: ["about-us.css"],
     });
   }
 
   pricing(req, res, next) {
-    res.render("pricing-plan", {
+    res.render("support/pricing-plan", {
       title: "Pricing",
       styles: ["pricing-plan.css"],
     });
   }
 
   faq(req, res, next) {
-    res.render("faq", {
+    res.render("support/faq", {
       title: "FAQ",
       styles: ["faq.css"],
     });

@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/HomeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/about-us.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/faq.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/pricing-plan.hbs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "validation",
+    "git-widget-placeholder": "primitive",
     "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
@@ -75,6 +75,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/public/assets/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/views/support" />
     </key>
   </component>
   <component name="SharedIndexes">
