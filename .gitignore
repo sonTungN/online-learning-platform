@@ -13,3 +13,4 @@
 
 # Ignore public/css directory
 /src/public/css
+/src/public/test

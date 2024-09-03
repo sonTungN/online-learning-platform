@@ -1,0 +1,422 @@
+$color_1: inherit;
+$color_2: whitesmoke;
+$color_3: var(--white);
+$color_4: var(--starter);
+$color_5: var(--essential);
+$color_6: var(--professional);
+$background-color_1: #1c0a00;
+$background-color_2: #e9e5d6;
+
+/* TABLE STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* BODY CLASSES & MQ
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*Responsive*/
+/* Mobile Styles */
+/* Tablet Styles */
+:root {
+  --white: white;
+  --gray: #999;
+  --lightgray: whitesmoke;
+  --popular: #ffdd40;
+  --starter: rgba(156, 63, 12, 0.7);
+  --essential: #464e2e;
+  --professional: #cc9544;
+}
+
+a {
+  text-decoration: none;
+  color: $color_1;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  font-size: 2.5rem;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+main {
+  font:
+    1rem Poppins,
+    sans-serif;
+}
+
+section {
+  &:nth-child(1) {
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &:nth-child(3) {
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.pricing-container {
+  max-width: 950px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+#hero {
+  background-color: $background-color_1;
+  color: $color_2;
+  max-height: 300px;
+}
+
+#pricing-table {
+  background-color: $background-color_2;
+}
+
+.table-wrapper {
+  background: var(--white);
+  overflow-x: auto;
+}
+
+table {
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  thead {
+    background: var(--white);
+    transition: box-shadow 0.2s;
+  }
+
+  tr {
+    display: flex;
+  }
+
+  th {
+    width: 25%;
+    min-width: 150px;
+
+    &:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      padding: 0 10px;
+
+      .svg-wrapper {
+        margin-top: 10px;
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    .heading {
+      padding: 1rem;
+      color: $color_3;
+    }
+
+    &:nth-child(2) {
+      .heading {
+        background: var(--starter);
+      }
+
+      .amount {
+        color: $color_4;
+      }
+
+      button {
+        color: $color_4;
+        border: 1px solid var(--starter);
+
+        &:hover {
+          background: var(--starter);
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .heading {
+        background: var(--essential);
+      }
+
+      .amount {
+        color: $color_5;
+      }
+
+      button {
+        color: $color_5;
+        border: 1px solid var(--essential);
+
+        &:hover {
+          background: var(--essential);
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .heading {
+        background: var(--professional);
+      }
+
+      .amount {
+        color: $color_6;
+      }
+
+      button {
+        color: $color_6;
+        border: 1px solid var(--professional);
+
+        &:hover {
+          background: var(--professional);
+        }
+      }
+    }
+
+    .info {
+      position: relative;
+      padding: 1.5rem 0;
+      border-left: 1px solid var(--lightgray);
+    }
+
+    .popular {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      font-size: 0.7rem;
+      background: var(--popular);
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+
+    .amount {
+      font-size: 2rem;
+
+      span {
+        display: block;
+        transform: translateY(-8px);
+        font-weight: normal;
+        font-size: 0.8rem;
+      }
+    }
+
+    .billing-msg {
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+
+    button {
+      display: inline-block;
+      border-radius: 20px;
+      padding: 8px 20px;
+      margin-top: 10px;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $color_3;
+      }
+    }
+  }
+
+  td {
+    width: 25%;
+    min-width: 150px;
+    padding: 10px;
+
+    &:not(:first-child) {
+      border-left: 1px solid var(--lightgray);
+    }
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  svg.not-included {
+    fill: var(--gray);
+  }
+
+  svg.starter {
+    fill: var(--starter);
+  }
+
+  svg.essential {
+    fill: var(--essential);
+  }
+
+  svg.professional {
+    fill: var(--professional);
+  }
+
+  p {
+    font-size: 0.7em;
+  }
+}
+
+.privilege {
+  font-size: 0.9rem;
+}
+
+tbody {
+  tr {
+    &:nth-child(odd) {
+      background: lightgrey;
+    }
+  }
+}
+
+.sticky-table {
+  thead {
+    tr {
+      z-index: 1;
+    }
+  }
+}
+
+.sticky2-table {
+  thead {
+    tr {
+      z-index: 1;
+    }
+  }
+}
+
+span {
+  margin: 10px;
+}
+
+@media screen and (min-width: 780px) {
+  section {
+    &:nth-child(1) {
+      padding: 0;
+      height: 70vh;
+    }
+
+    &:nth-child(3) {
+      padding: 0;
+      height: 100vh;
+    }
+  }
+  table {
+    th {
+      &:nth-child(1) {
+        padding: 0 20px;
+      }
+    }
+
+    td {
+      padding: 20px;
+    }
+  }
+  .sticky-table {
+    table {
+      thead {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+  .sticky2-table {
+    table {
+      thead {
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .pricing-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  table {
+    th {
+      width: 100%;
+      min-width: unset;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    td {
+      width: 100%;
+      min-width: unset;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .pricing-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  table {
+    th {
+      width: 100%;
+      min-width: unset;
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+
+    td {
+      width: 100%;
+      min-width: unset;
+      display: block;
+      text-align: center;
+      padding: 10px;
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}
