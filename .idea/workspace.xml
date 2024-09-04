@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: modify folder js folder name and apply scripts inside `hbs` file">
+      <change afterPath="$PROJECT_DIR$/src/resources/views/partials/headTag.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/HomeController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/session/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/session/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/javascript/nav-bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/javascript/nav-bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/support/about-us.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/about-us.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/support/faq.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/faq.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/support/pricing-plan.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/pricing-plan.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,30 +61,33 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;primitive&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/src/public/assets/img&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "primitive",
+    "javascript.nodejs.core.library.configured.version": "20.15.1",
+    "javascript.nodejs.core.library.typings.version": "20.15.0",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/public/assets/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/public/js" />
       <recent name="$PROJECT_DIR$/src/resources/views/support" />
     </key>
   </component>
@@ -246,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725141199242</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor: modify folder js folder name and apply scripts inside `hbs` file">
+      <option name="closed" value="true" />
+      <created>1725468307564</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725468307564</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +295,8 @@
     <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
     <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update credential UI design for `sign-in` and `sign-up`" />
+    <MESSAGE value="add: handle login with `GUEST` accountType" />
+    <MESSAGE value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
   </component>
 </project>
