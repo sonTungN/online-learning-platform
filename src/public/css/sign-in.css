@@ -16,6 +16,13 @@ body {
   background-color: #f4f4f4;
 }
 
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .login-page {
   display: flex;
   align-items: center;
@@ -92,16 +99,15 @@ button[type=submit]:hover {
   background: #4d4d4d;
 }
 
-.forgot-password {
-  text-align: right;
-  margin-top: 10px;
+.extension-group {
+  display: flex;
+  justify-content: space-between;
 }
-.forgot-password a {
+.extension-group .extension-link {
+  margin-bottom: 5px;
+}
+.extension-group .extension-link a {
   color: #333;
-  text-decoration: none;
-}
-.forgot-password a:hover {
-  text-decoration: underline;
 }
 
 .signup-link {
@@ -138,4 +144,4 @@ select.error {
   }
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-in.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;;;AAGF;EACE;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;EACA,kBChBiB;;;ADmBnB;EACE;EACA;EACA;EACA;;;AAIF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAKJ;EACE;EACA;;;AAGF;EACE;EACA,OC1DW;ED2DX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YCxFc;EDyFd;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE,OCzGY;ED0GZ;;AAEA;EACE;;;AAKN;EACE;EACA;;AAEA;EACE,OCvHY;EDwHZ;EACA;;AAEA;EACE;;;AAKN;EACE;EACA;;;AAGF;AAAA;EAEE;;;AAWA;EAYA;IAEI;;;AARJ;EAMA;IAMI%22,%22file%22:%22sign-in.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../resources/scss/sign-in.scss%22,%22../../resources/scss/_variables.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAEA;EACE;;;AAGF;EACE;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;EACA,kBChBiB;;;ADmBnB;EACE;;AAEA;EACE;;;AAIJ;EACE;EACA;EACA;EACA;;;AAIF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;;AAKJ;EACE;EACA;;;AAGF;EACE;EACA,OClEW;EDmEX;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;AAAA;EAEE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,YChGc;EDiGd;EACA;EACA;EACA;EACA;;AAEA;EACE;;;AAIJ;EACE;EACA;;AAEA;EACE;;AAEA;EACE,OCpHU;;;ADyHhB;EACE;EACA;;AAEA;EACE,OC9HY;ED+HZ;EACA;;AAEA;EACE;;;AAKN;EACE;EACA;;;AAGF;AAAA;EAEE;;;AAWA;EAYA;IAEI;;;AARJ;EAMA;IAMI%22,%22file%22:%22sign-in.css%22%7D */

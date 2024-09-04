@@ -4,17 +4,45 @@ const { hashPassword, comparePassword } = require("../../utils/helper");
 
 class UserController {
   create(req, res, next) {
-    res.render("sign-up", {
-      title: "Sign Up",
-      styles: ["sign-up.css"],
-    });
+    try {
+      res.render("sign-up", {
+        title: "Sign Up",
+        styles: ["sign-up.css"],
+      });
+    } catch (e) {
+      next(e);
+    }
   }
 
   entry(req, res, next) {
-    res.render("sign-in", {
-      title: "Sign In",
-      styles: ["sign-in.css"],
-    });
+    try {
+      res.render("sign-in", {
+        title: "Sign In",
+        styles: ["sign-in.css"],
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  guest(req, res, next) {
+    try {
+      req.session.regenerate(function (err) {
+        if (err) next(err);
+
+        req.session.user = {
+          id: "guest-" + Date.now(),
+          email: "guest@example.com",
+          firstName: "Guest",
+          lastName: "User",
+          accountType: "GUEST",
+        };
+
+        res.json({ session: req.session });
+      });
+    } catch (e) {
+      next(e);
+    }
   }
 
   async auth(req, res, next) {
@@ -24,7 +52,7 @@ class UserController {
 
         req.session.user = req.user;
 
-        res.json({ user: req.session.user });
+        res.json({ session: req.session });
       });
     } catch (e) {
       next(e);

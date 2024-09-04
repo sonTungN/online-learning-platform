@@ -18,6 +18,14 @@ body {
   background-color: $background-color;
 }
 
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .login-page {
   display: flex;
   align-items: center;
@@ -98,16 +106,15 @@ button[type="submit"] {
   }
 }
 
-.forgot-password {
-  text-align: right;
-  margin-top: 10px;
+.extension-group {
+  display: flex;
+  justify-content: space-between;
 
-  a {
-    color: $primary-color;
-    text-decoration: none;
+  .extension-link {
+    margin-bottom: 5px;
 
-    &:hover {
-      text-decoration: underline;
+    a {
+      color: $primary-color;
     }
   }
 }

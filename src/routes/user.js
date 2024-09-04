@@ -9,8 +9,7 @@ router.get("/sign-up", userController.create);
 router.post("/:email/store", checkExistedEmail, userController.store);
 
 router.get("/sign-in", userController.entry);
+router.get("/sign-in/guest", userController.guest);
 router.post("/:email/auth", authenticate, userController.auth);
-
-// router.post("/sign-in", userController.auth);
 
 module.exports = router;

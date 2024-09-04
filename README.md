@@ -11,3 +11,13 @@ npm i node-mon sass --save-dev
 npm uninstall nodemon
 npm install nodemon --save-dev
 ```
+
+## Reset the node_modules
+
+```
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+npm i express express-handlebars mongoose bcrypt connect-mongo
+npm i node-mon sass --save-dev
+```

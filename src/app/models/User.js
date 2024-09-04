@@ -30,7 +30,7 @@ const User = new Schema({
   accountType: {
     type: String,
     required: true,
-    enum: ["LEARNER", "INSTRUCTOR"],
+    enum: ["LEARNER", "INSTRUCTOR", "GUEST"],
   },
 
   schoolName: {
