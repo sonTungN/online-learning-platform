@@ -3,6 +3,7 @@ const { mongooseToObject } = require("../../utils/mongoose");
 const { hashPassword, comparePassword } = require("../../utils/helper");
 
 class UserController {
+  // [GET] /user/sign-up
   create(req, res, next) {
     try {
       res.render("sign-up", {
@@ -14,6 +15,7 @@ class UserController {
     }
   }
 
+  // [GET] /user/sign-in
   entry(req, res, next) {
     try {
       res.render("sign-in", {
@@ -25,6 +27,7 @@ class UserController {
     }
   }
 
+  // [GET] /sign-in/guest
   guest(req, res, next) {
     try {
       req.session.regenerate(function (err) {
@@ -45,6 +48,7 @@ class UserController {
     }
   }
 
+  // [POST] /:email/auth
   async auth(req, res, next) {
     try {
       req.session.regenerate(function (err) {
@@ -59,6 +63,7 @@ class UserController {
     }
   }
 
+  // [POST] /:email/store
   async store(req, res, next) {
     const user = new User({
       ...req.body,
