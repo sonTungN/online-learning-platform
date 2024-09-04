@@ -1,4 +1,5 @@
 class HomeController {
+  // [GET] /
   show(req, res, next) {
     res.render("home", {
       title: "Homepage",
@@ -7,13 +8,16 @@ class HomeController {
     });
   }
 
+  // [GET] /about-us
   aboutUs(req, res, next) {
     res.render("support/about-us", {
       title: "About Us",
       styles: ["about-us.css"],
+      scripts: ["about-us.js"],
     });
   }
 
+  // [GET] /pricing-plan
   pricing(req, res, next) {
     res.render("support/pricing-plan", {
       title: "Pricing",
@@ -21,10 +25,12 @@ class HomeController {
     });
   }
 
+  // [GET] /faq
   faq(req, res, next) {
     res.render("support/faq", {
       title: "FAQ",
       styles: ["faq.css"],
+      scripts: ["faq.js"],
     });
   }
 }
