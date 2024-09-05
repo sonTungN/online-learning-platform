@@ -16,13 +16,6 @@ function config(app) {
       }),
     }),
   );
-
-  app.use((req, res, next) => {
-    if (req.session.user && req.session.user.accountType === "GUEST") {
-      req.session.cookie.maxAge = 1000 * 60 * 30;
-    }
-    next();
-  });
 }
 
 module.exports = { config };

@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: adding scripts for rendering in `main` layout">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: modify homepage view for featured instructors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/session/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/session/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725470128423</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="refactor: modify homepage view for featured instructors">
+      <option name="closed" value="true" />
+      <created>1725505156715</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725505156715</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +336,7 @@
     <MESSAGE value="add: adding headTag views for contents in `&lt;head&gt;`" />
     <MESSAGE value="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`" />
     <MESSAGE value="add: adding scripts for rendering in `main` layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: adding scripts for rendering in `main` layout" />
+    <MESSAGE value="refactor: modify homepage view for featured instructors" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: modify homepage view for featured instructors" />
   </component>
 </project>

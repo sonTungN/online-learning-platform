@@ -12,7 +12,7 @@
       <h2>Registration</h2>
 
       <!-- FORM SECTION -->
-      <form id="registrationForm" method="POST">
+      <form id="registrationForm" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="email">Email Address</label>
           <input
@@ -790,6 +790,7 @@
   // Form submission
   document.getElementById("registrationForm")
       .addEventListener("submit", function (e) {
+
         let isSubmittable =
             validateEmail() &&
             validatePhone() &&
@@ -919,10 +920,26 @@
     }
   }
 
+  // function getAccountTypeValue() {
+  // const accountType = document.querySelector('input[name="accountType"]:checked');
+  // if (accountType) {
+  //   return accountType.value;
+  // } else {
+  //   return null;
+  // }
+  // }
+  //
+  // // Example usage
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const selectedAccountType = getAccountTypeValue();
+  //   console.log("Selected Account Type: ", selectedAccountType);
+  // });
+
   // Required
   function validateSchoolName() {
     const schoolName = document.getElementById("schoolName");
-    if (schoolName.value.trim() === "") {
+    const accountType = document.querySelector('input[name="accountType"]:checked').value;
+    if (schoolName.value.trim() === "" && accountType === "INSTRUCTOR") {
       showError(schoolName, "School name is required");
       return false;
     } else {
@@ -934,7 +951,8 @@
   // Required
   function validateJobTitle() {
     const jobTitle = document.getElementById("jobTitle");
-    if (jobTitle.value.trim() === "") {
+    const accountType = document.querySelector('input[name="accountType"]:checked').value;
+    if (jobTitle.value.trim() === "" && accountType === "INSTRUCTOR") {
       showError(jobTitle, "Job Title is required");
       return false;
     } else {

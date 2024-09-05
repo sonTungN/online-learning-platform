@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const { mongooseToObject } = require("../../utils/mongoose");
 const { hashPassword, comparePassword } = require("../../utils/helper");
+const path = require("path");
 
 class UserController {
   // [GET] /user/sign-up
@@ -65,16 +66,28 @@ class UserController {
 
   // [POST] /:email/store
   async store(req, res, next) {
-    const user = new User({
-      ...req.body,
-      password: hashPassword(req.body.password),
-    });
+    try {
+      let profileImgPath;
+      if (req.file) {
+        profileImgPath = path.join("/assets/uploads/", req.file.filename);
+      } else {
+        profileImgPath = "/assets/uploads/default.png";
+      }
 
-    // res.json(user);
-    await user
-      .save()
-      .then((user) => res.redirect("/user/sign-in"))
-      .catch(next);
+      const user = new User({
+        ...req.body,
+        password: hashPassword(req.body.password),
+        profileImg: profileImgPath,
+      });
+
+      // res.json(user);
+      await user
+        .save()
+        .then((user) => res.redirect("/user/sign-in"))
+        .catch(next);
+    } catch (error) {
+      next(error);
+    }
   }
 }
 
