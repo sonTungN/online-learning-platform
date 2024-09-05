@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: modify homepage view for featured instructors">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/session/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/session/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +286,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725505156715</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add: using `multer` to store the profile image path">
+      <option name="closed" value="true" />
+      <created>1725512031931</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725512031931</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add: setting multer config">
+      <option name="closed" value="true" />
+      <created>1725512163157</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725512163157</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`">
+      <option name="closed" value="true" />
+      <created>1725532230346</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725532230346</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,9 +328,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change: implement changed route into form action" />
-    <MESSAGE value="fix: update prettier config and fix label tag ID error" />
-    <MESSAGE value="docs: update README.md" />
     <MESSAGE value="remove: delete `node.module` package" />
     <MESSAGE value="add: implement the UI design for sign-in" />
     <MESSAGE value="chore: refactor file name" />
@@ -337,6 +350,9 @@
     <MESSAGE value="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`" />
     <MESSAGE value="add: adding scripts for rendering in `main` layout" />
     <MESSAGE value="refactor: modify homepage view for featured instructors" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: modify homepage view for featured instructors" />
+    <MESSAGE value="add: using `multer` to store the profile image path" />
+    <MESSAGE value="add: setting multer config" />
+    <MESSAGE value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
   </component>
 </project>
