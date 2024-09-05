@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/home.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +53,10 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "primitive",
+    "git-widget-placeholder": "intructorProfile",
     "javascript.nodejs.core.library.configured.version": "20.15.1",
     "javascript.nodejs.core.library.typings.version": "20.15.0",
-    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,6 +72,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/public/assets/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
