@@ -53,18 +53,24 @@
     <li class="navbar__item">
       <a class="navbar__link" href="#">Contact us</a>
     </li>
-    <li class="navbar__item account-auth">
-      <a class="navbar__link" href="/user/sign-in"
-      >Login</a
-      >
-    </li>
-    <li class="navbar__item account-auth">
-      <a
-          class="navbar__link signup"
-          href="/user/sign-up"
-      >Register</a
-      >
-    </li>
+    {{#if user}}
+      <li class="navbar__item account-field">
+        <a href="#">
+          <img src="{{user.displayImg}}" alt="ProfileImg" class="navbar__avatar">
+        </a>
+        <a class="navbar__link" href="#">{{user.displayName}}</a>
+      </li>
+      <li class="navbar__item account-field">
+        <a class="navbar__link action-cta" href="/user/logout">Log Out</a>
+      </li>
+    {{else}}
+      <li class="navbar__item account-auth">
+        <a class="navbar__link" href="/user/sign-in">Login</a>
+      </li>
+      <li class="navbar__item account-auth">
+        <a class="navbar__link action-cta" href="/user/sign-up">Register</a>
+      </li>
+    {{/if}}
   </ul>
   <div class="navbar__hamburger">
     <span class="navbar__line"></span>
@@ -145,16 +151,29 @@
           <span>Contact us</span></a
         >
       </li>
-      <li>
-        <a href="/user/sign-in"
-        ><i class="ion-log-in"></i> <span>Login</span></a
-        >
-      </li>
-      <li>
-        <a class="signup" href="/user/sign-up"
-        ><i class="ion-person-add"></i> <span>Register</span></a
-        >
-      </li>
+      {{#if user}}
+        <li>
+          <a href="#">
+            <i class="ion-person"></i><span>{{user.displayName}}</span>
+          </a>
+        </li>
+        <li>
+          <a class="action-cta" href="/user/logout">
+            <i class="ion-log-out"></i><span>Log Out</span>
+          </a>
+        </li>
+      {{else}}
+        <li>
+          <a href="/user/sign-in">
+            <i class="ion-log-in"></i><span>Login</span>
+          </a>
+        </li>
+        <li>
+          <a class="action-cta" href="/user/sign-up">
+            <i class="ion-person-add"></i><span>Register</span>
+          </a>
+        </li>
+      {{/if}}
     </ul>
   </div>
 </aside>

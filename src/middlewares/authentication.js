@@ -20,6 +20,8 @@ const authenticate = async (req, res, next) => {
     req.user = {
       id: matchedUserObj._id,
       email: matchedUserObj.email,
+      displayName: matchedUserObj.firstName + " " + matchedUserObj.lastName,
+      displayImg: matchedUserObj.profileImg,
     };
     next();
   } catch (e) {

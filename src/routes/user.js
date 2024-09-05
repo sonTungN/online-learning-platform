@@ -18,4 +18,6 @@ router.get("/sign-in", userController.entry);
 router.get("/sign-in/guest", userController.guest);
 router.post("/:email/auth", authenticate, userController.auth);
 
+router.get("/logout", userController.quit);
+
 module.exports = router;

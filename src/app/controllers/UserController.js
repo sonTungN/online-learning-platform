@@ -4,18 +4,6 @@ const { hashPassword, comparePassword } = require("../../utils/helper");
 const path = require("path");
 
 class UserController {
-  // [GET] /user/sign-up
-  create(req, res, next) {
-    try {
-      res.render("sign-up", {
-        title: "Sign Up",
-        styles: ["sign-up.css"],
-      });
-    } catch (e) {
-      next(e);
-    }
-  }
-
   // [GET] /user/sign-in
   entry(req, res, next) {
     try {
@@ -57,7 +45,25 @@ class UserController {
 
         req.session.user = req.user;
 
-        res.json({ session: req.session });
+        res.render("home", {
+          title: "Homepage",
+          styles: ["home.css", "bootstrap_v5.css"],
+          isHome: true,
+          user: req.session.user,
+        });
+        // res.json({ session: req.session });
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  // [GET] /user/sign-up
+  create(req, res, next) {
+    try {
+      res.render("sign-up", {
+        title: "Sign Up",
+        styles: ["sign-up.css"],
       });
     } catch (e) {
       next(e);
@@ -88,6 +94,18 @@ class UserController {
     } catch (error) {
       next(error);
     }
+  }
+
+  quit(req, res, next) {
+    req.session.user = null;
+    req.session.save(function (err) {
+      if (err) next(err);
+
+      req.session.destroy(function (err) {
+        if (err) next(err);
+        res.redirect("/");
+      });
+    });
   }
 }
 

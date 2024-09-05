@@ -88,15 +88,32 @@ a {
 .navbar__menu {
   list-style: none;
   display: flex;
+  align-items: center;
+
+  .account-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 
   .navbar__item {
     + {
       .navbar__item {
-        margin-left: 1.5rem;
+        margin-left: 1rem;
       }
     }
 
+    .navbar__avatar {
+      height: 32px;
+      width: 32px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-right: 3px;
+    }
+
     .navbar__link {
+      align-self: center;
       text-decoration: none;
       color: $color_2;
       font-size: 95%;
@@ -211,7 +228,7 @@ a {
     padding-bottom: 1em;
     text-align: center;
 
-    > .navbar__logo-text {
+    > .navbar__logo-text a {
       color: $color_4;
     }
   }
@@ -316,7 +333,7 @@ a {
   }
 }
 
-.signup {
+.action-cta {
   background-color: $background-color_10;
   padding: 10px 20px;
   border-radius: 5px;
