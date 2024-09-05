@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: modify folder js folder name and apply scripts inside `hbs` file">
-      <change afterPath="$PROJECT_DIR$/src/resources/views/partials/headTag.hbs" afterDir="false" />
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: adding scripts for rendering in `main` layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/HomeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/support/about-us.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/about-us.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/support/faq.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/faq.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/support/pricing-plan.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/support/pricing-plan.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +247,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725468307564</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor: modify coding format and comments">
+      <option name="closed" value="true" />
+      <created>1725469975170</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725469975170</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add: adding headTag views for contents in `&lt;head&gt;`">
+      <option name="closed" value="true" />
+      <created>1725470002222</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470002222</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`">
+      <option name="closed" value="true" />
+      <created>1725470090408</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470090408</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add: adding scripts for rendering in `main` layout">
+      <option name="closed" value="true" />
+      <created>1725470128423</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470128423</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +317,10 @@
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
     <MESSAGE value="add: handle login with `GUEST` accountType" />
     <MESSAGE value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
+    <MESSAGE value="refactor: modify coding format and comments" />
+    <MESSAGE value="add: adding headTag views for contents in `&lt;head&gt;`" />
+    <MESSAGE value="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`" />
+    <MESSAGE value="add: adding scripts for rendering in `main` layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: adding scripts for rendering in `main` layout" />
   </component>
 </project>

@@ -182,7 +182,8 @@ main {
   justify-content: center;
   padding: 24px 0;
   background-color: $background-color_4;
-  margin-bottom: 15px;
+  //margin-bottom: 15px;
+  margin: 15px 0;
 
   p {
     font-size: 20px !important;
@@ -239,8 +240,8 @@ main {
 
 .instructor-content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
 .instructor-box {
@@ -252,7 +253,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   transition: box-shadow 0.3s ease;
   min-width: 150px;
 
