@@ -10,6 +10,17 @@ class InstructorController {
       next(e);
     }
   }
+
+  edit(req, res, next) {
+    try {
+      res.render("instructor/edit", {
+        title: "Edit Profile",
+        styles: ["instructor-edit-profile.css"],
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
 }
 
 module.exports = new InstructorController();

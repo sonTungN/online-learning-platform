@@ -21,3 +21,15 @@ npm install
 npm i express express-handlebars mongoose bcrypt connect-mongo multer
 npm i node-mon sass --save-dev
 ```
+
+## To start the server
+
+```
+npm start
+```
+
+then on other terminal
+
+```
+npm run watch
+```

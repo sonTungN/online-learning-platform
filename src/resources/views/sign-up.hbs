@@ -85,7 +85,12 @@
 
         <div class="form-group">
           <label for="address">Address</label>
-          <input id="address" name="address" type="text"/>
+          <input
+              id="address"
+              name="address"
+              onblur="validateAddress()"
+              type="text"
+          />
         </div>
 
         <div class="form-group">
@@ -718,6 +723,7 @@
                   name="accountType"
                   type="radio"
                   value="LEARNER"
+                  checked
               />
               <label for="learner">Learner</label>
             </div>
@@ -748,10 +754,10 @@
           <div class="form-group">
             <label for="specialization">Specialization</label>
             <select id="specialization" multiple name="specialization[]">
-              <option value="wildernessSurvival" selected>Wilderness Survival</option>
-              <option value="knotsLashings">Knots and Lashings</option>
+              <option value="Wilderness Survival" selected>Wilderness Survival</option>
+              <option value="Knots and Lashings">Knots and Lashings</option>
               <option value="STEM">STEM</option>
-              <option value="teamworkLeadership">Teamwork and Leadership</option>
+              <option value="Teamwork and Leadership">Teamwork and Leadership</option>
             </select>
           </div>
         </div>
@@ -790,6 +796,7 @@
   // Form submission
   document.getElementById("registrationForm")
       .addEventListener("submit", function (e) {
+        e.preventDefault();
 
         let isSubmittable =
             validateEmail() &&
@@ -799,6 +806,7 @@
             validateFirstName() &&
             validateLastName() &&
             validateCity() &&
+            validateAddress() &&
             validateZipcode() &&
             validateSchoolName() &&
             validateJobTitle();
@@ -810,8 +818,6 @@
             this.action = `/user/${encodedEmail}/store`;
           }
           this.submit();
-        } else {
-          e.preventDefault();
         }
       });
 
@@ -908,6 +914,18 @@
     }
   }
 
+  // Required
+  function validateAddress() {
+    const lastName = document.getElementById("address");
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Address is required");
+      return false;
+    } else {
+      clearError(lastName);
+      return true;
+    }
+  }
+
   // Required from 4 - 6 digits
   function validateZipcode() {
     const zipcode = document.getElementById("zipcode");
@@ -953,7 +971,7 @@
     const jobTitle = document.getElementById("jobTitle");
     const accountType = document.querySelector('input[name="accountType"]:checked').value;
     if (jobTitle.value.trim() === "" && accountType === "INSTRUCTOR") {
-      showError(jobTitle, "Job Title is required");
+      showError(jobTitle, "Job title is required");
       return false;
     } else {
       clearError(jobTitle);

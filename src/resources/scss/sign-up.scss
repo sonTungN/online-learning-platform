@@ -99,7 +99,7 @@ button[type="submit"] {
   cursor: pointer;
 
   &:hover {
-    background: lighten($background-color_3, 50%);
+    background: lighten($background-color_3, 30%);
   }
 }
 
@@ -130,19 +130,6 @@ button[type="submit"] {
 
 #instructorFields {
   display: none;
-}
-
-button[type="submit"] {
-  background: $background-color_3;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background: lighten($background-color_3, 30%);
-  }
 }
 
 .login-link {

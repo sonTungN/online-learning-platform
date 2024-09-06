@@ -1,0 +1,252 @@
+<main class="instructor-edit-profile">
+  <div class="container">
+    <div class="instructor-edit-profile__image-section">
+      <img src="/assets/uploads/default.png" alt="Profile Image" class="instructor-edit-profile__avatar">
+      <div class="instructor-edit-profile__brief">
+        <div class="instructor-edit-profile__name">Tung Nguyen</div>
+        <div class="instructor-edit-profile__accountType">INSTRUCTOR</div>
+      </div>
+    </div>
+
+    <div class="instructor-edit-profile__profile-section">
+      <div class="instructor-edit-profile__profile-heading">
+        <h1 class="instructor-edit-profile__heading">Personal profile</h1>
+        <p class="instructor-edit-profile__desc">Add information about yourself</p>
+      </div>
+
+      <div class="instructor-edit-profile__form-section">
+        <form method="POST" id="instructorEditProfileForm" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+                id="firstName"
+                name="firstName"
+                value="Tung"
+                type="text"
+                onblur="validateFirstName()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+                id="lastName"
+                name="lastName"
+                value="Nguyen"
+                type="text"
+                onblur="validateLastName()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Brief Description</label>
+            <div id="bio" class="instructor-edit-profile__bio-box" contenteditable="true">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid beatae dolore odio optio!
+              Ab, adipisci alias architecto autem facere, facilis iure libero molestiae numquam pariatur rerum sunt
+              vitae. Accusantium aliquid aperiam architecto, atque blanditiis commodi dolore doloremque dolores, eveniet
+              explicabo fuga fugiat laudantium nihil praesentium quasi rerum vitae? Totam!
+            </div>
+          </div>
+          <input type="hidden" name="bioContent" id="bioContent">
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input
+                id="phone"
+                name="phone"
+                value="0123456789"
+                type="text"
+                onblur="validatePhone()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input
+                id="address"
+                name="address"
+                type="text"
+                value="1/2/3 Tran Van On, Quan 3"
+                onblur="validateAddress()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input
+                id="city"
+                name="city"
+                type="text"
+                value="Ho Chi Minh"
+                onblur="validateCity()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="schoolName">School Name</label>
+            <input
+                id="schoolName"
+                name="schoolName"
+                value="RMIT"
+                type="text"
+                onblur="validateSchoolName()"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input
+                id="jobTitle"
+                name="jobTitle"
+                value="None"
+                type="text"
+                onblur="validateJobTitle()"
+            />
+          </div>
+
+          <div class="form-group">
+            <button type="submit">
+              <strong>SAVE</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--About the bio, get the content through the input #bioContent-->
+<script>
+  // Form submission
+  document.getElementById("instructorEditProfileForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isSubmittable =
+            validatePhone() &&
+            validateFirstName() &&
+            validateLastName() &&
+            validateCity() &&
+            validateAddress() &&
+            validateSchoolName() &&
+            validateJobTitle();
+
+        if (isSubmittable) {
+          // EDIT ACTION ...
+          // ....
+          // this.submit();
+          console.log(this);
+        }
+      });
+
+  // At least 10 digits
+  function validatePhone() {
+    const phone = document.getElementById("phone");
+    const phonePattern = /^\d{10,}$/;
+    if (!phonePattern.test(phone.value.replace(/\D/g, ""))) {
+      showError(
+          phone,
+          "Please enter a valid phone number (at least 10 digits)",
+      );
+      return false;
+    } else {
+      clearError(phone);
+      return true;
+    }
+  }
+
+  // Required
+  function validateFirstName() {
+    const firstName = document.getElementById("firstName");
+    if (firstName.value.trim() === "") {
+      showError(firstName, "First name is required");
+      return false;
+    } else {
+      clearError(firstName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateLastName() {
+    const lastName = document.getElementById("lastName");
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Last name is required");
+      return false;
+    } else {
+      clearError(lastName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateAddress() {
+    const lastName = document.getElementById("address");
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Address is required");
+      return false;
+    } else {
+      clearError(lastName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateCity() {
+    const city = document.getElementById("city");
+    if (city.value.trim() === "") {
+      showError(city, "City is required");
+      return false;
+    } else {
+      clearError(city);
+      return true;
+    }
+  }
+
+  // Required
+  function validateSchoolName() {
+    const schoolName = document.getElementById("schoolName");
+    if (schoolName.value.trim() === "") {
+      showError(schoolName, "School name is required");
+      return false;
+    } else {
+      clearError(schoolName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateJobTitle() {
+    const jobTitle = document.getElementById("jobTitle");
+    if (jobTitle.value.trim() === "") {
+      showError(jobTitle, "Job title is required");
+      return false;
+    } else {
+      clearError(jobTitle);
+      return true;
+    }
+  }
+
+  // Error Message Display
+  function showError(input, message) {
+    const formGroup = input.closest(".form-group");
+    let errorMessage = formGroup.querySelector(".error-message");
+    if (!errorMessage) {
+      errorMessage = document.createElement("div");
+      errorMessage.className = "error-message";
+      formGroup.appendChild(errorMessage);
+    }
+    errorMessage.textContent = message;
+    input.classList.add("error");
+  }
+
+  // Error Message Clear
+  function clearError(input) {
+    const formGroup = input.closest(".form-group");
+    const errorMessage = formGroup.querySelector(".error-message");
+    if (errorMessage) {
+      errorMessage.remove();
+    }
+    input.classList.remove("error");
+  }
+</script>
