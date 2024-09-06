@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="chore: implement primitive design for Instructor Profile Page">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement `Instructor` profile views and fix nav-bar overwritten styles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ok.css" beforeDir="false" afterPath="$PROJECT_DIR$/ok.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/ok.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor-profile.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/home.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-in.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/sign-up.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-in.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/sign-up.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add: implement the UI design for sign-in" />
     <MESSAGE value="chore: refactor file name" />
     <MESSAGE value="add. refactor file name" />
     <MESSAGE value="chore: refactor and update db config `connect` function" />
@@ -369,6 +371,7 @@
     <MESSAGE value="add: setting multer config" />
     <MESSAGE value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
     <MESSAGE value="chore: implement primitive design for Instructor Profile Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: implement primitive design for Instructor Profile Page" />
+    <MESSAGE value="add: implement `Instructor` profile views and fix nav-bar overwritten styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement `Instructor` profile views and fix nav-bar overwritten styles" />
   </component>
 </project>
