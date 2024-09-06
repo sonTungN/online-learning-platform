@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="chore: implement primitive design for Instructor Profile Page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ok.css" beforeDir="false" afterPath="$PROJECT_DIR$/ok.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/ok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -53,10 +58,10 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "intructorProfile",
+    "git-widget-placeholder": "instructorProfile",
     "javascript.nodejs.core.library.configured.version": "20.15.1",
     "javascript.nodejs.core.library.typings.version": "20.15.0",
-    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/resources/views/instructor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +77,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/views/instructor" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/public/assets/img" />
     </key>
@@ -312,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725532230346</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="chore: implement primitive design for Instructor Profile Page">
+      <option name="closed" value="true" />
+      <created>1725570118850</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725570118851</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +344,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remove: delete `node.module` package" />
     <MESSAGE value="add: implement the UI design for sign-in" />
     <MESSAGE value="chore: refactor file name" />
     <MESSAGE value="add. refactor file name" />
@@ -355,6 +368,7 @@
     <MESSAGE value="add: using `multer` to store the profile image path" />
     <MESSAGE value="add: setting multer config" />
     <MESSAGE value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
+    <MESSAGE value="chore: implement primitive design for Instructor Profile Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: implement primitive design for Instructor Profile Page" />
   </component>
 </project>

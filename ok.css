@@ -20,13 +20,6 @@ body {
   /*font-family: Poppins, sans-serif;*/
 }
 
-/* COMMON */
-.container {
-  width: 1170px;
-  max-width: calc(100% - 48px);
-  margin: 0 auto;
-}
-
 /* INSTRUCTOR PROFILE*/
 .instructor-profile {
   margin-top: 40px;
@@ -150,6 +143,10 @@ body {
 }
 
 /* COURSES */
+.instructor-courses .courses-content {
+  width: 70%;
+}
+
 .instructor-courses .section-heading {
   width: 100%;
   margin-bottom: 10px;
@@ -157,7 +154,7 @@ body {
   font-weight: 700;
 }
 
-.course-card {
+.courses-content .course-card {
   margin-bottom: 20px;
   padding: 5px;
   border: 1px solid #cc9544;
@@ -171,7 +168,7 @@ body {
   }
 }
 
-.course-title {
+.courses-content .course-card .course-title {
   margin: 0;
   padding: 0;
   font-size: 1.6rem;
@@ -179,7 +176,7 @@ body {
   color: #333;
 }
 
-.course-category {
+.courses-content .course-card .course-category {
   width: fit-content;
   margin-bottom: 10px;
   padding: 4px;
@@ -190,7 +187,7 @@ body {
   color: #6b240cff;
 }
 
-.course-price {
+.courses-content .course-card .course-price {
   margin: 0;
   padding: 0;
   font-size: 1.8rem;
@@ -198,24 +195,62 @@ body {
   color: #ff5722ff;
 }
 
-.underline {
+.courses-content .course-card .underline {
   border-bottom: 1px #acb992 solid;
 }
 
-.course-time {
+.courses-content .course-card .course-time {
   margin: 5px 5px 0 0;
   font-size: 1rem;
   color: #888888ff;
   text-align: right;
 }
 
-@media (max-width: 820px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .btn {
     padding: 14px 24px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+
+  .instructor-profile .content-container {
+    flex-direction: column-reverse;
+  }
+
+  .content-container .details-content,
+  .content-container .details-display {
+    width: 100%;
+  }
+
+  .content-container .details-display {
+    align-items: flex-start;
+  }
+
+  .details-display .instructor-action {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .details-display .instructor-action .action-cta .action-btn {
+    min-width: 150px;
+    height: 45px;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .details-display .instructor-action .action-cta .action-btn:hover {
+    min-width: 170px;
+    height: 48px;
+  }
+
+  .instructor-courses .courses-content {
+    width: 100%;
+  }
+
   .course-image {
     margin-right: 0;
     margin-bottom: 10px;
