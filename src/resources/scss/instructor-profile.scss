@@ -10,9 +10,10 @@ html {
 }
 
 body {
+  font-family: $font-family_1;
   font-size: 1.6rem;
   line-height: 1.4;
-  background-color: $background-color_1;
+  background: $background-color_1;
 }
 
 a {

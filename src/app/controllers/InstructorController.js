@@ -21,6 +21,17 @@ class InstructorController {
       next(e);
     }
   }
+
+  view(req, res, next) {
+    try {
+      res.render("instructor/view-courses", {
+        title: "My Courses",
+        styles: ["instructor/view-courses.css", "bootstrap_v5.css"],
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
 }
 
 module.exports = new InstructorController();
