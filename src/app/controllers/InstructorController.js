@@ -4,7 +4,7 @@ class InstructorController {
     try {
       res.render("instructor/profile", {
         title: "Instructor Profile",
-        styles: ["instructor-profile.css", "bootstrap_v5.css"],
+        styles: ["instructor/profile.css", "bootstrap_v5.css"],
       });
     } catch (e) {
       next(e);
@@ -13,9 +13,9 @@ class InstructorController {
 
   edit(req, res, next) {
     try {
-      res.render("instructor/edit", {
+      res.render("instructor/edit-profile", {
         title: "Edit Profile",
-        styles: ["instructor-edit-profile.css"],
+        styles: ["instructor/edit-profile.css"],
       });
     } catch (e) {
       next(e);
@@ -24,9 +24,20 @@ class InstructorController {
 
   view(req, res, next) {
     try {
-      res.render("instructor/view-courses", {
+      res.render("instructor/courses", {
         title: "My Courses",
-        styles: ["instructor/view-courses.css", "bootstrap_v5.css"],
+        styles: ["instructor/courses.css", "bootstrap_v5.css"],
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  add(req, res, next) {
+    try {
+      res.render("instructor/add-courses", {
+        title: "Add Course",
+        styles: ["instructor/add-courses.css"],
       });
     } catch (e) {
       next(e);
