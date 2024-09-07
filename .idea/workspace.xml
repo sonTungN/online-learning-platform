@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: handling instructor `VIEW` courses responsive for width &lt; 400px">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/InstructorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/InstructorController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor-edit-profile.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor-profile.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/view-courses.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/edit.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/profile.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/view-courses.hbs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/instructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/instructor.js" afterDir="false" />
-    </list>
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement instructor `add-course` views, and synchronize `edit-profile' with the `add-course` view" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -346,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725710386471</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="refactor: Re-arrange the instructor views into folder, and add `add` routes for instructor `add-courses`">
+      <option name="closed" value="true" />
+      <created>1725735930589</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1725735930589</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add: implement instructor `add-course` views, and synchronize `edit-profile' with the `add-course` view">
+      <option name="closed" value="true" />
+      <created>1725736087258</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725736087258</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,8 +369,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: refactor and update db config `connect` function" />
-    <MESSAGE value="add: implement sign-in UI design and styles" />
     <MESSAGE value="add: update sign-up UI design and styles" />
     <MESSAGE value="add: implement input validation for sign-in UI" />
     <MESSAGE value="add: handle store `User` with input data and hashed password" />
@@ -389,6 +392,8 @@
     <MESSAGE value="add: implement `Instructor` profile views and fix nav-bar overwritten styles" />
     <MESSAGE value="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`" />
     <MESSAGE value="fix: handling instructor `VIEW` courses responsive for width &lt; 400px" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: handling instructor `VIEW` courses responsive for width &lt; 400px" />
+    <MESSAGE value="refactor: Re-arrange the instructor views into folder, and add `add` routes for instructor `add-courses`" />
+    <MESSAGE value="add: implement instructor `add-course` views, and synchronize `edit-profile' with the `add-course` view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement instructor `add-course` views, and synchronize `edit-profile' with the `add-course` view" />
   </component>
 </project>
