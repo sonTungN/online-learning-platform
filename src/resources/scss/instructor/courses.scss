@@ -97,7 +97,6 @@ a {
   }
 
   .details {
-    //min-width: 400px;
     display: flex;
     align-items: center;
     gap: 25px;
@@ -133,6 +132,196 @@ a {
     }
   }
 }
+
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pop-up-notification-dialog__modal-content {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 20px 30px 20px 30px;
+  box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.10);
+  border-radius: 8px;
+  width: 440px;
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.21, 0.99);
+}
+
+.modal.active .pop-up-notification-dialog__modal-content {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation-name: slideIn;
+}
+
+.modal.active.slideOut .pop-up-notification-dialog__modal-content {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  animation-name: slideOut;
+
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.modal-header h2 {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: #4D4B4B;
+}
+.modal-message p {
+  margin: 0;
+  color: #5A5959;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150.023%; 
+  letter-spacing: 0.15px;
+}
+.pop-up-notification-dialog__modal-buttons {
+  display: flex;
+  justify-content: flex-end; /* Align the buttons to the right */
+  align-items: flex-end; /* Align them vertically at the bottom */
+  padding: 10px; /* Add padding if needed */
+  gap: 10px; /* Add space between the buttons */
+}
+#closeModal{
+  font-size: 40px;
+}
+.pop-up-notification-dialog__cancel-button, .pop-up-notification-dialog__delete-button {
+  border-radius: 20px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  height: 41px;
+  flex-shrink: 0;
+}
+.pop-up-notification-dialog__cancel-button {
+  width: 100px;
+  color: white;
+  background: gray;
+  margin-left: 20px;
+}
+.pop-up-notification-dialog__cancel-button:hover {
+  box-shadow: 0 6px 12px rgba(50, 50, 50, 0.4);
+}
+.pop-up-notification-dialog__delete-button {
+  width: 100px;
+  background: red;
+  color: #FFF;
+  box-shadow: 0px 5px 9px 0px rgba(127, 106, 255, 0.18);
+}
+.pop-up-notification-dialog__delete-button:hover {
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a5a5a5; 
+  padding: 0;
+  font-size: 40px;
+  margin: 0;
+  line-height: 0px;
+}
+.modal-header button:hover {
+  color: #4D4B4B;
+}
+
+@keyframes slideIn {
+  from {
+    top: 8%;
+    opacity: 0;
+  }
+  to {
+    top: 20%;
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    top: 20%;
+    opacity: 1;
+  }
+  to {
+    top: 5%;
+    opacity: 0;
+
+  }
+}
+
+.modal.active  {
+  opacity: 1;
+  animation-name: slideOuts;
+
+}
+.modal.active.slideIns {
+  opacity: 0;
+  animation-name: slideIns;
+
+}
+.modal-input input {
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  transition: border-color 0.3s; 
+}
+
+
+@keyframes slideIns {
+  from {
+    top: 50%;
+    opacity: 1;
+  }
+  to {
+    top: 55%;
+    opacity: 0;
+  }
+}
+
+@keyframes slideOuts {
+  from {
+    top: 55%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
 
 @media (min-width: 771px) and (max-width: 1000px) {
   .horizontal-displaying-courses-card-content {
