@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24,_14_15_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_8_24__14_15__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/InstructorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/InstructorController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor-profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/home.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/profile.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/instructor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/instructor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/view-courses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor/view-courses.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

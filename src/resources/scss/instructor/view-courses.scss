@@ -56,7 +56,7 @@ a {
 
 .horizontal-displaying-courses-card-thumb {
   width: 130px;
-  min-width: 100px;
+  //min-width: 100px;
   align-self: flex-start;
   margin-right: 20px;
 
@@ -97,7 +97,7 @@ a {
   }
 
   .details {
-    min-width: 400px;
+    //min-width: 400px;
     display: flex;
     align-items: center;
     gap: 25px;
@@ -164,7 +164,7 @@ a {
   }
 }
 
-@media (min-width: 400px) and (max-width: 770px) {
+@media (max-width: 770px) {
   .horizontal-displaying-courses-card {
     flex-direction: column;
     align-items: flex-start;
