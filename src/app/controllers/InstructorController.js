@@ -35,9 +35,9 @@ class InstructorController {
 
   add(req, res, next) {
     try {
-      res.render("instructor/add-courses", {
+      res.render("instructor/add-course", {
         title: "Add Course",
-        styles: ["instructor/add-courses.css"],
+        styles: ["instructor/add-course.css"],
       });
     } catch (e) {
       next(e);
