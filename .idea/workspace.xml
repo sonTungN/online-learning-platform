@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="change: change font size for description box in `edit-profile`">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/CourseController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/CourseController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/course/edit-course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/course/edit-course.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/add-course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor/add-course.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/edit-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor/edit-profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/add-course.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/add-course.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/course.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/course/course-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/course/course-profile.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,28 +49,28 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Node.js.CourseController.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "instructorProfile",
-    "javascript.nodejs.core.library.configured.version": "20.15.1",
-    "javascript.nodejs.core.library.typings.version": "20.15.0",
-    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/app/controllers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Node.js.CourseController.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;instructorProfile&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.15.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.15.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/src/app/controllers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/node_modules/prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/controllers" />

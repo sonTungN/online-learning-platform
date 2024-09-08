@@ -110,16 +110,18 @@ a {
 
   .course-profile__stats-row {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
     border-bottom: 2px solid $color_4;
     gap: 30px;
+    max-width: 325px;
 
     .course-profile__stats-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 200px;
+      max-width: 150px;
       width: fit-content;
       text-align: center;
 
