@@ -110,18 +110,16 @@ a {
 
   .course-profile__stats-row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
+    justify-content: space-around;
+    padding: 10px 0;
     border-bottom: 2px solid $color_4;
     gap: 30px;
-    max-width: 325px;
 
     .course-profile__stats-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 150px;
+      max-width: 180px;
       width: fit-content;
       text-align: center;
 
@@ -166,7 +164,7 @@ a {
       .action-btn {
         max-width: 100%;
         width: 100%;
-        min-width: 180px;
+        min-width: 130px;
         height: 48px;
         display: inline-flex;
         align-items: center;
@@ -280,9 +278,13 @@ a {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  .btn {
-    padding: 14px 24px;
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .course-profile {
+    .course-profile__details-display {
+      .course-profile__stats-row {
+        gap: 20px;
+      }
+    }
   }
 }
 
@@ -307,17 +309,21 @@ a {
 
           .course-profile__details-display {
             .course-profile__course-thumb {
-              max-width: calc(100% - 100px);
+              max-width: 360px;
               height: 200px;
             }
 
-            .course-profile__course-price {
-              //padding: 10px 0;
-              //text-align: center;
+            .course-profile__stats-row {
+              gap: 40px;
             }
 
             .course-profile__course-action {
-              //flex-direction: row;
+              flex-direction: row;
+              gap: 10px;
+
+              .course-profile__action-cta {
+                padding: 0;
+              }
             }
           }
 
@@ -381,40 +387,20 @@ a {
         width: 100%;
       }
     }
-
-    .details-display {
-      align-items: flex-start;
-    }
-  }
-
-  .details-display {
-    .instructor-action {
-      flex-direction: row;
-      gap: 5px;
-
-      .profile-action-cta .action-btn {
-        min-width: 150px;
-        height: 45px;
-        font-size: 1.4rem;
-        font-weight: 700;
-
-        &:hover {
-          min-width: 170px;
-          height: 48px;
-        }
-      }
-    }
-  }
-
-  .instructor-courses .courses-content {
-    width: 100%;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .course-profile {
     .course-profile__box-type {
       display: block !important;
+    }
+
+    .course-profile__details-display {
+      .course-profile__course-action {
+        flex-direction: column !important;
+        gap: 0 !important;
+      }
     }
   }
 }
