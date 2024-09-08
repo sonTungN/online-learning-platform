@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`">
-      <change beforePath="$PROJECT_DIR$/.idea/online-learning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online-learning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/view-courses.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor/view-courses.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/view-courses.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/view-courses.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/courses.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/courses.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/view-courses.hbs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="profile3" />
+        <entry key="$PROJECT_DIR$" value="popup" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
