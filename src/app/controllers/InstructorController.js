@@ -1,5 +1,5 @@
 class InstructorController {
-  // [GET] /profile
+  // [GET] /instructor/profile
   profile(req, res, next) {
     try {
       res.render("instructor/profile", {
@@ -11,6 +11,7 @@ class InstructorController {
     }
   }
 
+  // [GET] /instructor/edit-profile
   edit(req, res, next) {
     try {
       res.render("instructor/edit-profile", {
@@ -22,6 +23,7 @@ class InstructorController {
     }
   }
 
+  // [GET] /instructor/courses
   view(req, res, next) {
     try {
       res.render("instructor/courses", {
@@ -33,6 +35,7 @@ class InstructorController {
     }
   }
 
+  // [GET] /instructor/add-course
   add(req, res, next) {
     try {
       res.render("instructor/add-course", {
