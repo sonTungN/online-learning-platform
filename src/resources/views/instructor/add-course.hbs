@@ -49,29 +49,6 @@
           </div>
           <input type="hidden" name="descContent" id="descContent">
 
-          <!--<div class="form-group">-->
-          <!--  <label for="courseImg">Course Image</label>-->
-          <!--  <div id="uploaded-image-preview"></div>-->
-          <!--  <input-->
-          <!--      accept="image/*"-->
-          <!--      id="courseImg"-->
-          <!--      name="courseImg"-->
-          <!--      type="file"-->
-          <!--      onblur="validateImage()"-->
-          <!--      onchange="validateImage()"-->
-          <!--  />-->
-          <!--</div>-->
-
-          <!--<div class="form-group">-->
-          <!--  <label for="level">Course Level</label>-->
-          <!--  <select name="level" id="level" onblur="validateLevel()">-->
-          <!--    <option value="-1" disabled selected>-- Select Level --</option>-->
-          <!--    <option value="Beginner">Beginner</option>-->
-          <!--    <option value="Intermediate">Intermediate</option>-->
-          <!--    <option value="Expert">Expert</option>-->
-          <!--  </select>-->
-          <!--</div>-->
-
           <div class="form-group">
             <label for="category">Course Category</label>
             <select name="category" id="category" onblur="validateCategory()">
@@ -82,21 +59,6 @@
               <option value="Teamwork and Leadership">Teamwork and Leadership</option>
             </select>
           </div>
-
-          <!--<div class="form-group">-->
-          <!--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon-dollar-sign">-->
-          <!--    <path-->
-          <!--        d="M160 0c17.7 0 32 14.3 32 32l0 35.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11l0 33.4c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-34.9c-.4-.1-.9-.1-1.3-.2l-.2 0s0 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.1-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7s0 0 0 0C119.4 279.3 84.4 270 58.4 253c-14.2-9.3-27.5-22-35.8-39.6c-8.4-17.9-10.1-37.9-6.1-59.2C23.7 116 52.3 91.2 84.8 78.3c13.3-5.3 27.9-8.9 43.2-11L128 32c0-17.7 14.3-32 32-32z"/>-->
-          <!--  </svg>-->
-          <!--  <label for="price">Course Price </label>-->
-          <!--  <input-->
-          <!--      id="price"-->
-          <!--      name="price"-->
-          <!--      value="53.00"-->
-          <!--      type="text"-->
-          <!--      onblur="validatePrice()"-->
-          <!--  />-->
-          <!--</div>-->
 
           <div class="form-group">
             <button type="submit">
@@ -109,33 +71,6 @@
   </div>
 </main>
 
-<script>
-  document.getElementById("courseImg").addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const imagePreview = document.getElementById("uploaded-image-preview");
-        imagePreview.innerHTML = "";
-
-        const img = document.createElement("img");
-        img.src = e.target.result;
-        img.alt = "Preview";
-        img.style.maxWidth = "200px";
-        img.style.maxHeight = "180px";
-        img.style.marginBottom = "10px";
-        img.style.border = "1px solid #4e4b51";
-        img.style.objectFit = "cover";
-
-        imagePreview.appendChild(img);
-      }
-
-      reader.readAsDataURL(file);
-    }
-  });
-</script>
-
 <!--About the desc, get the content through the input #descContent-->
 <script>
   // Form submission
@@ -145,10 +80,7 @@
 
         let isSubmittable =
             validateTitle() &&
-            validateImage() &&
-            validateLevel() &&
-            validateCategory() &&
-            validatePrice();
+            validateCategory();
 
         if (isSubmittable) {
           // EDIT ACTION ...
@@ -171,30 +103,6 @@
   }
 
   // Required
-  function validateImage() {
-    const image = document.getElementById("courseImg");
-    if (image.files.length === 0) {
-      showError(image, "Course image is required");
-      return false;
-    } else {
-      clearError(image);
-      return true;
-    }
-  }
-
-  // Required
-  function validateLevel() {
-    const level = document.getElementById("level");
-    if (level.value === "-1") {
-      showError(level, "Please select a course level");
-      return false;
-    } else {
-      clearError(level);
-      return true;
-    }
-  }
-
-  // Required
   function validateCategory() {
     const category = document.getElementById("category");
     if (category.value === "-1") {
@@ -202,20 +110,6 @@
       return false;
     } else {
       clearError(category);
-      return true;
-    }
-  }
-
-  // Required and Check Float
-  function validatePrice() {
-    const price = document.getElementById("price");
-    const priceRegex = /^\d+(\.\d{1,2})?$/;
-
-    if (price.value.trim() === "" || !priceRegex.test(price.value)) {
-      showError(price, "Please enter a valid price (e.g., 10 or 10.99).");
-      return false;
-    } else {
-      clearError(price);
       return true;
     }
   }

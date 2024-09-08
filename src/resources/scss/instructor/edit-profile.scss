@@ -252,5 +252,17 @@ a {
     .instructor-edit-profile__name {
       margin-bottom: 10px;
     }
+
+    .instructor-edit-profile__profile-section {
+      .instructor-edit-profile__profile-heading {
+        .instructor-edit-profile__heading {
+          font-size: 2.4rem;
+        }
+
+        .instructor-edit-profile__desc {
+          font-size: 1.6rem;
+        }
+      }
+    }
   }
 }
