@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`">
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/courses.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/courses.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/view-courses.hbs" beforeDir="false" />
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: handle the dialog slideOut with delete confirmation button">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/instructor/add-course.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/instructor/add-course.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/instructor/add-course.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/instructor/add-course.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725652099083</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fix: handle the dialog slideOut with delete confirmation button">
+      <option name="closed" value="true" />
+      <created>1725780695129</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1725780695129</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,9 +357,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add. refactor file name" />
-    <MESSAGE value="chore: refactor and update db config `connect` function" />
-    <MESSAGE value="add: implement sign-in UI design and styles" />
     <MESSAGE value="add: update sign-up UI design and styles" />
     <MESSAGE value="add: implement input validation for sign-in UI" />
     <MESSAGE value="add: handle store `User` with input data and hashed password" />
@@ -372,6 +379,9 @@
     <MESSAGE value="chore: implement primitive design for Instructor Profile Page" />
     <MESSAGE value="add: implement `Instructor` profile views and fix nav-bar overwritten styles" />
     <MESSAGE value="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`" />
+    <MESSAGE value="add: implement instructor `add-course` views, and synchronize `edit-profile` with the `add-course` view" />
+    <MESSAGE value="add: implement instructor `add-course` views, and synchronize `edit-profile` with the `add-course` view" />
+    <MESSAGE value="fix: handle the dialog slideOut with delete confirmation button" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: handle the dialog slideOut with delete confirmation button" />
   </component>
 </project>
