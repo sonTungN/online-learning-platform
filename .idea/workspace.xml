@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement cart on nav-bar and add button for course-profile">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: fix typo error in order-placement">
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/course/course-profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/course/course-profile.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +123,7 @@
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
       <workItem from="1725444141445" duration="3000" />
-      <workItem from="1725827867194" duration="25655000" />
+      <workItem from="1725827867194" duration="25976000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -373,7 +373,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725867883869</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="add: implement `CART` order-placement for learners with basic routes and controller.">
+      <option name="closed" value="true" />
+      <created>1725890488688</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890488688</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: fix typo error in order-placement">
+      <option name="closed" value="true" />
+      <created>1725890574885</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890574885</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,8 +407,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add: implement `session` for user with primitive config" />
-    <MESSAGE value="chore: change enum format in model" />
     <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
     <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
@@ -416,6 +430,8 @@
     <MESSAGE value="add: implement course `edit-course` with comprehensive inputs, and remove some in `add-course` views" />
     <MESSAGE value="change: change font size for description box in `edit-profile`" />
     <MESSAGE value="add: implement cart on nav-bar and add button for course-profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: implement cart on nav-bar and add button for course-profile" />
+    <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
+    <MESSAGE value="fix: fix typo error in order-placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fix typo error in order-placement" />
   </component>
 </project>
