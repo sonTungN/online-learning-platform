@@ -54,13 +54,25 @@
     </li>
 
     {{#if user}}
-      <li class="navbar__item navbar__account">
-        <a href="#">
-          <img src="{{user.displayImg}}" alt="ProfileImg" class="navbar__avatar">
-        </a>
-        <a class="navbar__link navbar__name" href="#">{{user.displayName}}</a>
+      <li class="navbar__item">
+        <div class="navbar__link">
+          <a class="navbar__link-container" href="#">
+            <span class="navbar__link-title">Cart</span>
+            <i class="fa fa-shopping-cart navbar__cart-icon">
+              <span class="navbar__cart-qty">0</span>
+            </i>
+          </a>
+        </div>
       </li>
-      <li class="navbar__item navbar__account">
+      <li class="navbar__item">
+        <div class="navbar__link">
+          <a class="navbar__link-container" href="#">
+            <img src="{{user.displayImg}}" alt="ProfileImg" class="navbar__avatar">
+            <span class="navbar__link-title" href="#">{{user.displayName}}</span>
+          </a>
+        </div>
+      </li>
+      <li class="navbar__item">
         <a class="navbar__link logout-action-cta" href="/user/logout">Log Out</a>
       </li>
     {{else}}
@@ -156,6 +168,13 @@
         </a>
       </li>
       {{#if user}}
+        <li>
+          <a href="#">
+            <i class="ion-ios-cart-outline"></i>
+            <span>My Cart</span>
+          </a>
+        </li>
+
         <li>
           <a href="#">
             <i class="ion-person"></i>
