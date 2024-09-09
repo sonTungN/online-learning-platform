@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: fix typo error in order-placement">
-      <change beforePath="$PROJECT_DIR$/src/resources/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/course/course-profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/course/course-profile.hbs" afterDir="false" />
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="change: use new font in `variables and `fix price font-family in all views">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controllers/LearnerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/LearnerController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/learner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/learner.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,28 +50,29 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Node.js.CourseController.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;instructorProfile&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.15.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.15.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/nguyensontung/Desktop/online-learning/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.CourseController.js.executor": "Run",
+    "Node.js.LearnerController.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "instructorProfile",
+    "javascript.nodejs.core.library.configured.version": "20.15.1",
+    "javascript.nodejs.core.library.typings.version": "20.15.0",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/public/assets/thumbs" />
@@ -123,7 +125,7 @@
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
       <workItem from="1725444141445" duration="3000" />
-      <workItem from="1725827867194" duration="25976000" />
+      <workItem from="1725827867194" duration="33416000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -389,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725890574885</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="change: use new font in `variables and `fix price font-family in all views">
+      <option name="closed" value="true" />
+      <created>1725890996035</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890996035</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
     <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
     <MESSAGE value="add: handle login with `GUEST` accountType" />
@@ -432,6 +441,7 @@
     <MESSAGE value="add: implement cart on nav-bar and add button for course-profile" />
     <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
     <MESSAGE value="fix: fix typo error in order-placement" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: fix typo error in order-placement" />
+    <MESSAGE value="change: use new font in `variables and `fix price font-family in all views" />
+    <option name="LAST_COMMIT_MESSAGE" value="change: use new font in `variables and `fix price font-family in all views" />
   </component>
 </project>
