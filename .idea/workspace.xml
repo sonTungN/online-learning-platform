@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: fix typo error in order-placement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/reset.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +61,26 @@
     "Node.js.LearnerController.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "instructorProfile",
+    "javascript.nodejs.core.library.configured.version": "20.15.1",
+    "javascript.nodejs.core.library.typings.version": "20.15.0",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.CourseController.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "navBarInInstructorProfile",
     "javascript.nodejs.core.library.configured.version": "20.15.1",
     "javascript.nodejs.core.library.typings.version": "20.15.0",
     "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs",
@@ -126,6 +150,7 @@
       <workItem from="1725008395371" duration="27753000" />
       <workItem from="1725444141445" duration="3000" />
       <workItem from="1725827867194" duration="35901000" />
+      <workItem from="1725827867194" duration="25976000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -408,6 +433,23 @@
       <updated>1725904368704</updated>
     </task>
     <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00034" summary="add: implement `CART` order-placement for learners with basic routes and controller.">
+      <option name="closed" value="true" />
+      <created>1725890488688</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890488688</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: fix typo error in order-placement">
+      <option name="closed" value="true" />
+      <created>1725890574885</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890574885</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +467,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
+    <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
     <MESSAGE value="add: handle login with `GUEST` accountType" />
     <MESSAGE value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
@@ -451,5 +495,8 @@
     <MESSAGE value="change: use new font in `variables and `fix price font-family in all views" />
     <MESSAGE value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
     <option name="LAST_COMMIT_MESSAGE" value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
+    <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
+    <MESSAGE value="fix: fix typo error in order-placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fix typo error in order-placement" />
   </component>
 </project>

@@ -52,6 +52,8 @@ body {
   font-family: $font-family_1;
   font-size: 1.6rem;
   line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
@@ -60,10 +62,12 @@ body {
   align-items: center;
   border-radius: 5px;
   padding: 5px 50px;
+  margin-bottom: 4px;
   background-color: $background-color_1;
   box-shadow:
-    rgba(50, 50, 93, 0.25) 0 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    rgba(50, 50, 93, 0.25) 5px 5px 10px -3px,
+    rgba(0, 0, 0, 0.2) 10px 10px 15px -5px,
+    rgba(0, 0, 0, 0.1) 15px 15px 20px -10px;
 }
 
 .navbar__logo {
@@ -95,6 +99,7 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
+  height: 44px;
 
   .navbar__item {
     + {
