@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="change: use new font in `variables and `fix price font-family in all views">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/LearnerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/LearnerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/learner.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/learner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,7 @@
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
       <workItem from="1725444141445" duration="3000" />
-      <workItem from="1725827867194" duration="33416000" />
+      <workItem from="1725827867194" duration="35901000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -399,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725890996035</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers">
+      <option name="closed" value="true" />
+      <created>1725904368704</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1725904368704</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
     <MESSAGE value="add: handle login with `GUEST` accountType" />
     <MESSAGE value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
@@ -442,6 +449,7 @@
     <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
     <MESSAGE value="fix: fix typo error in order-placement" />
     <MESSAGE value="change: use new font in `variables and `fix price font-family in all views" />
-    <option name="LAST_COMMIT_MESSAGE" value="change: use new font in `variables and `fix price font-family in all views" />
+    <MESSAGE value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
   </component>
 </project>
