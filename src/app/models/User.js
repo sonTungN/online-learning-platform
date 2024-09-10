@@ -53,6 +53,8 @@ const User = new Schema({
       return this.accountType === "INSTRUCTOR";
     },
   },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
 });
 
 module.exports = mongoose.model("User", User);

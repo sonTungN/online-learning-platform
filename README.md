@@ -20,6 +20,9 @@ rm -rf node_modules package-lock.json
 npm install
 npm i express express-handlebars mongoose bcrypt connect-mongo multer
 npm i node-mon sass --save-dev
+npm i nodemailer
+npm install bcrypt
+
 ```
 
 ## To start the server

@@ -20,4 +20,17 @@ router.post("/:email/auth", authenticate, userController.auth);
 
 router.get("/logout", userController.quit);
 
+
+// [GET] /forgot-password
+router.get("/forgot-password", userController.showForgotPassword);
+
+// [POST] /forgot-password
+router.post("/forgot-password", userController.forgotPassword);
+
+// [GET] /reset/:token
+router.get("/reset/:token", userController.showResetPassword);
+
+// [POST] /reset/:token
+router.post("/reset/:token", userController.resetPassword);
+
 module.exports = router;
