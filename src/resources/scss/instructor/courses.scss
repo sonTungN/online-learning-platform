@@ -13,29 +13,38 @@ body {
   font-family: $font-family_1;
   font-size: 1.6rem;
   line-height: 1.4;
-  background: $background-color_1;
+  background: $color-black-00;
 }
 
 a {
   text-decoration: none;
 }
 
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 2);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 // HEADING
 .instructor-view-courses {
   .instructor-view-courses__header {
-    border-bottom: 1px solid $border-color;
+    padding: 50px 0 20px 0;
+    background: $color-black-80;
   }
 
   .instructor-view-courses__heading {
-    margin-top: 30px;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
+    color: $color-black-00;
   }
 
   .instructor-view-courses__desc {
-    margin: 15px 0;
+    margin-top: 15px;
     font-size: 1.8rem;
     font-weight: 500;
+    color: $color-black-00;
   }
 }
 
@@ -45,7 +54,7 @@ a {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $color-black-70;
   background-color: transparent;
   transition: box-shadow 0.3s ease;
 
@@ -56,7 +65,6 @@ a {
 
 .horizontal-displaying-courses-card-thumb {
   width: 130px;
-  //min-width: 100px;
   align-self: flex-start;
   margin-right: 20px;
 
@@ -82,7 +90,7 @@ a {
   .title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: $color_4;
+    color: $color-black-80;
   }
 
   .category {
@@ -90,10 +98,11 @@ a {
     width: fit-content;
     margin: 10px 0;
     padding: 6px;
-    background-color: #eceb98;
-    font-size: 1.4rem;
+    background-color: $color-yellow-10;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: $color_4;
+    color: $color-black-80;
+    text-transform: uppercase;
   }
 
   .details {
@@ -102,11 +111,16 @@ a {
     gap: 25px;
     margin-top: 5px;
     font-size: 1.6rem;
-    color: $color_4;
+    color: $color-black-80;
+
+    span {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
 
     .mr-3 {
       display: inline-block;
-      margin-right: 3px;
+      margin-right: 2px;
     }
   }
 }
@@ -115,9 +129,9 @@ a {
   .horizontal-displaying-courses-card-price {
     margin-right: 50px;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 900;
     font-family: $font-family_2;
-    color: $color_4;
+    color: $color-black-80;
   }
 
   .horizontal-displaying-courses-card-action {

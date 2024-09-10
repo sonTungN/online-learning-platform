@@ -13,7 +13,7 @@ body {
   font-family: $font-family_1;
   font-size: 1.6rem;
   line-height: 1.4;
-  background: $background-color_0;
+  background: $color-black-10;
 }
 
 a {
@@ -32,7 +32,7 @@ a {
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  background: $background-color_1;
+  background: $color-black-00;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -45,7 +45,7 @@ a {
   align-items: center;
   width: 20%;
 
-  border-right: 1px solid $input-color;
+  border-right: 1px solid $color-black-75;
 }
 
 // IMAGE SECTION
@@ -55,7 +55,7 @@ a {
   align-items: center;
   width: 100%;
   padding-bottom: 50px;
-  border-bottom: 1px solid $input-color;
+  border-bottom: 1px solid $color-black-75;
 
   .instructor-add-course__avatar {
     width: 150px;
@@ -80,7 +80,7 @@ a {
     line-height: 2.4;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid $input-color;
+    border: 1px solid $color-black-75;
   }
 }
 
@@ -88,15 +88,19 @@ a {
   width: 100%;
   position: relative;
 
-  .instructor-add-course__displayed-view__item {
+  .instructor-add-course__displayed-link {
     position: relative;
-    z-index: 1;
+    display: block;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: none;
     padding: 10px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-black-80;
     text-align: center;
     transition: 0.2s;
+    z-index: 1;
 
     &::before {
       content: "";
@@ -110,22 +114,13 @@ a {
       z-index: -1;
     }
 
-    .instructor-add-course__displayed-link {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: $color-4;
-    }
-
     &:hover {
-      background-color: lighten($background-color_3, 80%);
+      background-color: lighten($color-black-80, 75%);
     }
-  }
 
-  .instructor-add-course__displayed-view__item.current {
-    background-color: $background-color_3;
-
-    .instructor-add-course__displayed-link {
-      color: white;
+    &.current {
+      background-color: $background-color_3;
+      color: $color-black-00;
     }
   }
 }
@@ -136,7 +131,7 @@ a {
 }
 
 .instructor-add-course__profile-heading {
-  border-bottom: 1px solid $input-color;
+  border-bottom: 1px solid $color-black-75;
 }
 
 .instructor-add-course__heading,
@@ -176,7 +171,7 @@ a {
     select {
       width: 100%;
       padding: 10px;
-      border: 1px solid $input-color;
+      border: 1.5px solid $color-black-70;
       border-radius: 4px;
     }
 
@@ -185,7 +180,7 @@ a {
       max-height: 150px;
       padding: 10px;
       font-size: 1.4rem;
-      border: 1px solid $input-color;
+      border: 1px solid $color-black-70;
       border-radius: 4px;
       overflow-y: auto;
       outline: none;
@@ -196,12 +191,12 @@ a {
       margin-top: 2px;
       font-size: 0.8em;
       font-weight: 500;
-      color: $error-color;
+      color: $color-red-100;
     }
 
     input.error,
     select.error {
-      border-color: $error-color;
+      border-color: $color-red-100;
     }
 
     button[type="submit"] {
@@ -211,13 +206,13 @@ a {
       border-radius: 4px;
       margin-top: 30px;
       padding: 12px;
-      background: $background-color_3;
+      background: $color-black-90;
       font-size: 1.6rem;
-      color: $color_1;
+      color: $color-black-00;
       cursor: pointer;
 
       &:hover {
-        background: lighten($background-color_3, 30%);
+        background: lighten($color-black-90, 30%);
       }
     }
   }
@@ -241,7 +236,7 @@ a {
 
     .instructor-add-course__sidebar {
       border: none;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid $color-black-70;
     }
 
     .instructor-add-course__avatar {
