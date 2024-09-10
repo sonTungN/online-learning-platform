@@ -42,7 +42,7 @@ a {
 
 // HEADER
 .instructor-add-course__profile-header {
-  border-bottom: 1px solid $color-black-70;
+  border-bottom: 1px solid $color-black-75;
 
   .instructor-add-course__heading,
   .instructor-add-course__desc {
@@ -153,7 +153,7 @@ a {
   align-items: center;
   width: 30%;
 
-  border-left: 1px solid $input-color;
+  border-left: 1px solid $color-black-75;
 
   // IMAGE SECTION
   .instructor-add-course__image-section {
@@ -166,7 +166,7 @@ a {
       width: calc(100% - 20px);
       height: 240px;
       margin-top: 10px;
-      border: 2px solid $border-color;
+      border: 2px solid $color-black-70;
       object-fit: cover;
     }
   }
@@ -174,7 +174,7 @@ a {
   .instructor-add-course__category {
     max-width: 200px;
     width: 200px;
-    border: 1px solid $input-color;
+    border: 1px solid $color-black-75;
     margin: 20px 0;
     font-size: 1.4rem;
     font-weight: 600;
@@ -215,7 +215,7 @@ a {
 
     .instructor-add-course__side-pane {
       border: none;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid $color-black-70;
 
       .instructor-add-course__thumb {
         max-width: 300px;
