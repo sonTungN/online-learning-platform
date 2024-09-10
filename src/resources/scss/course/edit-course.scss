@@ -13,7 +13,7 @@ body {
   font-family: $font-family_1;
   font-size: 1.6rem;
   line-height: 1.4;
-  background: $background-color_0;
+  background: $color-black-10;
 }
 
 a {
@@ -34,7 +34,7 @@ a {
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  background: $background-color_1;
+  background: $color-black-00;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -42,7 +42,7 @@ a {
 
 // HEADER
 .instructor-add-course__profile-header {
-  border-bottom: 1px solid $input-color;
+  border-bottom: 1px solid $color-black-70;
 
   .instructor-add-course__heading,
   .instructor-add-course__desc {
@@ -88,7 +88,7 @@ a {
     select {
       width: 100%;
       padding: 10px;
-      border: 1px solid $input-color;
+      border: 1px solid $color-black-70;
       border-radius: 4px;
     }
 
@@ -108,7 +108,7 @@ a {
       max-height: 150px;
       padding: 10px;
       font-size: 1.4rem;
-      border: 1px solid $input-color;
+      border: 1px solid $color-black-70;
       border-radius: 4px;
       overflow-y: auto;
       outline: none;
@@ -119,12 +119,12 @@ a {
       margin-top: 2px;
       font-size: 0.8em;
       font-weight: 500;
-      color: $error-color;
+      color: $color-red-100;
     }
 
     input.error,
     select.error {
-      border-color: $error-color;
+      border-color: $color-red-100;
     }
 
     button[type="submit"] {
@@ -134,13 +134,13 @@ a {
       border-radius: 4px;
       margin-top: 30px;
       padding: 12px;
-      background: $background-color_3;
+      background: $color-black-90;
       font-size: 1.6rem;
-      color: $color_1;
+      color: $color-black-00;
       cursor: pointer;
 
       &:hover {
-        background: lighten($background-color_3, 30%);
+        background: lighten($color-black-90, 30%);
       }
     }
   }
@@ -166,7 +166,7 @@ a {
       width: calc(100% - 20px);
       height: 240px;
       margin-top: 10px;
-      border: 1px solid $border-color;
+      border: 2px solid $border-color;
       object-fit: cover;
     }
   }

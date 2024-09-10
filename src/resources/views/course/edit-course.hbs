@@ -32,7 +32,7 @@
 
           <div class="form-group">
             <label for="category">Course Category</label>
-            <select name="category" id="category" onblur="validateCategory()">
+            <select name="category" id="category" onchange="validateCategory()">
               <option value="-1" disabled selected>-- Select Category --</option>
               <option value="Wilderness Survival">Wilderness Survival</option>
               <option value="Knots and Lashings">Knots and Lashings</option>
@@ -43,7 +43,7 @@
 
           <div class="form-group">
             <label for="level">Course Level</label>
-            <select name="level" id="level" onblur="validateLevel()">
+            <select name="level" id="level" onchange="validateLevel()">
               <option value="-1" disabled selected>-- Select Level --</option>
               <option value="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
