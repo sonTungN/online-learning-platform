@@ -23,7 +23,7 @@
       </div>
 
       <div class="instructor-edit-profile__form-section">
-        <form method="POST" id="instructorEditProfileForm" enctype="multipart/form-data">
+        <form method="POST" id="instructorEditProfileForm" action="/instructor/edit-profile">
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input
@@ -139,7 +139,9 @@
   document.getElementById("instructorEditProfileForm")
       .addEventListener("submit", function (e) {
         e.preventDefault();
-
+    // Move the content from the `contenteditable` bio section to the hidden input
+    const bioContent = document.getElementById('bio').innerText.trim();
+    document.getElementById('bioContent').value = bioContent;
         let isSubmittable =
             validatePhone() &&
             validateFirstName() &&
@@ -150,10 +152,7 @@
             validateJobTitle();
 
         if (isSubmittable) {
-          // EDIT ACTION ...
-          // ....
-          // this.submit();
-          console.log(this);
+            this.submit()
         }
       });
 

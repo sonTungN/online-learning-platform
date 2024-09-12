@@ -5,6 +5,7 @@ class HomeController {
       title: "Homepage",
       styles: ["home.css", "bootstrap_v5.css"],
       isHome: true,
+      user: req.session.user,
     });
   }
 
@@ -14,6 +15,7 @@ class HomeController {
       title: "About Us",
       styles: ["about-us.css"],
       scripts: ["about-us.js"],
+      user: req.session.user,
     });
   }
 
@@ -22,6 +24,7 @@ class HomeController {
     res.render("support/pricing-plan", {
       title: "Pricing",
       styles: ["pricing-plan.css"],
+      user: req.session.user,
     });
   }
 
@@ -31,6 +34,7 @@ class HomeController {
       title: "FAQ",
       styles: ["faq.css"],
       scripts: ["faq.js"],
+      user: req.session.user,
     });
   }
 }

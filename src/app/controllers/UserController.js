@@ -10,6 +10,7 @@ class UserController {
       res.render("sign-in", {
         title: "Sign In",
         styles: ["sign-in.css"],
+        user: req.session.user,
       });
     } catch (e) {
       next(e);
@@ -44,13 +45,13 @@ class UserController {
         if (err) next(err);
 
         req.session.user = req.user;
-
         res.render("home", {
           title: "Homepage",
           styles: ["home.css", "bootstrap_v5.css"],
           isHome: true,
           user: req.session.user,
         });
+        res.redirect("/");
         // res.json({ session: req.session });
       });
     } catch (e) {
@@ -64,6 +65,7 @@ class UserController {
       res.render("sign-up", {
         title: "Sign Up",
         styles: ["sign-up.css"],
+        user: req.session.user,
       });
     } catch (e) {
       next(e);

@@ -22,6 +22,11 @@ const authenticate = async (req, res, next) => {
       email: matchedUserObj.email,
       displayName: matchedUserObj.firstName + " " + matchedUserObj.lastName,
       displayImg: matchedUserObj.profileImg,
+      accountType: matchedUserObj.accountType,
+      profileLink:
+        matchedUserObj.accountType === "LEARNER"
+          ? "/learner/profile"
+          : "/instructor/profile",
     };
     next();
   } catch (e) {
