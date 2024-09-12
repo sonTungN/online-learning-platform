@@ -5,7 +5,6 @@ const Course = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
     minlength: 5,
     maxlength: 50,
   },
@@ -23,6 +22,12 @@ const Course = new Schema({
 
   courseImg: { type: String, required: true },
   price: { type: Number, required: true, minlength: 2, maxlength: 15 },
+  // Add a reference to the User schema
+  user: {
+    type: Schema.Types.ObjectId, // The user's ObjectId
+    ref: "User", // Reference to the User model
+    required: true, // Course must be associated with a user
+  },
 });
 
 module.exports = mongoose.model("Course", Course);

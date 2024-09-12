@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../config/multer");
 
 const instructorController = require("../app/controllers/InstructorController");
-const { validateEditProfile } = require("../middlewares/validateEditProfile");
 const {
   preventUnauthenticated,
 } = require("../middlewares/check-authenticated");
-const { route } = require("./user");
 router.get("/profile", preventUnauthenticated, instructorController.profile);
 
 router.get("/courses", preventUnauthenticated, instructorController.view);
@@ -24,6 +23,7 @@ router.post(
 router.post(
   "/add-course",
   preventUnauthenticated,
+  upload.single("courseImg"),
   instructorController.addCourse
 );
 module.exports = router;

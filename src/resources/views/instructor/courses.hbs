@@ -9,112 +9,45 @@
   <div class="container">
     <div class="instructor-view-courses__courses-container">
       <!-- COURSE 1-->
+      {{#each courses}}
       <div class="row">
         <div class="col-12">
           <div class="horizontal-displaying-courses-card d-flex">
             <div class="horizontal-displaying-courses-card-thumb">
-              <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
+              <img src="{{courseImg}}" class="image" alt="Course IMG">
             </div>
             <div class="horizontal-displaying-courses-card-content">
               <div class="horizontal-displaying-courses-card-info">
-                <h2 class="title line-clamp">Investing In Stocks The Complete Course! Investing In Stocks The Complete Course!</h2>
+                <h2 class="title line-clamp">{{title}}</h2>
                 <div class="horizontal-displaying-courses-card-category">
-                  <span class="category">Wilderness Survival</span>
-                  <span class="category">Teamwork and Leadership</span>
-                  <span class="category">Knots and Lashing</span>
-                  <span class="category">STEM</span>
+                  <span class="category">{{category}}</span>
                 </div>
                 <div class="details">
-                  <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                  <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                  <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                  <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
+                  <span><i class="mr-3 fa fa-clock-o"></i> {{duration}}</span>
+                  <span><i class="mr-3 fa fa-signal"></i> {{level}}</span>
+                  <span><i class="mr-3 fa fa-heart"></i> {{likes}}</span>
+                  <span><i class="mr-3 fa fa-user"></i> {{students}}</span>
                 </div>
               </div>
               <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
+                ${{price}}
+              </span>
               <div class="horizontal-displaying-courses-card-action ml-3">
-                <button class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit</button>
-                <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Delete</button>
+                <a href="/course/edit-course/{{_id}}"><button class="btn btn-outline-primary"><i
+                      class="fa fa-pencil"></i> Edit</button></a>
+                <button class="btn btn-outline-danger deleteCourseButton" data-id="{{_id}}"><i class="fa fa-trash"></i>
+                  Delete</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {{/each}}
 
-      <!--COURSE 2-->
-      <div class="row">
-        <div class="col-12">
-          <div class="horizontal-displaying-courses-card d-flex">
-            <div class="horizontal-displaying-courses-card-thumb">
-              <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
-            </div>
-            <div class="horizontal-displaying-courses-card-content">
-              <div class="horizontal-displaying-courses-card-info">
-                <h2 class="title line-clamp">Investing In Stocks The Complete Course! Investing In Stocks The Complete Course!</h2>
-                <div class="horizontal-displaying-courses-card-category">
-                  <span class="category">Wilderness Survival</span>
-                  <span class="category">Teamwork and Leadership</span>
-                  <span class="category">Knots and Lashing</span>
-                  <span class="category">STEM</span>
-                </div>
-                <div class="details">
-                  <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                  <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                  <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                  <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
-                </div>
-              </div>
-              <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
-              <div class="horizontal-displaying-courses-card-action ml-3">
-                <button class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit</button>
-                <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <div class="horizontal-displaying-courses-card d-flex">
-            <div class="horizontal-displaying-courses-card-thumb">
-              <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
-            </div>
-            <div class="horizontal-displaying-courses-card-content">
-              <div class="horizontal-displaying-courses-card-info">
-                <h2 class="title line-clamp">Investing In Stocks The Complete Course! Investing In Stocks The Complete Course!</h2>
-                <div class="horizontal-displaying-courses-card-category">
-                  <span class="category">Wilderness Survival</span>
-                  <span class="category">Teamwork and Leadership</span>
-                  <span class="category">Knots and Lashing</span>
-                  <span class="category">STEM</span>
-                </div>
-                <div class="details">
-                  <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                  <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                  <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                  <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
-                </div>
-              </div>
-              <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
-              <div class="horizontal-displaying-courses-card-action ml-3">
-                <button class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Edit</button>
-                <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
-  <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
+  <form method="POST" class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
     <div class="pop-up-notification-dialog__modal-content">
       <div class="pop-up-notification-dialog__modal-header">
         <h2 class="pop-up-notification-dialog__modal-heading"><strong>Delete this course?</strong></h2>
@@ -124,10 +57,10 @@
       </div>
       <div class="pop-up-notification-dialog__modal-buttons">
         <button class="pop-up-notification-dialog__cancel-button" id="cancelConfirmButton">CANCEL</button>
-        <button class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">DELETE</button>
+        <button type="submit" class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">DELETE</button>
       </div>
     </div>
-  </div>
+  </form>
   <!-- Hidden form -->
   <form method="POST" name="deleteCourseForm"></form>
 </main>
@@ -139,22 +72,26 @@
   const deleteCourseModal = document.getElementById("deleteConfirmationModal");
   const cancelConfirmButton = document.getElementById("cancelConfirmButton");
   const deleteConfirmButton = document.getElementById("deleteConfirmButton");
-
+  let courseIdToDelete = null;
   deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+      // Get the course ID from the data-id attribute
+      courseIdToDelete = e.target.getAttribute("data-id");
+
+      // Set the form's action to the delete route for this course
+      deleteCourseModal.setAttribute("action", `/course/${courseIdToDelete}?_method=DELETE`);
+
+      // Show the modal
       deleteCourseModal.classList.add("active");
       deleteCourseModal.style.display = "block";
     });
   });
 
-  deleteConfirmButton.addEventListener("click", () => {
-    deleteCourseModal.classList.add("slideOut");
-    setTimeout(() => {
-      deleteCourseModal.classList.remove("active", "slideOut");
-      deleteCourseModal.style.display = "none";
-    }, 500);
-  });
 
+  deleteConfirmButton.addEventListener("click", () => {
+    // Submit the form, which now has the correct action path for deletion
+    deleteCourseModal.submit();
+  });
   cancelConfirmButton.addEventListener("click", () => {
     deleteCourseModal.classList.add("slideOut");
     setTimeout(() => {

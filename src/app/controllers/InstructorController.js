@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Course = require("../models/Course");
+const path = require("path");
 
 class InstructorController {
   // [GET] /instructor/profile
@@ -16,12 +17,35 @@ class InstructorController {
   }
 
   // [GET] /instructor/edit-profile
-  edit(req, res, next) {
+ async edit(req, res, next) {
     try {
+      const userId = req.session.user.id
+    
+      // Find the user in the database
+      const user = await User.findById(userId).lean();
+      
+      if (!user) {
+        // Handle if user is not found
+        return res.status(404).send("User not found");
+      }
+     const newSession = {
+        id: user._id,
+        email: user.email,
+        displayName: user.firstName + " " + user.lastName,
+        displayImg: user.profileImg,
+        accountType: user.accountType,
+        profileLink:
+          user.accountType === "LEARNER"
+            ? "/learner/profile"
+            : "/instructor/profile",
+      };
+      req.session.user = newSession;
       res.render("instructor/edit-profile", {
         title: "Edit Profile",
         styles: ["instructor/edit-profile.css"],
-        user: req.session.user,
+        user:req.session.user,
+        userJson: JSON.stringify(user),
+        currentUser:user
       });
     } catch (e) {
       next(e);
@@ -33,12 +57,11 @@ class InstructorController {
     try {
       // Log specific parts of req object
       const body = req.body;
-      const currentUser = req.session.user;
-      const email = currentUser.email;
-      const id = currentUser.id;
+      const file = req.file
+      const id = req.session.user.id;
       // Find and update user based on email
       const updatedUser = await User.findOneAndUpdate(
-        { email }, // Query to find the user
+        { _id:id }, // Query to find the user
         body, // Data to update
         { new: true, runValidators: true } // Options to return the updated document and run validators
       );
@@ -48,19 +71,37 @@ class InstructorController {
       }
 
       // Send a response to the client
-      res.send("Profile updated successfully");
+      res.redirect('/instructor/edit-profile');
     } catch (e) {
       next(e);
     }
   }
 
   // [GET] /instructor/courses
-  view(req, res, next) {
+  async view(req, res, next) {
     try {
+      const user = req.session.user;
+      const page = req.query.page || 1;
+      const count = req.query.count || 5;
+      const offset = (page - 1) * count;
+      // Get the total number of courses for pagination
+      const totalCourses = await Course.countDocuments({ user: user.id });
+
+      // Calculate the total number of pages
+      const totalPages = Math.ceil(totalCourses / count);
+      // Retrieve the courses for the current page
+      const courses = await Course.find({ user: user.id })
+        .skip(offset) // Skip courses for previous pages
+        .limit(count)
+        .lean(); // Limit the number of courses per page
+      // Render the instructor courses view, passing the courses and pagination info
       res.render("instructor/courses", {
         title: "My Courses",
         styles: ["instructor/courses.css", "bootstrap_v5.css"],
-        user: req.session.user,
+        user,
+        courses,
+        currentPage: page,
+        totalPages,
       });
     } catch (e) {
       next(e);
@@ -83,16 +124,27 @@ class InstructorController {
   async addCourse(req, res, next) {
     try {
       const body = req.body;
+      let profileImgPath;
+      if (req.file) {
+        profileImgPath = path.join("/assets/uploads/", req.file.filename);
+      } else {
+        profileImgPath = "/assets/uploads/default.png";
+      }
       const formattedBody = {
         ...body,
-        level: "Beginner",
-        courseImg:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyivT7Qb3bJEd7s0Do_O0BHN2bFR35k7hdLA&s",
-        price: 10.99,
-        description: "Desc",
+        courseImg: profileImgPath,
+        user: req.session.user.id,
       };
       const course = new Course(formattedBody);
-      await course.save().then(() => res.redirect("/instructor/profile"));
+      await course.save().then(
+        async (
+          course // Optionally, push the course to the user's `courses` array
+        ) =>
+          await User.findByIdAndUpdate(req.session.user.id, {
+            $push: { courses: course._id },
+          })
+      );
+      res.redirect("/instructor/courses");
     } catch (error) {
       next(error);
       console.log(error);

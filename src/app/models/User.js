@@ -52,7 +52,13 @@ const User = new Schema({
     required: function () {
       return this.accountType === "INSTRUCTOR";
     },
-  },
+  }, // Add a list of courses created by this user (optional)
+  courses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", User);

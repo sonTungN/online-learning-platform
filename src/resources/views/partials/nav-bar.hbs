@@ -54,44 +54,34 @@
     </li>
 
     {{#if user}}
-      <li class="navbar__item">
-        <div class="navbar__link">
-          <a class="navbar__link-container" href="#">
-            <span class="navbar__link-title">Cart</span>
-            <i class="fa fa-shopping-cart navbar__cart-icon">
-              <span class="navbar__cart-qty">0</span>
-            </i>
-          </a>
-        </div>
-      </li>
-      <li class="navbar__item">
-        <div class="navbar__link">
-          <a class="navbar__link-container" href="{{user.profileLink}}">
-            <img
-              src="{{user.displayImg}}"
-              alt="ProfileImg"
-              class="navbar__avatar"
-            />
-            <span
-              class="navbar__link-title"
-              href="#"
-            >{{user.displayName}}</span>
-          </a>
-        </div>
-      </li>
-      <li class="navbar__item">
-        <a class="navbar__link logout-action-cta" href="/user/logout">Log Out</a>
-      </li>
+    <li class="navbar__item">
+      <div class="navbar__link">
+        <a class="navbar__link-container" href="#">
+          <span class="navbar__link-title">Cart</span>
+          <i class="fa fa-shopping-cart navbar__cart-icon">
+            <span class="navbar__cart-qty">0</span>
+          </i>
+        </a>
+      </div>
+    </li>
+    <li class="navbar__item">
+      <div class="navbar__link">
+        <a class="navbar__link-container" href="{{user.profileLink}}">
+          <img src="{{user.displayImg}}" alt="ProfileImg" class="navbar__avatar" />
+          <span class="navbar__link-title" href="#">{{user.displayName}}</span>
+        </a>
+      </div>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link logout-action-cta" href="/user/logout">Log Out</a>
+    </li>
     {{else}}
-      <li class="navbar__item">
-        <a class="navbar__link" href="/user/sign-in">Login</a>
-      </li>
-      <li class="navbar__item">
-        <a
-          class="navbar__link signup-action-cta"
-          href="/user/sign-up"
-        >Register</a>
-      </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/user/sign-in">Login</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link signup-action-cta" href="/user/sign-up">Register</a>
+    </li>
     {{/if}}
   </ul>
   <div class="navbar__hamburger">
@@ -178,38 +168,38 @@
         </a>
       </li>
       {{#if user}}
-        <li>
-          <a href="#">
-            <i class="ion-ios-cart-outline"></i>
-            <span>My Cart</span>
-          </a>
-        </li>
+      <li>
+        <a href="#">
+          <i class="ion-ios-cart-outline"></i>
+          <span>My Cart</span>
+        </a>
+      </li>
 
-        <li>
-          <a href="#">
-            <i class="ion-person"></i>
-            <span>{{user.displayName}}</span>
-          </a>
-        </li>
-        <li>
-          <a class="action-cta" href="/user/logout">
-            <i class="ion-log-out"></i>
-            <span>Log Out</span>
-          </a>
-        </li>
+      <li>
+        <a href="#">
+          <i class="ion-person"></i>
+          <span>{{user.displayName}}</span>
+        </a>
+      </li>
+      <li>
+        <a class="action-cta" href="/user/logout">
+          <i class="ion-log-out"></i>
+          <span>Log Out</span>
+        </a>
+      </li>
       {{else}}
-        <li>
-          <a href="/user/sign-in">
-            <i class="ion-log-in"></i>
-            <span>Login</span>
-          </a>
-        </li>
-        <li>
-          <a class="action-cta" href="/user/sign-up">
-            <i class="ion-person-add"></i>
-            <span>Register</span>
-          </a>
-        </li>
+      <li>
+        <a href="/user/sign-in">
+          <i class="ion-log-in"></i>
+          <span>Login</span>
+        </a>
+      </li>
+      <li>
+        <a class="action-cta" href="/user/sign-up">
+          <i class="ion-person-add"></i>
+          <span>Register</span>
+        </a>
+      </li>
       {{/if}}
     </ul>
   </div>
@@ -217,22 +207,37 @@
 <div class="overlay"></div>
 
 <script>
-  const mobileNav = document.querySelector(".navbar__hamburger"); const navbar =
-  document.querySelector(".sidebar"); const overlay =
-  document.querySelector(".overlay"); const toggleNav = () => {
-  navbar.classList.toggle("active");
-  mobileNav.classList.toggle("navbar__hamburger-active");
-  overlay.classList.toggle("active"); }; // Hide sidebar and overlay if clicking
-  outside the sidebar const closeNavOnClickOutside = (event) => { if (
-  navbar.classList.contains("active") && !navbar.contains(event.target) &&
-  !mobileNav.contains(event.target) ) { navbar.classList.remove("active");
-  mobileNav.classList.remove("navbar__hamburger-active");
-  overlay.classList.remove("active"); } }; // Hide sidebar and overlay if the
-  screen is resized to be wider const closeNavOnResize = () => { if
-  (window.innerWidth > 780 && navbar.classList.contains("active")) {
-  navbar.classList.remove("active");
-  mobileNav.classList.remove("navbar__hamburger-active");
-  overlay.classList.remove("active"); } }; // Add event listeners
+  const mobileNav = document.querySelector(".navbar__hamburger");
+  const navbar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".overlay");
+
+  const toggleNav = () => {
+    navbar.classList.toggle("active");
+    mobileNav.classList.toggle("navbar__hamburger-active");
+    overlay.classList.toggle("active");
+  };
+
+  // Hide sidebar and overlay if clicking outside the sidebar
+  const closeNavOnClickOutside = (event) => {
+    if (navbar.classList.contains("active") &&
+      !navbar.contains(event.target) &&
+      !mobileNav.contains(event.target)) {
+      navbar.classList.remove("active");
+      mobileNav.classList.remove("navbar__hamburger-active");
+      overlay.classList.remove("active");
+    }
+  };
+
+  // Hide sidebar and overlay if the screen is resized to be wider
+  const closeNavOnResize = () => {
+    if (window.innerWidth > 780 && navbar.classList.contains("active")) {
+      navbar.classList.remove("active");
+      mobileNav.classList.remove("navbar__hamburger-active");
+      overlay.classList.remove("active");
+    }
+  };
+
+  // Add event listeners
   mobileNav.addEventListener("click", toggleNav);
   overlay.addEventListener("click", closeNavOnClickOutside);
   window.addEventListener("resize", closeNavOnResize);

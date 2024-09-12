@@ -215,6 +215,17 @@ a {
         background: lighten($color-black-90, 30%);
       }
     }
+    textarea {
+      width: 100%; /* Full width for inputs and selects */
+      padding: 15px; /* Increase padding for height */
+      margin-bottom: 20px; /* Add space between fields */
+      border-radius: 5px; /* Optional: Rounded corners */
+      border: 1.5px solid $color-black-70;
+      box-sizing: border-box; /* Make sure padding fits inside the width */
+      font-size: 16px; /* Larger font size for readability */
+      resize: none;
+      
+    }
   }
 }
 

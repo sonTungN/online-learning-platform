@@ -1,11 +1,15 @@
 <main class="instructor-edit-profile">
+  {{#if currentUser}}
   <div class="container">
+
     <div class="instructor-edit-profile__sidebar">
       <div class="instructor-edit-profile__image-section">
         <img src="/assets/uploads/default.png" alt="Profile Image" class="instructor-edit-profile__avatar">
         <div class="instructor-edit-profile__brief">
-          <div class="instructor-edit-profile__name">Tung Nguyen</div>
-          <div class="instructor-edit-profile__accountType">INSTRUCTOR</div>
+          <div class="instructor-edit-profile__name">{{currentUser.firstName}} {{currentUser.lastName}} </div>
+          <div class="instructor-edit-profile__accountType">
+            {{currentUser.accountType}}
+          </div>
         </div>
       </div>
 
@@ -26,96 +30,46 @@
         <form method="POST" id="instructorEditProfileForm" action="/instructor/edit-profile">
           <div class="form-group">
             <label for="firstName">First Name</label>
-            <input
-                id="firstName"
-                name="firstName"
-                value="Tung"
-                type="text"
-                onblur="validateFirstName()"
-            />
+            <input id="firstName" name="firstName" value="{{currentUser.firstName}}" type="text"
+              onblur="validateFirstName()" />
           </div>
 
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input
-                id="lastName"
-                name="lastName"
-                value="Nguyen"
-                type="text"
-                onblur="validateLastName()"
-            />
+            <input id="lastName" name="lastName" value="{{currentUser.lastName}}" type="text" onblur="validateLastName()" />
           </div>
 
-          <div class="form-group">
-            <label for="bio">Brief Description</label>
-            <div id="bio" class="instructor-edit-profile__bio-box" contenteditable="true">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid beatae dolore odio optio!
-              Ab, adipisci alias architecto autem facere, facilis iure libero molestiae numquam pariatur rerum sunt
-              vitae. Accusantium aliquid aperiam architecto, atque blanditiis commodi dolore doloremque dolores, eveniet
-              explicabo fuga fugiat laudantium nihil praesentium quasi rerum vitae? Totam!
-            </div>
-          </div>
-          <input type="hidden" name="bioContent" id="bioContent">
 
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input
-                id="phone"
-                name="phone"
-                value="0123456789"
-                type="text"
-                onblur="validatePhone()"
-            />
+            <input id="phone" name="phone" value="{{currentUser.phone}}" type="text" onblur="validatePhone()" />
           </div>
 
           <div class="form-group">
             <label for="address">Address</label>
-            <input
-                id="address"
-                name="address"
-                type="text"
-                value="1/2/3 Tran Van On, Quan 3"
-                onblur="validateAddress()"
-            />
+            <input id="address" name="address" type="text" value="{{currentUser.address}}" onblur="validateAddress()" />
           </div>
 
           <div class="form-group">
             <label for="city">City</label>
-            <input
-                id="city"
-                name="city"
-                type="text"
-                value="Ho Chi Minh"
-                onblur="validateCity()"
-            />
+            <input id="city" name="city" type="text" value="{{currentUser.city}}" onblur="validateCity()" />
           </div>
 
           <div class="form-group">
             <label for="schoolName">School Name</label>
-            <input
-                id="schoolName"
-                name="schoolName"
-                value="RMIT"
-                type="text"
-                onblur="validateSchoolName()"
-            />
+            <input id="schoolName" name="schoolName" value="{{currentUser.schoolName}}" type="text"
+              onblur="validateSchoolName()" />
           </div>
 
           <div class="form-group">
             <label for="jobTitle">Job Title</label>
-            <input
-                id="jobTitle"
-                name="jobTitle"
-                value="None"
-                type="text"
-                onblur="validateJobTitle()"
-            />
+            <input id="jobTitle" name="jobTitle" value="{{currentUser.jobTitle}}" type="text" onblur="validateJobTitle()" />
           </div>
 
           <div class="form-group">
             <label for="specialization">Specialization</label>
             <select id="specialization" multiple name="specialization[]">
-              <option value="Wilderness Survival" selected>Wilderness Survival</option>
+              <option value="Wilderness Survival">Wilderness Survival</option>
               <option value="Knots and Lashings">Knots and Lashings</option>
               <option value="STEM">STEM</option>
               <option value="Teamwork and Leadership">Teamwork and Leadership</option>
@@ -131,30 +85,46 @@
       </div>
     </div>
   </div>
+  {{/if}}
+
 </main>
 
 <!--About the bio, get the content through the input #bioContent-->
 <script>
+ document.addEventListener("DOMContentLoaded", function() {
+  const userJson = {{{ userJson }}};
+  const user = JSON.parse(JSON.stringify(userJson));
+  const specializationSelect = document.getElementById("specialization");
+  const userSpecializations = new Set(user.specialization || []);
+  
+  Array.from(specializationSelect.options).forEach(option => {
+    if (userSpecializations.has(option.value)) {
+      option.selected = true;
+    } else {
+      option.selected = false;
+    }
+  });
+});
   // Form submission
   document.getElementById("instructorEditProfileForm")
-      .addEventListener("submit", function (e) {
-        e.preventDefault();
-    // Move the content from the `contenteditable` bio section to the hidden input
-    const bioContent = document.getElementById('bio').innerText.trim();
-    document.getElementById('bioContent').value = bioContent;
-        let isSubmittable =
-            validatePhone() &&
-            validateFirstName() &&
-            validateLastName() &&
-            validateCity() &&
-            validateAddress() &&
-            validateSchoolName() &&
-            validateJobTitle();
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Move the content from the `contenteditable` bio section to the hidden input
+      // const bioContent = document.getElementById('bio').innerText.trim();
+      // document.getElementById('bioContent').value = bioContent;
+      let isSubmittable =
+        validatePhone() &&
+        validateFirstName() &&
+        validateLastName() &&
+        validateCity() &&
+        validateAddress() &&
+        validateSchoolName() &&
+        validateJobTitle();
 
-        if (isSubmittable) {
-            this.submit()
-        }
-      });
+      if (isSubmittable) {
+        this.submit()
+      }
+    });
 
   // At least 10 digits
   function validatePhone() {
@@ -162,8 +132,8 @@
     const phonePattern = /^\d{10,}$/;
     if (!phonePattern.test(phone.value.replace(/\D/g, ""))) {
       showError(
-          phone,
-          "Please enter a valid phone number (at least 10 digits)",
+        phone,
+        "Please enter a valid phone number (at least 10 digits)",
       );
       return false;
     } else {

@@ -2,11 +2,7 @@
   <div class="container">
     <div class="instructor-add-course__sidebar">
       <div class="instructor-add-course__image-section">
-        <img
-          src="/assets/uploads/default.png"
-          alt="Profile Image"
-          class="instructor-add-course__avatar"
-        />
+        <img src="/assets/uploads/default.png" alt="Profile Image" class="instructor-add-course__avatar" />
         <div class="instructor-add-course__brief">
           <div class="instructor-add-course__name">Tung Nguyen</div>
           <div class="instructor-add-course__accountType">INSTRUCTOR</div>
@@ -14,10 +10,7 @@
       </div>
 
       <div class="instructor-add-course__displayed-view">
-        <a
-          class="instructor-add-course__displayed-link"
-          href="/instructor/edit-profile"
-        >Edit Profile</a>
+        <a class="instructor-add-course__displayed-link" href="/instructor/edit-profile">Edit Profile</a>
         <a class="instructor-add-course__displayed-link current" href="#">Add
           Course</a>
       </div>
@@ -31,43 +24,20 @@
       </div>
 
       <div class="instructor-add-course__form-section">
-        <form
-          method="POST"
-          id="instructorAddCourseForm"
-          action="/instructor/add-course"
-        >
+        <form method="POST" id="instructorAddCourseForm" action="/instructor/add-course" enctype="multipart/form-data">
           <div class="form-group">
             <label for="title">Course Title</label>
-            <input
-              id="title"
-              name="title"
-              placeholder="Enter course title"
-              type="text"
-              onblur="validateTitle()"
-            />
+            <input id="title" name="title" placeholder="Enter course title" type="text" />
           </div>
 
           <div class="form-group">
             <label for="description">Course Description</label>
-            <div
-              id="description"
-              class="instructor-add-course__desc-box"
-              contenteditable="true"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Accusantium aliquid beatae dolore odio optio! Ab, adipisci alias
-              architecto autem facere, facilis iure libero molestiae numquam
-              pariatur rerum sunt vitae. Accusantium aliquid aperiam architecto,
-              atque blanditiis commodi dolore doloremque dolores, eveniet
-              explicabo fuga fugiat laudantium nihil praesentium quasi rerum
-              vitae? Totam!
-            </div>
+            <textarea name="description" id="description" placeholder="Enter description"></textarea>
           </div>
-          <input type="hidden" name="description" id="description" />
 
           <div class="form-group">
             <label for="category">Course Category</label>
-            <select name="category" id="category" onchange="validateCategory()">
+            <select name="category" id="category">
               <option value="-1" disabled selected>-- Select Category --</option>
               <option value="Wilderness Survival">Wilderness Survival</option>
               <option value="Knots and Lashings">Knots and Lashings</option>
@@ -75,7 +45,23 @@
               <option value="Teamwork and Leadership">Teamwork and Leadership</option>
             </select>
           </div>
-
+          <div class="form-group">
+            <label for="level">Course Level</label>
+            <select name="level" id="level">
+              <option value="-1" disabled selected>-- Select Level --</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Expert">Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="courseImg">Course Image</label>
+            <input accept="image/*" id="courseImg" name="courseImg" type="file" />
+          </div>
+          <div class="form-group">
+            <label for="price">Course Price </label>
+            <input id="price" name="price" placeholder="Enter course price" type="text" />
+          </div>
           <div class="form-group">
             <button type="submit">
               <strong>CREATE</strong>
@@ -89,24 +75,45 @@
 
 <!--About the desc, get the content through the input #descContent-->
 <script>
-  // Form submission document.getElementById("instructorAddCourseForm")
-  .addEventListener("submit", function (e) { e.preventDefault(); let
-  isSubmittable = validateTitle() && validateCategory(); if (isSubmittable) {
-  this.submit() // // EDIT ACTION ... // .... this.submit(); console.log(this);
-  } }); // Required function validateTitle() { const title =
-  document.getElementById("title"); if (title.value.trim() === "") {
-  showError(title, "Course title is required"); return false; } else {
-  clearError(title); return true; } } // Required function validateCategory() {
-  const category = document.getElementById("category"); if (category.value ===
-  "-1") { showError(category, "Please select a course category"); return false;
-  } else { clearError(category); return true; } } // Error Message Display
-  function showError(input, message) { const formGroup =
-  input.closest(".form-group"); let errorMessage =
-  formGroup.querySelector(".error-message"); if (!errorMessage) { errorMessage =
-  document.createElement("div"); errorMessage.className = "error-message";
-  formGroup.appendChild(errorMessage); } errorMessage.textContent = message;
-  input.classList.add("error"); } // Error Message Clear function
-  clearError(input) { const formGroup = input.closest(".form-group"); const
-  errorMessage = formGroup.querySelector(".error-message"); if (errorMessage) {
-  errorMessage.remove(); } input.classList.remove("error"); }
+
+  document.getElementById("instructorAddCourseForm").addEventListener("submit",
+    function (e) {
+      e.preventDefault();
+      // let isSubmittable = validateTitle() && validateCategory();
+      if (isSubmittable) {
+        // Create a FormData object to hold the form data
+        const formData = new FormData(this);
+
+        // Log the uploaded file (image) for debugging
+        this.submit()
+        function validateTitle() {
+          const title = document.getElementById("title"); if
+            (title.value.trim() === "") {
+            showError(title, "Course title is required");
+            return false;
+          } else { clearError(title); return true; }
+        } // Required
+        function validateCategory() {
+          const category =
+            document.getElementById("category"); if (category.value === "-1") {
+              showError(category, "Please select a course category"); return false;
+            } else {
+            clearError(category); return true;
+          }
+        } // Error Message Display function
+        showError(input, message) {
+          const formGroup = input.closest(".form-group");
+          let errorMessage = formGroup.querySelector(".error-message"); if
+            (!errorMessage) {
+            errorMessage = document.createElement("div");
+            errorMessage.className = "error-message"; formGroup.appendChild(errorMessage);
+          } errorMessage.textContent = message; input.classList.add("error");
+        } // Error
+        function clearError(input) {
+          const formGroup =
+            input.closest(".form-group"); const errorMessage =
+              formGroup.querySelector(".error-message"); if (errorMessage) {
+                errorMessage.remove();
+              } input.classList.remove("error");
+        }
 </script>
