@@ -1,4 +1,4 @@
-export const preventUnauthenticated = (req, res, next) => {
+const preventUnauthenticated = (req, res, next) => {
   if (req.session.user) {
     next();
   } else {
@@ -6,10 +6,12 @@ export const preventUnauthenticated = (req, res, next) => {
   }
 };
 
-export const preventAuthenticated = (req, res, next) => {
+const preventAuthenticated = (req, res, next) => {
   if (req.session.user) {
     res.redirect("/");
   } else {
     next();
   }
 };
+
+module.exports = { preventUnauthenticated, preventAuthenticated };

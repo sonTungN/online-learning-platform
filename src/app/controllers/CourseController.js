@@ -1,6 +1,6 @@
 const Course = require("../models/Course");
 const mongoose = require("mongoose");
-
+const path = require("path");
 class CourseController {
   // [GET] /course/edit-course
   async edit(req, res, next) {
@@ -28,30 +28,70 @@ class CourseController {
   }
   async updateCourse(req, res, next) {
     try {
-      console.log(req.file)
-      res.redirect(`/course/edit-course/${req.params.id}`)
+      const body = req.body;
+      let profileImgPath;
+
+      // Check if an image was uploaded; if not, use the current image
+      if (req.file) {
+        profileImgPath = path.join("/assets/uploads/", req.file.filename);
+      } else {
+        profileImgPath = body.currentCourseImg;
+      }
+
+      const updatedCourseData = {
+        title: body.title,
+        description: body.description,
+        category: body.category,
+        level: body.level,
+        courseImg: profileImgPath,
+        price: body.price,
+      };
+
+      // Find the course and update it
+      await Course.findByIdAndUpdate(req.params.id, updatedCourseData);
+
+      res.redirect(`/course/edit-course/${req.params.id}`);
     } catch (error) {
       next(error);
       console.log(error);
-    };
+    }
   }
+
   async view(req, res, next) {
     try {
       const id = req.params.id;
-      // const matchedCourse = await Course.findOne({ _id: id });
-      // if (!matchedCourse) {
-      //   res.redirect("/");
-      // }
+      
+      // Check if the ID is a valid ObjectId
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.redirect("/"); // Or you might want to render an error page
+      }
+      
+      // Fetch the current course and more courses
+      const [matchedCourse, moreCourses] = await Promise.all([
+        Course.findById(id).populate("user").lean(),
+        Course.find().populate("user").limit(4).lean(), // Fetch more courses
+      ]);
+  
+      // Check if the current course was found
+      if (!matchedCourse) {
+        return res.redirect("/"); // Or you might want to render a 404 page
+      }
+      
+      // Filter out the current course from the moreCourses list
+      const filteredMoreCourses = moreCourses.filter(course => course._id.toString() !== id);
+  
       res.render("course/course-profile", {
         title: "Course Details",
         styles: ["course/course-profile.css", "bootstrap_v5.css"],
         user: req.session.user,
-        // course: matchedCourse,
+        course: matchedCourse,
+        moreCourses: filteredMoreCourses, // Pass the filtered list
       });
     } catch (e) {
       next(e);
     }
   }
+  
   // [DELETE] /course/:id
   async delete(req, res, next) {
     try {

@@ -26,7 +26,7 @@ const User = new Schema({
   city: { type: String, required: true, maxlength: 20 },
   zipcode: { type: String, required: true, minLength: 4, maxLength: 6 },
   country: { type: String, required: true },
-
+  createdAt: Date,
   accountType: {
     type: String,
     required: true,

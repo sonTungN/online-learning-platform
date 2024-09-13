@@ -22,6 +22,8 @@ const Course = new Schema({
 
   courseImg: { type: String, required: true },
   price: { type: Number, required: true, minlength: 2, maxlength: 15 },
+  createdAt: Date,
+
   // Add a reference to the User schema
   user: {
     type: Schema.Types.ObjectId, // The user's ObjectId

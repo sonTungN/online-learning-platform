@@ -84,6 +84,7 @@ class UserController {
 
       const user = new User({
         ...req.body,
+        createdAt: new Date(),
         password: hashPassword(req.body.password),
         profileImg: profileImgPath,
       });

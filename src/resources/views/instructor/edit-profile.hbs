@@ -36,7 +36,8 @@
 
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" value="{{currentUser.lastName}}" type="text" onblur="validateLastName()" />
+            <input id="lastName" name="lastName" value="{{currentUser.lastName}}" type="text"
+              onblur="validateLastName()" />
           </div>
 
 
@@ -54,7 +55,6 @@
             <label for="city">City</label>
             <input id="city" name="city" type="text" value="{{currentUser.city}}" onblur="validateCity()" />
           </div>
-
           <div class="form-group">
             <label for="schoolName">School Name</label>
             <input id="schoolName" name="schoolName" value="{{currentUser.schoolName}}" type="text"
@@ -63,7 +63,8 @@
 
           <div class="form-group">
             <label for="jobTitle">Job Title</label>
-            <input id="jobTitle" name="jobTitle" value="{{currentUser.jobTitle}}" type="text" onblur="validateJobTitle()" />
+            <input id="jobTitle" name="jobTitle" value="{{currentUser.jobTitle}}" type="text"
+              onblur="validateJobTitle()" />
           </div>
 
           <div class="form-group">
@@ -91,12 +92,12 @@
 
 <!--About the bio, get the content through the input #bioContent-->
 <script>
- document.addEventListener("DOMContentLoaded", function() {
-  const userJson = {{{ userJson }}};
+  document.addEventListener("DOMContentLoaded", function () {
+    const userJson = {{{ userJson }}};
   const user = JSON.parse(JSON.stringify(userJson));
   const specializationSelect = document.getElementById("specialization");
   const userSpecializations = new Set(user.specialization || []);
-  
+
   Array.from(specializationSelect.options).forEach(option => {
     if (userSpecializations.has(option.value)) {
       option.selected = true;

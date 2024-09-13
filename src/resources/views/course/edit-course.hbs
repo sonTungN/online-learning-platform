@@ -7,7 +7,7 @@
     {{#if course}}
     <div class="instructor-add-course__profile-section">
       <div class="instructor-add-course__form-section">
-        <form method="POST" id="instructorAddCourseForm" enctype="multipart/form-data">
+        <form method="POST" id="instructorAddCourseForm">
           <div class="form-group">
             <label for="title">Course Title</label>
             <input id="title" name="title" value="{{course.title}}" type="text" onblur="validateTitle()" />
@@ -93,15 +93,15 @@
 <script>
   const courseJSON = {{{ courseJSON }}}
   const course = JSON.parse(JSON.stringify(courseJSON));
-  console.log(course);
   const courseCategory = course.category;
   const courseLevel = course.level;
   // Set default values for the select elements
   document.getElementById("category").value = courseCategory;
   document.getElementById("level").value = courseLevel
-  console.log(course);
   const editCourseForm = document.getElementById('instructorAddCourseForm')
   // Form submission
+  const courseImgInput = document.getElementById("courseImg");
+  const currentCourseImgInput = document.getElementById('currentCourseImg');
   document.getElementById("instructorAddCourseForm")
     .addEventListener("submit", function (e) {
       e.preventDefault();
@@ -110,39 +110,28 @@
         validateTitle() &&
         validateCategory() &&
         validateLevel() &&
-        // validateImage() &&
         validatePrice();
-      // Set the form's action to the delete route for this course
-      editCourseForm.setAttribute("action", `/course/${course._id}?_method=PATCH`);
-      // Submit the form data
-      if (isSubmittable) {
-        const payload = {
-          title: document.getElementById("title").value,
-          description: document.getElementById("description").value,
-          category: document.getElementById("category").value,
-          level: document.getElementById("level").value,
-          price: document.getElementById("price").value,
-          currentCourseImg: document.getElementById("currentCourseImg").value
-        };
-         // Check if a new image is uploaded
-        if (document.getElementById("courseImg").files.length > 0) {
-            // New image uploaded, add it to the payload
-            payload.courseImg = document.getElementById("courseImg").files[0];
-        } else {
-            // No new image uploaded, keep the existing image URL
-            payload.courseImg = payload.currentCourseImg;
-        }
-          fetch(this.action, {
-      method: "PATCH",
-      body: JSON.stringify(payload),
-      headers: {
-        'X-HTTP-Method-Override': 'PATCH' // Use this header to override the method
+
+      const courseImgInput = document.getElementById("courseImg");
+      const currentCourseImgInput = document.getElementById('currentCourseImg');
+
+      // Check if a new image is uploaded
+      if (courseImgInput.files.length === 0) {
+        // No new image is uploaded, so keep the current image value in a hidden field
+        currentCourseImgInput.disabled = false;  // Ensure it's submitted with the form
+      } else {
+        // New image is uploaded, set enctype to multipart/form-data
+        this.setAttribute("enctype", "multipart/form-data");
+        currentCourseImgInput.disabled = true;  // Don't submit the old image
       }
-    })
-        //this.submit();
-        console.log(this);
+
+      // Set the form's action to the appropriate route
+      if (isSubmittable) {
+        this.setAttribute("action", `/course/${course._id}?_method=PATCH`);
+        this.submit();
       }
     });
+
 
   // Required
   function validateTitle() {
