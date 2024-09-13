@@ -30,6 +30,20 @@ const Course = new Schema({
     ref: "User", // Reference to the User model
     required: true, // Course must be associated with a user
   },
+
+  favUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+
+  enrolledUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Course", Course);

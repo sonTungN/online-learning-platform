@@ -56,10 +56,10 @@
     {{#if user}}
     <li class="navbar__item">
       <div class="navbar__link">
-        <a class="navbar__link-container" href="#">
+        <a class="navbar__link-container" href="/learner/order-placement">
           <span class="navbar__link-title">Cart</span>
           <i class="fa fa-shopping-cart navbar__cart-icon">
-            <span class="navbar__cart-qty">0</span>
+            <span id='cart-quantity' class="navbar__cart-qty">0</span>
           </i>
         </a>
       </div>
@@ -210,7 +210,30 @@
   const mobileNav = document.querySelector(".navbar__hamburger");
   const navbar = document.querySelector(".sidebar");
   const overlay = document.querySelector(".overlay");
+  const cartQuantity = document.getElementById('cart-quantity');
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  document.addEventListener('DOMContentLoaded', () => {
+    function updateCartQuantity() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartQuantity.textContent = cartItems.length;
+    }
+    updateCartQuantity();
+    // Update cart quantity when localStorage changes
+    window.addEventListener('cartUpdated', updateCartQuantity);
 
+    // Also update cart quantity on storage event (if changes occur in other tabs)
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'cartItems') {
+        updateCartQuantity();
+      }
+    });
+  })
+  document.addEventListener('storage', (event) => {
+    if (event.key === 'cartItems') {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartQuantity.textContent = cartItems.length;
+    }
+  });
   const toggleNav = () => {
     navbar.classList.toggle("active");
     mobileNav.classList.toggle("navbar__hamburger-active");

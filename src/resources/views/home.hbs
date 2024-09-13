@@ -6,124 +6,118 @@
   <div class="container mt-3">
     <!-- Recently Added Courses -->
     <h3 class="section-heading mb-4">Recently Added Courses</h3>
-
     <div class="row">
       {{#each recentCourses}}
-      <a style="text-decoration: none;" href="/course/{{_id}}" class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="{{courseImg}}" height="50px" width="100% " class="img-fluid" alt="{{title}}" />
-          </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">
-              {{category}}
-            </div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
+      <div class="feature-course-card d-flex align-items-center">
+        <a style="text-decoration: none;" href="/course/{{_id}}" class="course-image mr-3">
+          <img src="{{courseImg}}" class="{{title}}" alt="Course 2" />
+        </a>
+        <div class="course-info flex-grow-1">
+          <div class="course-category">
+            {{category}}
           </div>
-          <p class="course-title">
+          <a style="text-decoration: none; color: inherit;" href="/course/{{_id}}" class="course-title">
             {{title}}
-          </p>
-          <p class="course-price underline">${{price}}</p>
-          <p class="course-time">Uploaded on {{createdAt}}</p>
+          </a>
+          <div class="course-details d-flex align-items-center gap-2 mb-1">
+            <span class="mr-3">
+              <img src="{{user.profileImg}}" alt="Instructor" style="width: 20px; height: 20px; border-radius: 50%;" />
+              {{user.firstName}}
+              {{user.lastName}}
+            </span>
+            <span class="mr-3"><i class="fa fa-heart"></i>
+              {{favUsers.length}}
+            </span>
+            <span class="mr-3"><i class="fa fa-user"></i>
+              {{enrolledUsers.length}}
+            </span>
+            <span class="mr-3"><i class="fa fa-signal"></i>
+              {{level}}</span>
+            <span><i class="fa fa-clock-o"></i> 6 hours</span>
+          </div>
         </div>
-      </a>
+        <div class="course-price ml-auto">
+          ${{price}}
+        </div>
+        <div class="ml-3">
+          <form action="/course/fav/{{_id}}" method="POST" class="d-inline">
+            <input type="hidden" name="courseId" value="{{_id}}" />
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              {{#if addedToWishlist}} X Remove From Wishlist {{else}}
+              <i class="fa fa-heart"></i>
+              Add to Wishlist
+              {{/if}}
+            </button>
+          </form>
+
+          <!-- Add to Cart Button -->
+          <button type="button" class="btn btn-outline-primary btn-sm btn-add-to-cart" data-course-title="{{title}}"
+            data-course-id="{{_id}}">
+            <i class="fa fa-shopping-cart"></i>
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
       {{/each}}
     </div>
 
     <!-- Our Featured Courses -->
     <h3 class="section-heading mb-4">Our Featured Courses</h3>
     <div class="row">
-      <div class="col-12">
-        <div class="feature-course-card d-flex align-items-center">
-          <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
+      {{#each featuredCourses}}
+      <div class="feature-course-card d-flex align-items-center">
+        <a style="text-decoration: none;" href="/course/{{_id}}" class="course-image mr-3">
+          <img src="{{courseImg}}" class="{{title}}" alt="Course 2" />
+        </a>
+        <div class="course-info flex-grow-1">
+          <div class="course-category">
+            {{category}}
           </div>
-          <div class="course-info flex-grow-1">
-            <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13
-              H...)</p>
-            <div class="course-details d-flex align-items-center gap-2 mb-1">
-              <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                  style="width: 20px; height: 20px; border-radius: 50%;" />
-                Bao Ho</span>
-              <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
-              <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
-              <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
-              <span><i class="fa fa-clock-o"></i> 6 hours</span>
-            </div>
+          <a style="text-decoration: none; color: inherit;" href="/course/{{_id}}" class="course-title">
+            {{title}}
+          </a>
+          <div class="course-details d-flex align-items-center gap-2 mb-1">
+            <span class="mr-3">
+              <img src="{{user.profileImg}}" alt="Instructor" style="width: 20px; height: 20px; border-radius: 50%;" />
+              {{user.firstName}}
+              {{user.lastName}}
+            </span>
+            <span class="mr-3"><i class="fa fa-heart"></i>
+              {{favUsers.length}}
+            </span>
+            <span class="mr-3"><i class="fa fa-user"></i>
+              {{enrolledUsers.length}}
+            </span>
+            <span class="mr-3"><i class="fa fa-signal"></i>
+              {{level}}</span>
+            <span><i class="fa fa-clock-o"></i> 6 hours</span>
           </div>
-          <div class="course-price ml-auto">
-            $14.00
-          </div>
-          <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-              Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
-              Add to Cart</button>
-          </div>
+        </div>
+        <div class="course-price ml-auto">
+          ${{price}}
+        </div>
+        <div class="ml-3">
+          <form action="/course/fav/{{_id}}" method="POST" class="d-inline">
+            <input type="hidden" name="courseId" value="{{_id}}" />
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              {{#if addedToWishlist}} X Remove From Wishlist {{else}}
+              <i class="fa fa-heart"></i>
+              Add to Wishlist
+              {{/if}}
+            </button>
+          </form>
+
+          <!-- Add to Cart Button -->
+          <button type="button" class="btn btn-outline-primary btn-sm btn-add-to-cart" data-course-title="{{title}}"
+            data-course-id="{{_id}}">
+            <i class="fa fa-shopping-cart"></i>
+            Add to Cart
+          </button>
         </div>
 
-        <div class="feature-course-card d-flex align-items-center">
-          <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
-          </div>
-          <div class="course-info flex-grow-1">
-            <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13
-              H...)</p>
-            <div class="course-details d-flex align-items-center gap-2 mb-1">
-              <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                  style="width: 20px; height: 20px; border-radius: 50%;" />
-                Bao Ho</span>
-              <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
-              <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
-              <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
-              <span><i class="fa fa-clock-o"></i> 6 hours</span>
-            </div>
-          </div>
-          <div class="course-price ml-auto">
-            $14.00
-          </div>
-          <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-              Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
-              Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="feature-course-card d-flex align-items-center">
-          <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
-          </div>
-          <div class="course-info flex-grow-1">
-            <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13
-              H...)</p>
-            <div class="course-details d-flex align-items-center gap-2 mb-1">
-              <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                  style="width: 20px; height: 20px; border-radius: 50%;" />
-                Bao Ho</span>
-              <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
-              <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
-              <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
-              <span><i class="fa fa-clock-o"></i> 6 hours</span>
-            </div>
-          </div>
-          <div class="course-price ml-auto">
-            $14.00
-          </div>
-          <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-              Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
-              Add to Cart</button>
-          </div>
-        </div>
       </div>
+      {{/each}}
     </div>
 
     <!-- Instructors -->
@@ -133,12 +127,14 @@
       <section class="category container" id="category">
         <div class="category-content">
           <div class="category-box">
-            <a href="#"><img src="/assets/badges/first_aid.png" alt="first aid badge" /></a>
+            <a href="#">
+              <imgsrc=" /assets/badges/first_aid.png"alt="first aid badge" />
+            </a>
             <h5>First Aid</h5>
             <p>(4 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/wilderness_survival.png" alt="woods badge" />
+            <imgsrc=" /assets/badges/wilderness_survival.png"alt="woods badge" />
             <h5> Wilderness Survival</h5>
             <p>(8 items)</p>
           </div>
@@ -159,7 +155,7 @@
             <p>(4 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/personal_management.png" alt="personal badge" />
+            <imgsrc=" /assets/badges/personal_management.png"alt="personal badge" />
             <h5>Personal Management</h5>
             <p>(4 items)</p>
           </div>
@@ -170,33 +166,6 @@
       <!-- Newly Onboard Instructors -->
       <section class="instructors" id="new-instructors">
         <div class="instructor-content container">
-          <div class="instructor-box">
-            <img src="/assets/faker.webp" alt="" />
-            <p class="instructor-name">Sanghyeok Lee</p>
-            <p class="role">Senior Patrol Leader</p>
-          </div>
-
-          <div class="instructor-box">
-            <img src="/assets/chovy.webp" alt="" />
-            <p class="instructor-name">Sanghyeok Lee</p>
-            <p class="role">Patrol Leader</p>
-
-          </div>
-          <div class="instructor-box">
-            <img src="/assets/bdd.jpg" alt="" />
-            <p class="instructor-name">Sanghyeok Lee</p>
-            <p class="role">Troop Guide</p>
-          </div>
-          <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt="" />
-            <p class="instructor-name">Sanghyeok Lee</p>
-            <p class="role">Quartermaster</p>
-          </div>
-          <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt="" />
-            <p class="instructor-name">Sanghyeok Lee</p>
-            <p class="role">Quartermaster</p>
-          </div>
           <div class="instructor-box">
             <img src="/assets/peanut.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
@@ -246,8 +215,11 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-                Like</button>
+              <button class="btn btn-outline-danger btn-sm">
+                <iclass="fa fa-heart">
+                  </iclass=>
+                  Like
+              </button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
@@ -260,8 +232,11 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-                Like</button>
+              <button class="btn btn-outline-danger btn-sm">
+                <iclass="fa fa-heart">
+                  </iclass=>
+                  Like
+              </button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
@@ -274,8 +249,10 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
-                Like</button>
+              <button class="btn btn-outline-danger btn-sm">
+                <iclass="fa fa-heart"></i>
+                  Like
+              </button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
@@ -286,3 +263,61 @@
   </div>
 
 </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartButtons = document.querySelectorAll('.btn-add-to-cart');
+
+    cartButtons.forEach(button => {
+      const courseId = button.dataset.courseId;
+      const courseTitle = button.dataset.courseTitle;
+      const cartData = {
+        id: courseId,
+        title: courseTitle,  // Include the title in the cart data
+        quantity: 1,
+      };
+
+      // Check if item is in the cart
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const isInCart = cartItems.some(item => item.id === courseId);
+
+      // Update button text based on whether item is in the cart
+      if (isInCart) {
+        button.innerHTML = 'X Remove from Cart';
+        button.classList.remove('btn-outline-primary');
+        button.classList.add('btn-outline-danger');
+      } else {
+        button.innerHTML = '<i class="fa fa-shopping-cart"></i> Add to Cart';
+        button.classList.remove('btn-outline-danger');
+        button.classList.add('btn-outline-primary');
+      }
+
+      // Handle button click
+      button.addEventListener('click', () => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const itemIndex = cartItems.findIndex(item => item.id === courseId);
+
+        if (itemIndex > -1) {
+          // Remove item from cart
+          cartItems.splice(itemIndex, 1);
+          button.innerHTML = '<i class="fa fa-shopping-cart"></i> Add to Cart';
+          button.classList.remove('btn-outline-danger');
+          button.classList.add('btn-outline-primary');
+        } else {
+          // Add item to cart
+          cartItems.push(cartData);
+          button.innerHTML = 'X Remove from Cart';
+          button.classList.remove('btn-outline-primary');
+          button.classList.add('btn-outline-danger');
+        }
+
+        // Update localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Trigger a custom event to update the cart quantity in other parts
+        const event = new CustomEvent('cartUpdated');
+        window.dispatchEvent(event);
+      });
+    });
+  });
+</script>

@@ -17,4 +17,8 @@ router.patch(
 
 router.get("/:id", preventUnauthenticated, courseController.view);
 router.delete("/:id", preventUnauthenticated, courseController.delete);
+
+router.post("/fav/:id", preventUnauthenticated, courseController.addToFav);
+router.post("/cart/:id", preventUnauthenticated, courseController.addToCart);
+
 module.exports = router;

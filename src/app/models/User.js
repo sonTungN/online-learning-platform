@@ -63,15 +63,15 @@ const User = new Schema({
   ],
 
   // Add a list of courses wishlisted by this user (optional)
-  favcourses: [
+  favCourses: [
     {
       type: Schema.Types.ObjectId,
       ref: "Course",
     },
   ],
 
-  // Add a list of courses wishlisted by this user (optional)
-  enrolledcourses: [
+  // Add a list of courses enrolled by this user (optional)
+  enrolledCourses: [
     {
       type: Schema.Types.ObjectId,
       ref: "Course",
