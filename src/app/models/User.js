@@ -52,8 +52,26 @@ const User = new Schema({
     required: function () {
       return this.accountType === "INSTRUCTOR";
     },
-  }, // Add a list of courses created by this user (optional)
+  }, 
+  
+  // Add a list of courses created by this user (optional)
   courses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+
+  // Add a list of courses wishlisted by this user (optional)
+  favcourses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+
+  // Add a list of courses wishlisted by this user (optional)
+  enrolledcourses: [
     {
       type: Schema.Types.ObjectId,
       ref: "Course",

@@ -1,119 +1,36 @@
 <div id="hero">
-  <img src="/assets/banner-home.png" alt="boyscout background">
+  <img src="/assets/banner-home.png" alt="boyscout background" />
 </div>
 
 <main class="bootstrap-v5">
   <div class="container mt-3">
     <!-- Recently Added Courses -->
     <h3 class="section-heading mb-4">Recently Added Courses</h3>
+
     <div class="row">
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+      {{#each recentCourses}}
+      <a style="text-decoration: none;" href="/course/{{_id}}" class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
         <div class="course-card">
           <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 1">
+            <img src="{{courseImg}}" height="50px" width="100% " class="img-fluid" alt="{{title}}" />
           </p>
           <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
+            <div class="course-category">
+              {{category}}
+            </div>
             <div>
               <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
               <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
+          <p class="course-title">
+            {{title}}
           </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
+          <p class="course-price underline">${{price}}</p>
+          <p class="course-time">Uploaded on {{createdAt}}</p>
         </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
-          </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
-          </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
-          </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-        <div class="course-card">
-          <p>
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
-          </p>
-          <div class="d-flex justify-content-between mt-3">
-            <div class="course-category">COOKING</div>
-            <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i></button>
-              <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <p class="course-title">Making scrumptious meal in the woods A-Z™: Hands-On</p>
-          <p class="course-price underline">$57</p>
-          <p class="course-time">Uploaded 13 hours ago</p>
-        </div>
-      </div>
+      </a>
+      {{/each}}
     </div>
 
     <!-- Our Featured Courses -->
@@ -122,14 +39,16 @@
       <div class="col-12">
         <div class="feature-course-card d-flex align-items-center">
           <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
+            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
           </div>
           <div class="course-info flex-grow-1">
             <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13 H...)</p>
+            <p class="course-title">Investing In Stocks The Complete Course! (13
+              H...)</p>
             <div class="course-details d-flex align-items-center gap-2 mb-1">
               <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                                      style="width: 20px; height: 20px; border-radius: 50%;"> Bao Ho</span>
+                  style="width: 20px; height: 20px; border-radius: 50%;" />
+                Bao Ho</span>
               <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
               <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
               <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
@@ -140,21 +59,25 @@
             $14.00
           </div>
           <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+              Wishlist</button>
+            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
+              Add to Cart</button>
           </div>
         </div>
 
         <div class="feature-course-card d-flex align-items-center">
           <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
+            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
           </div>
           <div class="course-info flex-grow-1">
             <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13 H...)</p>
+            <p class="course-title">Investing In Stocks The Complete Course! (13
+              H...)</p>
             <div class="course-details d-flex align-items-center gap-2 mb-1">
               <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                                      style="width: 20px; height: 20px; border-radius: 50%;"> Bao Ho</span>
+                  style="width: 20px; height: 20px; border-radius: 50%;" />
+                Bao Ho</span>
               <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
               <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
               <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
@@ -165,21 +88,25 @@
             $14.00
           </div>
           <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+              Wishlist</button>
+            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
+              Add to Cart</button>
           </div>
         </div>
 
         <div class="feature-course-card d-flex align-items-center">
           <div class="course-image mr-3">
-            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2">
+            <img src="/assets/up-bc.jpg" class="img-fluid" alt="Course 2" />
           </div>
           <div class="course-info flex-grow-1">
             <div class="course-category">WILDERNESS SURVIVING</div>
-            <p class="course-title">Investing In Stocks The Complete Course! (13 H...)</p>
+            <p class="course-title">Investing In Stocks The Complete Course! (13
+              H...)</p>
             <div class="course-details d-flex align-items-center gap-2 mb-1">
               <span class="mr-3"><img src="/assets/members/tung.jpg" alt="Instructor"
-                                      style="width: 20px; height: 20px; border-radius: 50%;"> Bao Ho</span>
+                  style="width: 20px; height: 20px; border-radius: 50%;" />
+                Bao Ho</span>
               <span class="mr-3"><i class="fa fa-heart"></i> 69</span>
               <span class="mr-3"><i class="fa fa-user"></i> 265.7K</span>
               <span class="mr-3"><i class="fa fa-signal"></i> Beginner</span>
@@ -190,8 +117,10 @@
             $14.00
           </div>
           <div class="ml-3">
-            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Wishlist</button>
-            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+              Wishlist</button>
+            <button class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i>
+              Add to Cart</button>
           </div>
         </div>
       </div>
@@ -204,33 +133,33 @@
       <section class="category container" id="category">
         <div class="category-content">
           <div class="category-box">
-            <a href="#"><img src="/assets/badges/first_aid.png" alt="first aid badge"/></a>
+            <a href="#"><img src="/assets/badges/first_aid.png" alt="first aid badge" /></a>
             <h5>First Aid</h5>
             <p>(4 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/wilderness_survival.png" alt="woods badge"/>
+            <img src="/assets/badges/wilderness_survival.png" alt="woods badge" />
             <h5> Wilderness Survival</h5>
             <p>(8 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/teamwork.png" alt="teamwork badge"/>
+            <img src="/assets/badges/teamwork.png" alt="teamwork badge" />
             <h5>Teamwork</h5>
             <p>(4 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/stem1.png" alt="badge"/>
+            <img src="/assets/badges/stem1.png" alt="badge" />
             <h5>STEM</h5>
             <p>(4 items)</p>
           </div>
 
           <div class="category-box">
-            <img src="/assets/badges/knot.png" alt="knots badge"/>
+            <img src="/assets/badges/knot.png" alt="knots badge" />
             <h5>Knot and Lashings</h5>
             <p>(4 items)</p>
           </div>
           <div class="category-box">
-            <img src="/assets/badges/personal_management.png" alt="personal badge"/>
+            <img src="/assets/badges/personal_management.png" alt="personal badge" />
             <h5>Personal Management</h5>
             <p>(4 items)</p>
           </div>
@@ -242,39 +171,39 @@
       <section class="instructors" id="new-instructors">
         <div class="instructor-content container">
           <div class="instructor-box">
-            <img src="/assets/faker.webp" alt=""/>
+            <img src="/assets/faker.webp" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Senior Patrol Leader</p>
           </div>
 
           <div class="instructor-box">
-            <img src="/assets/chovy.webp" alt=""/>
+            <img src="/assets/chovy.webp" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Patrol Leader</p>
 
           </div>
           <div class="instructor-box">
-            <img src="/assets/bdd.jpg" alt=""/>
+            <img src="/assets/bdd.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Troop Guide</p>
           </div>
           <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt=""/>
+            <img src="/assets/peanut.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Quartermaster</p>
           </div>
           <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt=""/>
+            <img src="/assets/peanut.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Quartermaster</p>
           </div>
           <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt=""/>
+            <img src="/assets/peanut.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Quartermaster</p>
           </div>
           <div class="instructor-box">
-            <img src="/assets/peanut.jpg" alt=""/>
+            <img src="/assets/peanut.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <p class="role">Quartermaster</p>
           </div>
@@ -282,7 +211,8 @@
 
         <div class="invitation">
           <p class="fw-bold">
-            Thousands of students are waiting for an instructor. Start teaching & earning now!
+            Thousands of students are waiting for an instructor. Start teaching
+            & earning now!
           </p>
           <span><a href="#" class="become-instructor-btn mt-3">BECOME INSTRUCTOR</a></span>
         </div>
@@ -293,7 +223,7 @@
       <section class="instructors" id="featured-instructors">
         <div class="instructor-content container">
           <div class="instructor-box">
-            <img src="/assets/loopy1.jpg" alt=""/>
+            <img src="/assets/loopy1.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <div class="meta-info">
               <p><i class="fa fa-briefcase"></i> Role: Scientist</p>
@@ -301,13 +231,14 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Like</button>
+              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+                Like</button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
 
           <div class="instructor-box">
-            <img src="/assets/loopy2.jpg" alt=""/>
+            <img src="/assets/loopy2.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <div class="meta-info">
               <p><i class="fa fa-briefcase"></i> Role: Scientist</p>
@@ -315,12 +246,13 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Like</button>
+              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+                Like</button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
           <div class="instructor-box">
-            <img src="/assets/loopy3.jpg" alt=""/>
+            <img src="/assets/loopy3.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <div class="meta-info">
               <p><i class="fa fa-briefcase"></i> Role: Scientist</p>
@@ -328,12 +260,13 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Like</button>
+              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+                Like</button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
           <div class="instructor-box">
-            <img src="/assets/loopy4.jpg" alt=""/>
+            <img src="/assets/loopy4.jpg" alt="" />
             <p class="instructor-name">Sanghyeok Lee</p>
             <div class="meta-info">
               <p><i class="fa fa-briefcase"></i> Role: Scientist</p>
@@ -341,7 +274,8 @@
               <p><i class="fa fa-calendar"></i> Date joined: 01-09-2024</p>
             </div>
             <div>
-              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i> Like</button>
+              <button class="btn btn-outline-danger btn-sm"><i class="fa fa-heart"></i>
+                Like</button>
               <button class="btn btn-outline-primary btn-sm">View information</button>
             </div>
           </div>
@@ -352,5 +286,3 @@
   </div>
 
 </main>
-
-

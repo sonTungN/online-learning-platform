@@ -1,3 +1,5 @@
+const User = require("../models/User");
+
 class LearnerController {
   // [GET] /instructor/profile
   order(req, res, next) {
@@ -45,6 +47,23 @@ class LearnerController {
       });
     } catch (e) {
       next(e);
+    }
+  }
+
+  async showProfile(req, res, next) {
+    try {
+      const user = await User.findById(req.session.user.id).lean();
+      if (!user) {
+        return res.redirect("/user/sign-in");
+      }
+      res.render("learner/profile", {
+        title: "Profile",
+        user: req.session.user,
+        styles: ["learner/profile.css", "bootstrap_v5.css"],
+        currentUser: user,
+      });
+    } catch (error) {
+      next(error);
     }
   }
 }
