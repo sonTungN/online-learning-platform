@@ -66,6 +66,18 @@ class LearnerController {
       next(error);
     }
   }
+
+  display(req, res, next) {
+    try {
+      res.render("learner/browse", {
+        title: "Browse Courses",
+        styles: ["learner/browse.css", "bootstrap_v5.css"],
+        user: req.session.user,
+      });
+    } catch (e) {
+      next(e);
+    }
+  }
 }
 
 module.exports = new LearnerController();
