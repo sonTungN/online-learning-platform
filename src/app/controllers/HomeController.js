@@ -178,6 +178,30 @@ class HomeController {
     });
   }
 
+  copyright(req, res, next) {
+    res.render("terms/copyright", {
+      title: "Copyright",
+      styles: ["terms.css"],
+      user: req.session.user,
+    });
+  }
+
+  services(req, res, next) {
+    res.render("terms/services", {
+      title: "Terms of Services",
+      styles: ["terms.css"],
+      user: req.session.user,
+    });
+  }
+
+  policy(req, res, next) {
+    res.render("terms/policy", {
+      title: "Privacy Policy",
+      styles: ["terms.css"],
+      user: req.session.user,
+    });
+  }
+
   thankyou(req, res, next) {
     res.render("support/thank-you", {
       title: "Thank You",

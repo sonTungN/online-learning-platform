@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   {{/each}}
 
-
   <title>{{title}}</title>
 </head>
 
@@ -23,15 +22,18 @@
   </header>
 
   <!-- Main content area -->
-  {{{body}}}
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+    {{> footer}}
+  </footer>
 
   <!-- Include additional scripts passed as variables -->
   {{#each scripts}}
   <script src="/js/{{this}}"></script>
   {{/each}}
-
-  <!-- Include footer partial -->
-  {{> footer}}
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>

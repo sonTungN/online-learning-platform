@@ -8,6 +8,9 @@ const {
 router.get("/about-us", homeController.aboutUs);
 router.get("/pricing", homeController.pricing);
 router.get("/faq", homeController.faq);
+router.get("/copyright", homeController.copyright);
+router.get("/services", homeController.services);
+router.get("/policy", homeController.policy);
 
 router.get("/", homeController.show);
 router.get("/thank-you", preventUnauthenticated, homeController.thankyou);
