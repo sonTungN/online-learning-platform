@@ -1,4 +1,5 @@
 const Course = require("../models/Course");
+const Cart = require("../models/Cart");
 const mongoose = require("mongoose");
 const path = require("path");
 class CourseController {
@@ -128,7 +129,8 @@ class CourseController {
           $addToSet: { favUsers: userId },
         });
       }
-      res.redirect(`/`);
+      const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
+      res.redirect(referer);
     } catch (error) {
       next(error);
       console.log(error);
@@ -136,6 +138,56 @@ class CourseController {
   }
   async addToCart(req, res, next) {
     try {
+      const courseId = req.params.id;
+      const userId = req.session.user.id;
+
+      // Find the user's cart (create a new one if it doesn't exist)
+      const cart = await Cart.findOne({ user: userId });
+
+      if (!cart) {
+        // If no cart exists, create a new one for the user
+        cart = new Cart({
+          user: userId,
+          courses: [courseId], // Add the course to the cart
+        });
+      } else {
+        // Check if the course is already in the cart
+        const courseIndex = cart.courses.indexOf(courseId);
+
+        if (courseIndex === -1) {
+          // Course is not in the cart, so add it
+          cart.courses.push(courseId);
+        } else {
+          // Course is already in the cart, so remove it
+          cart.courses.splice(courseIndex, 1);
+        }
+      }
+      // Save the cart (either newly created or updated)
+      await cart.save();
+      const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
+      res.redirect(referer);
+    } catch (error) {
+      next(error);
+      console.log(error);
+    }
+  }
+
+  async payment(req, res, next) {
+    try {
+      const userId = req.session.user.id;
+      const cart = await Cart.findOne({ user: userId }).populate("courses");
+      const courses = cart.courses;
+
+      // Add the user to the enrolledUsers array of each course
+      await Promise.all(
+        courses.map(async (course) => {
+          await Course.findByIdAndUpdate(course._id, {
+            $addToSet: { enrolledUsers: userId }, // Use $addToSet to avoid duplicates
+          });
+        })
+      );
+
+      res.redirect("/learner/order-placement");
     } catch (error) {
       next(error);
       console.log(error);

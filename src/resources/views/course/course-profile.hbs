@@ -28,23 +28,29 @@
           </div>
 
           <div class="course-profile__details-display">
-            <img alt="Course Image" class="course-profile__course-thumb" src="/assets/thumbs/defaultThumb.png" />
+            <img alt="Course Image" class="course-profile__course-thumb" src="{{course.courseImg}}" />
             <div class="course-profile__stats-row">
               <div class="course-profile__stats-item">
                 <i class="fa fa-star course-profile__stats-icon" style="color: #f59c09"></i>
-                <span class="course-profile__stats-number">4.7</span>
+                <span class="course-profile__stats-number">
+                  {{#if (eq course.enrolledUsers.length 0)}}
+                  N/A
+                  {{else}}
+                  4.7
+                  {{/if}}
+                </span>
                 <span class="course-profile__stats-title">RATING</span>
               </div>
 
               <div class="course-profile__stats-item">
                 <i class="fa fa-user course-profile__stats-icon"></i>
-                <span class="course-profile__stats-number">1,375,145</span>
+                <span class="course-profile__stats-number">{{course.enrolledUsers.length}}</span>
                 <span class="course-profile__stats-title">STUDENTS</span>
               </div>
 
               <div class="course-profile__stats-item">
                 <i class="fa fa-heart course-profile__stats-icon"></i>
-                <span class="course-profile__stats-number">671</span>
+                <span class="course-profile__stats-number">{{course.favUsers.length}}</span>
                 <span class="course-profile__stats-title">WISHLIST</span>
               </div>
             </div>
@@ -93,9 +99,11 @@
         <h3 class="course-profile__more-courses-heading">Discover More Courses</h3>
         <div class="row" style="gap: 5px;">
           {{#each moreCourses}}
-          <a style="text-decoration: none; color: inherit;" href="/course/{{_id}}" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+          <a style="text-decoration: none; color: inherit;" href="/course/{{_id}}"
+            class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
             <div class="box-displaying-course-card">
-              <img alt="{{title}}" width="100px" height="100px" class="box-displaying-course-card-thumb" src="{{courseImg}}" />
+              <img alt="{{title}}" width="100px" height="100px" class="box-displaying-course-card-thumb"
+                src="{{courseImg}}" />
 
               <div class="d-flex justify-content-between flex-column mt-3 mb-3">
                 <div class="box-displaying-course-card-category">

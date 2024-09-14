@@ -1,43 +1,81 @@
 const User = require("../models/User");
 const Course = require("../models/Course");
+const Cart = require("../models/Cart");
 const path = require("path");
 class HomeController {
   // [GET] /
   async show(req, res, next) {
     try {
-      let [recentCourses,featuredCourses ] = await Promise.all([
-        Course.find()
-          .populate("user")
-          .populate("favUsers")
-          .sort({ createdAt: -1 })
-          .limit(6)
-          .lean(),
-        
+      let [recentCourses, featuredCourses, newlyInstructors, topInstructors] =
+        await Promise.all([
+          Course.find()
+            .populate("user")
+            .populate("favUsers")
+            .sort({ createdAt: -1 })
+            .limit(6)
+            .lean(),
+
           Course.aggregate([
             { $addFields: { enrolledUsersCount: { $size: "$enrolledUsers" } } },
             { $sort: { enrolledUsersCount: -1 } },
-            { $limit: 5 },
-            { $lookup: {
-                from: 'users',
-                localField: 'user',
-                foreignField: '_id',
-                as: 'user'
-              }
+            { $limit: 3 },
+            {
+              $lookup: {
+                from: "users",
+                localField: "user",
+                foreignField: "_id",
+                as: "user",
+              },
             },
-            { $unwind: '$user' }, // Ensures user is an object, not an array
-            { $lookup: {
-                from: 'users',
-                localField: 'favUsers',
-                foreignField: '_id',
-                as: 'favUsers'
-              }
-            }
-          ])
-          .exec()
-      ]);
+            { $unwind: "$user" }, // Ensures user is an object, not an array
+            {
+              $lookup: {
+                from: "users",
+                localField: "favUsers",
+                foreignField: "_id",
+                as: "favUsers",
+              },
+            },
+          ]).exec(),
+
+          User.find({ accountType: "INSTRUCTOR" })
+            .sort({ createdAt: -1 })
+            .limit(6)
+            .lean(),
+
+          Course.aggregate([
+            {
+              $group: {
+                _id: "$user", // Group by instructor
+                totalStudents: { $sum: { $size: "$enrolledUsers" } }, // Sum of enrolled users
+              },
+            },
+            {
+              $lookup: {
+                from: "users",
+                localField: "_id",
+                foreignField: "_id",
+                as: "instructor",
+              },
+            },
+            { $unwind: "$instructor" },
+            { $sort: { totalStudents: -1 } }, // Sort by total students
+            { $limit: 5 }, // Limit the result to top 5 instructors
+          ]).exec(),
+        ]);
 
       const userId = req.session.user ? req.session.user.id : null; // Check if user is logged in
-      console.log(recentCourses)
+        console.log(topInstructors)
+      // Fetch the user's cart if logged in
+      let userCart = [];
+      if (userId) {
+        const cart = await Cart.findOne({ user: userId })
+          .populate("courses")
+          .lean();
+        userCart = cart
+          ? cart.courses.map((course) => course._id.toString())
+          : [];
+      }
       recentCourses = recentCourses.map((course) => {
         const date = new Date(course.createdAt);
         const day = String(date.getDate()).padStart(2, "0");
@@ -47,6 +85,9 @@ class HomeController {
         let courseData = {
           ...course,
           createdAt: `${day}/${month}/${year}`,
+          addedToCart: userId
+            ? userCart.includes(course._id.toString())
+            : false,
         };
         if (userId) {
           // Check if the userId exists in the favUsers array
@@ -66,6 +107,9 @@ class HomeController {
         let courseData = {
           ...course,
           createdAt: `${day}/${month}/${year}`,
+          addedToCart: userId
+            ? userCart.includes(course._id.toString())
+            : false,
         };
         if (userId) {
           // Check if the userId exists in the favUsers array
@@ -75,14 +119,30 @@ class HomeController {
         }
         return courseData;
       });
-      console.log(featuredCourses)
+      topInstructors= topInstructors.map(data =>{
+        const date = new Date(data.instructor.createdAt);
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const year = date.getFullYear();
+        let formattedData = {
+          ...data,
+          instructor: {
+           ...data.instructor,
+            createdAt: `${day}/${month}/${year}`,
+          },
+        }
+
+        return formattedData
+      })
       res.render("home", {
         title: "Homepage",
         styles: ["home.css", "bootstrap_v5.css"],
         isHome: true,
         user: req.session.user,
         recentCourses,
-        featuredCourses
+        featuredCourses,
+        newlyInstructors,
+        topInstructors,
       });
     } catch (error) {
       next(error);

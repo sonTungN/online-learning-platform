@@ -44,6 +44,13 @@ const Course = new Schema({
       ref: "User",
     },
   ],
+
+  carts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Cart",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Course", Course);

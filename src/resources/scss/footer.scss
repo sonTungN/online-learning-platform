@@ -1,0 +1,108 @@
+$color_1: var(--text-color);
+$color_2: var(--bg-color);
+$color_3: var(--main-color);
+$font-family_1: "Poppins", sans-serif;
+
+/* Google Fonts */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap";
+/* Variables */
+* {
+  font-family: $font-family_1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --main-color: #494949;
+  --second-color: #c5c5c5;
+  --text-color: #1b1b1b;
+  --bg-color: #fff;
+  --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+.footer-container {
+//   position: absolute;
+//   bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  gap: 1.5rem;
+}
+.footer-box {
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 0.938rem;
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  li {
+    a {
+      color: $color_1;
+      opacity: 50%;
+      &:hover {
+        color: $color_3;
+        opacity: 100%;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+.social {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  a {
+    .bx {
+      font-size: 24px;
+      color: $color_1;
+      padding: 10px;
+      background: var(--second-color);
+      border-radius: 0.2rem;
+      &:hover {
+        background: var(--main-color);
+        color: $color_2;
+      }
+    }
+  }
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  span {
+    display: flex;
+    align-items: center;
+  }
+  i {
+    font-size: 20px;
+    margin-right: 1rem;
+  }
+}
+.copyright {
+  padding: 20px;
+  text-align: center;
+  background: var(--second-color);
+}
+@media (max-width: 1058px) {
+  section {
+    padding: 50px 60px;
+  }
+}
+@media (max-width: 991px) {
+  section {
+    padding: 50px 4%;
+  }
+}

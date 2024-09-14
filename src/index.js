@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 // APPLICATION/JSON PARSING
 app.use(express.json());
 // EXPRESS HANDLEBARS CONFIGURATION
-app.engine(".hbs", engine({ extname: ".hbs" }));
+app.engine(".hbs", engine({ extname: ".hbs", helpers: {
+  eq: function (a, b) {
+    return a === b;
+  }}} ));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/resources/views"));
 

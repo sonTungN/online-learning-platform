@@ -45,18 +45,17 @@ class InstructorController {
         // Handle if user is not found
         return res.status(404).send("User not found");
       }
-      const newSession = {
-        id: user._id,
-        email: user.email,
-        displayName: user.firstName + " " + user.lastName,
-        displayImg: user.profileImg,
-        accountType: user.accountType,
-        profileLink:
-          user.accountType === "LEARNER"
-            ? "/learner/profile"
-            : "/instructor/profile",
-      };
-      req.session.user = newSession;
+      req.session.user = {
+      ...req.session.user, // Preserve existing fields
+      email: user.email, // Update specified fields
+      displayName: `${user.firstName} ${user.lastName}`,
+      displayImg: user.profileImg,
+      accountType: user.accountType,
+      profileLink:
+        user.accountType === "LEARNER"
+          ? "/learner/profile"
+          : "/instructor/profile",
+    };
       res.render("instructor/edit-profile", {
         title: "Edit Profile",
         styles: ["instructor/edit-profile.css"],

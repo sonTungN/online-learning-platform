@@ -20,6 +20,8 @@
     </div>
   </div>
 
+  {{! Wishlist Courses }}
+  {{#each courses}}
   <div class="learner-view-wishlist__courses-container">
     <div class="container">
       <div class="learner-view-wishlist__courses-content">
@@ -28,27 +30,47 @@
             <div class="horizontal-displaying-courses-card d-flex">
               <div class="horizontal-displaying-courses-card-thumb">
                 <a href="#">
-                  <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
+                  <img src="{{this.courseImg}}" class="image" alt="{{this.title}}" />
                 </a>
               </div>
               <div class="horizontal-displaying-courses-card-content">
                 <div class="horizontal-displaying-courses-card-info">
-                  <h2 class="title">Investing In Stocks The Complete Course!</h2>
-                  <span class="category">WILDERNESS SURVIVING</span>
+                  <h2 class="title">{{this.title}}</h2>
+                  <span class="category">{{this.category}}</span>
                   <div class="details">
                     <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                    <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                    <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                    <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
+                    <span><i class="mr-3 fa fa-signal"></i>
+                      {{this.level}}</span>
+                    <span><i class="mr-3 fa fa-heart"></i>
+                      {{this.favUsers.length}}</span>
+                    <span><i class="mr-3 fa fa-user"></i>
+                      {{this.enrolledUsers.length}}</span>
                   </div>
                 </div>
                 <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
+                  ${{this.price}}
+                </span>
                 <div class="horizontal-displaying-courses-card-action ml-3">
-                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
-                  <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i> Cart</button>
-                  <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Remove</button>
+                  <a href="/course/{{_id}}">
+                    <button class="btn btn-outline-primary"><i class="ion-information-circled"></i>
+                      View</button>
+                  </a>
+                  <form action="/course/cart/{{_id}}" method="POST">
+                    <button class="btn btn-outline-primary">
+                      {{#if addedToCart}} X Remove From Cart {{else}}
+                      <i class="fa fa-shopping-cart"></i>
+                      Cart
+                      {{/if}}
+                    </button>
+                  </form>
+
+                  <form action="/course/fav/{{_id}}" method="POST">
+                    <button class="btn btn-outline-danger deleteCourseButton">
+                      <i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </form>
+
                 </div>
               </div>
             </div>
@@ -57,11 +79,13 @@
       </div>
     </div>
   </div>
+  {{/each}}
 
-  <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
+  {{! <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
     <div class="pop-up-notification-dialog__modal-content">
       <div class="pop-up-notification-dialog__modal-header">
-        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Remove this course?</strong></h2>
+        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Remove
+            this course?</strong></h2>
       </div>
       <div class="pop-up-notification-dialog__modal-message">
         <p>This course will be removed from your wishlist. Do you confirm?</p>
@@ -71,7 +95,7 @@
         <button class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">REMOVE</button>
       </div>
     </div>
-  </div>
+  </div> }}
   <!-- Hidden form -->
   <form method="POST" name="deleteCourseForm"></form>
 </main>
@@ -79,37 +103,31 @@
 <!-- MODAL SCRIPT -->
 <!-- Handling the delete course in another script tag above -->
 <script>
-  const deleteButtons = document.querySelectorAll(".deleteCourseButton");
-  const deleteCourseModal = document.getElementById("deleteConfirmationModal");
-  const cancelConfirmButton = document.getElementById("cancelConfirmButton");
-  const deleteConfirmButton = document.getElementById("deleteConfirmButton");
-
+  const deleteButtons = document.querySelectorAll(".deleteCourseButton"); const
+    deleteCourseModal = document.getElementById("deleteConfirmationModal"); const
+      cancelConfirmButton = document.getElementById("cancelConfirmButton"); const
+        deleteConfirmButton = document.getElementById("deleteConfirmButton");
   deleteButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      deleteCourseModal.classList.add("active");
-      deleteCourseModal.style.display = "block";
+      deleteCourseModal.classList.add("active"); deleteCourseModal.style.display =
+        "block";
     });
-  });
-
-  deleteConfirmButton.addEventListener("click", () => {
-    deleteCourseModal.classList.add("slideOut");
-    setTimeout(() => {
+  }); deleteConfirmButton.addEventListener("click", () => {
+    deleteCourseModal.classList.add("slideOut"); setTimeout(() => {
       deleteCourseModal.classList.remove("active", "slideOut");
       deleteCourseModal.style.display = "none";
     }, 500);
   });
-
   cancelConfirmButton.addEventListener("click", () => {
-    deleteCourseModal.classList.add("slideOut");
-    setTimeout(() => {
+    deleteCourseModal.classList.add("slideOut"); setTimeout(() => {
       deleteCourseModal.classList.remove("active", "slideOut");
       deleteCourseModal.style.display = "none";
     }, 500);
   });
-
   window.addEventListener("click", (event) => {
-    if (event.target === deleteCourseModal) {
-      deleteCourseModal.classList.add("slideOut");
+    if (event.target ===
+      deleteCourseModal) {
+        deleteCourseModal.classList.add("slideOut");
       setTimeout(() => {
         deleteCourseModal.classList.remove("active", "slideOut");
         deleteCourseModal.style.display = "none";

@@ -20,5 +20,5 @@ router.delete("/:id", preventUnauthenticated, courseController.delete);
 
 router.post("/fav/:id", preventUnauthenticated, courseController.addToFav);
 router.post("/cart/:id", preventUnauthenticated, courseController.addToCart);
-
+router.post('/payment',preventUnauthenticated,courseController.payment)
 module.exports = router;

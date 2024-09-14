@@ -53,7 +53,11 @@ const User = new Schema({
       return this.accountType === "INSTRUCTOR";
     },
   }, 
-  
+  cart: {
+    type: Schema.Types.ObjectId,
+    ref: "Cart",
+
+  },
   // Add a list of courses created by this user (optional)
   courses: [
     {
@@ -75,6 +79,18 @@ const User = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Course",
+    },
+  ],
+  favInstructors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  favByUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   ],
 });
