@@ -103,34 +103,22 @@
       </div>
     </section>
 
-    <!-- Instructors -->
-    <h3 class="text-center mb-4">Categories</h3>
-    <div class="main-container">
-      <!-- Categories -->
-      <section class="category container" id="category">
-        <div class="category-content">
-          <div class="category-box">
-            <a href="#">
-              <img src=" /assets/badges/first_aid.png" alt="first aid badge" />
-            </a>
-            <h5>First Aid</h5>
-            <p>(4 items)</p>
-          </div>
-          <div class="category-box">
-            <img src="/assets/badges/wilderness_survival.png" alt="woods badge" />
-            <h5> Wilderness Survival</h5>
-            <p>(8 items)</p>
-          </div>
-          <div class="category-box">
-            <img src="/assets/badges/teamwork.png" alt="teamwork badge" />
-            <h5>Teamwork</h5>
-            <p>(4 items)</p>
-          </div>
-          <div class="category-box">
-            <img src="/assets/badges/stem1.png" alt="badge" />
-            <h5>STEM</h5>
-            <p>(4 items)</p>
-          </div>
+    <!-- Category -->
+    <section class="homepage-category" id="category">
+      <h3 class="section-heading mt-4 mb-4">Top categories</h3>
+      <div class="category-content">
+        <div class="category-box">
+          <img src="/assets/badges/wilderness_survival.png" alt="woods badge" />
+          <h5 class="category-title"> Wilderness Survival</h5>
+        </div>
+        <div class="category-box">
+          <img src="/assets/badges/teamwork.png" alt="teamwork badge" />
+          <h5 class="category-title">Teamwork</h5>
+        </div>
+        <div class="category-box">
+          <img src="/assets/badges/stem1.png" alt="badge" />
+          <h5 class="category-title">STEM</h5>
+        </div>
 
         <div class="category-box">
           <img src="/assets/badges/knot.png" alt="knots badge" />
@@ -139,20 +127,20 @@
       </div>
     </section>
 
-    <!-- Newly Onboard Instructors -->
+    <!-- Newly Onboard Instructors-->
     <section class="newly-onboard-instructors">
       <h2 class="section-heading mb-4 mt-4">Newly Onboard Instructors</h2>
 
       {{#if newlyInstructors}}
         <div class="instructor-content">
           {{#each newlyInstructors}}
-          <div class="instructor-box">
-            <img src="{{profileImg}}" alt={{firstName}} />
-            <p class="instructor-name">
-              {{firstName}} {{lastName}}
-            </p>
-            <p class="role">{{jobTitle}}</p>
-          </div>
+            <div class="instructor-box">
+              <img src="{{profileImg}}" alt={{firstName}} />
+              <p class="instructor-name">
+                {{firstName}} {{lastName}}
+              </p>
+              <p class="role">{{jobTitle}}</p>
+            </div>
           {{/each}}
         </div>
       {{else}}
@@ -197,6 +185,3 @@
     </section>
   </div>
 </main>
-
-<script>
-</script>

@@ -28,6 +28,7 @@ class CourseController {
       next(e);
     }
   }
+
   async updateCourse(req, res, next) {
     try {
       const body = req.body;
@@ -52,7 +53,7 @@ class CourseController {
       // Find the course and update it
       await Course.findByIdAndUpdate(req.params.id, updatedCourseData);
 
-      res.redirect(`/course/edit-course/${req.params.id}`);
+      res.redirect(`/instructor/courses`);
     } catch (error) {
       next(error);
       console.log(error);
@@ -61,8 +62,20 @@ class CourseController {
 
   async view(req, res, next) {
     try {
-      const id = req.params.id;
       const user = req.session.user ? req.session.user : null;
+      const userId = req.session.user.id;
+      const currentUser = await User.findById(userId).lean();
+
+      if (!currentUser) {
+        // Handle if user is not found
+        return res.status(404).send("User not found");
+      }
+      req.session.user = {
+        ...req.session.user,
+        accountType: user.accountType,
+      };
+
+      const id = req.params.id;
       // Check if the ID is a valid ObjectId
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.redirect("/"); // Or you might want to render an error page
@@ -94,13 +107,15 @@ class CourseController {
       }
       // Filter out the current course from the moreCourses list
       const filteredMoreCourses = moreCourses.filter(
-        (course) => course._id.toString() !== id
+        (course) => course._id.toString() !== id,
       );
 
       res.render("course/course-profile", {
         title: "Course Details",
         styles: ["course/course-profile.css", "bootstrap_v5.css"],
-        user,
+        user: req.session.user,
+        userJson: JSON.stringify(user),
+        currentUser: user,
         course: matchedCourse,
         moreCourses: filteredMoreCourses, // Pass the filtered list
       });
@@ -198,7 +213,7 @@ class CourseController {
           await Course.findByIdAndUpdate(course._id, {
             $addToSet: { enrolledUsers: userId }, // Use $addToSet to avoid duplicates
           });
-        })
+        }),
       );
 
       res.redirect("/thank-you");
@@ -229,13 +244,13 @@ class CourseController {
 
       // Check if the course is already in the trialCourses array
       const isCourseInTrial = user.trialCourses.some(
-        (trial) => trial.course.toString() === courseId
+        (trial) => trial.course.toString() === courseId,
       );
 
       if (isCourseInTrial) {
         // Remove the course from the trialCourses array
         user.trialCourses = user.trialCourses.filter(
-          (trial) => trial.course.toString() !== courseId
+          (trial) => trial.course.toString() !== courseId,
         );
 
         // Save the updated user document
@@ -245,7 +260,7 @@ class CourseController {
         await Course.findByIdAndUpdate(
           courseId,
           { $pull: { inTrialUsers: userId } }, // $pull removes the user from the array
-          { new: true } // Return the updated document
+          { new: true }, // Return the updated document
         );
 
         const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
@@ -265,7 +280,7 @@ class CourseController {
       await Course.findByIdAndUpdate(
         courseId,
         { $addToSet: { inTrialUsers: userId } }, // Use $addToSet to avoid duplicates
-        { new: true } // Return the updated document
+        { new: true }, // Return the updated document
       );
 
       const referer = req.get("referer") || "/"; // Default to homepage if no referer is found

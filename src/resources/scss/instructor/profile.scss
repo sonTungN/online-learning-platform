@@ -160,6 +160,14 @@ a {
     font-weight: 700;
   }
 
+  .notification,
+  .notification-link {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color-black-80;
+    //text-decoration: none;
+  }
+
   // Ensure consistency for course card images
   .box-displaying-course-card {
     margin-bottom: 30px;
@@ -208,6 +216,7 @@ a {
       margin: 10px 0;
       font-size: 1.6rem;
       font-weight: 900;
+      color: $color-black-80;
     }
 
     .box-displaying-course-card-time {

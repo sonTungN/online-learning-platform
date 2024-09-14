@@ -46,16 +46,16 @@ class InstructorController {
         return res.status(404).send("User not found");
       }
       req.session.user = {
-      ...req.session.user, // Preserve existing fields
-      email: user.email, // Update specified fields
-      displayName: `${user.firstName} ${user.lastName}`,
-      displayImg: user.profileImg,
-      accountType: user.accountType,
-      profileLink:
-        user.accountType === "LEARNER"
-          ? "/learner/profile"
-          : "/instructor/profile",
-    };
+        ...req.session.user, // Preserve existing fields
+        email: user.email, // Update specified fields
+        displayName: `${user.firstName} ${user.lastName}`,
+        displayImg: user.profileImg,
+        accountType: user.accountType,
+        profileLink:
+          user.accountType === "LEARNER"
+            ? "/learner/profile"
+            : "/instructor/profile",
+      };
       res.render("instructor/edit-profile", {
         title: "Edit Profile",
         styles: ["instructor/edit-profile.css"],
@@ -79,7 +79,7 @@ class InstructorController {
       const updatedUser = await User.findOneAndUpdate(
         { _id: id }, // Query to find the user
         body, // Data to update
-        { new: true, runValidators: true } // Options to return the updated document and run validators
+        { new: true, runValidators: true }, // Options to return the updated document and run validators
       );
 
       if (!updatedUser) {
@@ -125,17 +125,35 @@ class InstructorController {
   }
 
   // [GET] /instructor/add-course
-  add(req, res, next) {
+  async add(req, res, next) {
     try {
+      const userId = req.session.user.id;
+
+      // Find the user in the database
+      const user = await User.findById(userId).lean();
+
+      if (!user) {
+        // Handle if user is not found
+        return res.status(404).send("User not found");
+      }
+      req.session.user = {
+        ...req.session.user,
+        displayName: `${user.firstName} ${user.lastName}`,
+      };
       res.render("instructor/add-course", {
         title: "Add Course",
         styles: ["instructor/add-course.css"],
         user: req.session.user,
+        userJson: JSON.stringify(user),
+        currentUser: user,
+
+        isInstructor: user.accountType,
       });
     } catch (e) {
       next(e);
     }
   }
+
   // [POST] /instructor/add-course
   async addCourse(req, res, next) {
     try {
@@ -155,11 +173,11 @@ class InstructorController {
       const course = new Course(formattedBody);
       await course.save().then(
         async (
-          course // Optionally, push the course to the user's `courses` array
+          course, // Optionally, push the course to the user's `courses` array
         ) =>
           await User.findByIdAndUpdate(req.session.user.id, {
             $push: { courses: course._id },
-          })
+          }),
       );
       res.redirect("/instructor/courses");
     } catch (error) {

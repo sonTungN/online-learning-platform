@@ -184,9 +184,9 @@ h2 {
 
   p {
     font-family: $font-family_1;
-    padding: 30px;
+    padding: 10px 20px 20px;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     text-align: center;
   }
 }
@@ -211,8 +211,13 @@ h2 {
     font-family: $font-family_1;
     padding: 30px;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     text-align: center;
+  }
+
+  button {
+    min-width: 120px;
+    margin-bottom: 5px;
   }
 }
 @media (max-width: 790px) {
@@ -235,7 +240,14 @@ h2 {
     max-width: 100%;
   }
 
-  .card-container h2 {
-    font-size: 1.2rem;
+  .card-container {
+    h2 {
+      font-size: 1.6rem;
+      padding: 0;
+    }
+
+    p {
+      font-size: 1.2 rem;
+    }
   }
 }

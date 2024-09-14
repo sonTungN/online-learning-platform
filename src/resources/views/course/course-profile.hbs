@@ -68,61 +68,66 @@
               </div>
               <div class="course-profile__course-price">${{course.price}}</div>
 
-              <div class="course-profile__course-action">
-                <!-- FOR STUDENT-->
-                <form
-                  action="/course/trial/{{course._id}}"
-                  method="POST"
-                  style="width: 100%;"
-                >
-                  <div class="course-profile__action-cta">
-                    <button class="action-btn">
-                      {{#if course.inTrial}}
-                        Cancel Trial
-                      {{else}}
-                        2-Day Free Trial
-                      {{/if}}
-                    </button>
-                  </div>
-                </form>
+              {{#if isInstructor}}
+                <div class="course-profile__course-action">
+                  <!-- FOR STUDENT-->
+                  <form
+                      action="/course/trial/{{course._id}}"
+                      method="POST"
+                      style="width: 100%;"
+                  >
+                    <div class="course-profile__action-cta">
+                      <button class="action-btn">
+                        {{#if course.inTrial}}
+                          Cancel Trial
+                        {{else}}
+                          2-Day Free Trial
+                        {{/if}}
+                      </button>
+                    </div>
+                  </form>
 
-                <!-- BEFORE ADD TO CART -->
-                <form
-                  action="/course/cart/{{course._id}}"
-                  method="POST"
-                  style="width: 100%;"
-                >
-                  <div class="course-profile__action-cta">
-                    <button class="action-btn">
-                      {{#if course.addedToCart}} Remove from cart {{else}}
-                        Add to cart
-                      {{/if}}
-                    </button>
-                  </div>
-                </form>
+                  <!-- BEFORE ADD TO CART -->
+                  <form
+                      action="/course/cart/{{course._id}}"
+                      method="POST"
+                      style="width: 100%;"
+                  >
+                    <div class="course-profile__action-cta">
+                      <button class="action-btn">
+                        {{#if course.addedToCart}} Remove from cart {{else}}
+                                                   Add to cart
+                        {{/if}}
+                      </button>
+                    </div>
+                  </form>
 
-                <!-- AFTER CLICK ADD TO CART -->
-                <div class="course-profile__action-cta">
-                  <a class="action-btn" href="/learner/order-placement">Go to
-                    cart</a>
+                  <form style="width: 100%;">
+                    <div class="course-profile__action-cta">
+                      <button class="action-btn" href="/learner/order-placement">
+                        Go to cart
+                      </button>
+                    </div>
+                  </form>
+
+                  <form
+                      style="width: 100%;"
+                      action="/course/fav/{{course._id}}"
+                      method="POST"
+                  >
+                    <div class="course-profile__action-cta">
+                      <button class="action-btn">
+                        {{#if course.addedToWishlist}}
+                          Remove From wishlist
+                        {{else}}
+                          Add to wishlist
+                        {{/if}}
+                      </button>
+                    </div>
+                  </form>
+
                 </div>
-                <form
-                  style="width: 100%;"
-                  action="/course/fav/{{course._id}}"
-                  method="POST"
-                >
-                  <div class="course-profile__action-cta">
-                    <button class="action-btn">
-                      {{#if course.addedToWishlist}}
-                        Remove From wishlist
-                      {{else}}
-                        Add to wishlist
-                      {{/if}}
-                    </button>
-                  </div>
-                </form>
-
-              </div>
+              {{/if}}
             </div>
           </div>
 
