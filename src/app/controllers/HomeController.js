@@ -65,7 +65,7 @@ class HomeController {
         ]);
 
       const userId = req.session.user ? req.session.user.id : null; // Check if user is logged in
-        console.log(topInstructors)
+      console.log(topInstructors);
       // Fetch the user's cart if logged in
       let userCart = [];
       if (userId) {
@@ -92,7 +92,7 @@ class HomeController {
         if (userId) {
           // Check if the userId exists in the favUsers array
           courseData.addedToWishlist = course.favUsers.some(
-            (user) => user._id.toString() === userId
+            (user) => user._id.toString() === userId,
           );
         }
         return courseData;
@@ -114,12 +114,12 @@ class HomeController {
         if (userId) {
           // Check if the userId exists in the favUsers array
           courseData.addedToWishlist = course.favUsers.some(
-            (user) => user._id.toString() === userId
+            (user) => user._id.toString() === userId,
           );
         }
         return courseData;
       });
-      topInstructors= topInstructors.map(data =>{
+      topInstructors = topInstructors.map((data) => {
         const date = new Date(data.instructor.createdAt);
         const day = String(date.getDate()).padStart(2, "0");
         const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -127,13 +127,13 @@ class HomeController {
         let formattedData = {
           ...data,
           instructor: {
-           ...data.instructor,
+            ...data.instructor,
             createdAt: `${day}/${month}/${year}`,
           },
-        }
+        };
 
-        return formattedData
-      })
+        return formattedData;
+      });
       res.render("home", {
         title: "Homepage",
         styles: ["home.css", "bootstrap_v5.css"],
@@ -175,6 +175,30 @@ class HomeController {
       title: "FAQ",
       styles: ["faq.css"],
       scripts: ["faq.js"],
+      user: req.session.user,
+    });
+  }
+
+  copyright(req, res, next) {
+    res.render("terms/copyright", {
+      title: "Copyright",
+      styles: ["terms.css"],
+      user: req.session.user,
+    });
+  }
+
+  services(req, res, next) {
+    res.render("terms/services", {
+      title: "Terms of Services",
+      styles: ["terms.css"],
+      user: req.session.user,
+    });
+  }
+
+  policy(req, res, next) {
+    res.render("terms/policy", {
+      title: "Privacy Policy",
+      styles: ["terms.css"],
       user: req.session.user,
     });
   }

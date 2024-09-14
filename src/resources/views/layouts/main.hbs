@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/{{this}}"/>
   {{/each}}
 
-
   <title>{{title}}</title>
 </head>
 
@@ -18,15 +17,18 @@
   </header>
 
   <!-- Main content area -->
-  {{{body}}}
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+    {{> footer}}
+  </footer>
 
   <!-- Include additional scripts passed as variables -->
   {{#each scripts}}
     <script src="/js/{{this}}"></script>
   {{/each}}
-
-  <!-- Include footer partial -->
-  {{> footer}}
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
