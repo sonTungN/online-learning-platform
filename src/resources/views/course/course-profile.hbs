@@ -1,140 +1,200 @@
 {{#if course}}
-<main class="course-profile bootstrap-v5">
-  <section class="course-profile__course-details-wrapper">
-    <div class="course-profile__course-details">
-      <div class="container">
-        <div class="course-profile__details-container">
-          <div class="course-profile__details-content">
-            <div class="course-profile__heading">COURSE DETAILS</div>
-            <h1 class="course-profile__title">
-              {{course.title}}
-            </h1>
-            <div class="course-profile__box-type">
-              <div class="course-profile__category-container">
-                <span class="course-profile__category">
-                  {{course.category}}
-                </span>
+  <main class="course-profile bootstrap-v5">
+    <section class="course-profile__course-details-wrapper">
+      <div class="course-profile__course-details">
+        <div class="container">
+          <div class="course-profile__details-container">
+            <div class="course-profile__details-content">
+              <div class="course-profile__heading">COURSE DETAILS</div>
+              <h1 class="course-profile__title">
+                {{course.title}}
+              </h1>
+              <div class="course-profile__box-type">
+                <div class="course-profile__category-container">
+                  <span class="course-profile__category">
+                    {{course.category}}
+                  </span>
+                </div>
+                <div class="course-profile__level">
+                  {{course.level}}
+                </div>
               </div>
-              <div class="course-profile__level">
-                {{course.level}}
-              </div>
-            </div>
-            <div class="course-profile__createdBy">
-              Created by Dr.
-              <a class="course-profile__createdBy-link" href="#">
-                {{course.user.firstName}} {{course.user.lastName}}
-              </a>
-            </div>
-          </div>
-
-          <div class="course-profile__details-display">
-            <img alt="Course Image" class="course-profile__course-thumb" src="{{course.courseImg}}" />
-            <div class="course-profile__stats-row">
-              <div class="course-profile__stats-item">
-                <i class="fa fa-star course-profile__stats-icon" style="color: #f59c09"></i>
-                <span class="course-profile__stats-number">
-                  {{#if (eq course.enrolledUsers.length 0)}}
-                  N/A
-                  {{else}}
-                  4.7
-                  {{/if}}
-                </span>
-                <span class="course-profile__stats-title">RATING</span>
-              </div>
-
-              <div class="course-profile__stats-item">
-                <i class="fa fa-user course-profile__stats-icon"></i>
-                <span class="course-profile__stats-number">{{course.enrolledUsers.length}}</span>
-                <span class="course-profile__stats-title">STUDENTS</span>
-              </div>
-
-              <div class="course-profile__stats-item">
-                <i class="fa fa-heart course-profile__stats-icon"></i>
-                <span class="course-profile__stats-number">{{course.favUsers.length}}</span>
-                <span class="course-profile__stats-title">WISHLIST</span>
+              <div class="course-profile__createdBy">
+                Created by Dr.
+                <a class="course-profile__createdBy-link" href="#">
+                  {{course.user.firstName}}
+                  {{course.user.lastName}}
+                </a>
               </div>
             </div>
-            <div class="course-profile__course-price">${{course.price}}</div>
 
-            <div class="course-profile__course-action">
-              <!-- FOR STUDENT-->
-              <div class="course-profile__action-cta">
-                <a class="action-btn" href="#">2-Day Free Trial</a>
-              </div>
-
-              <!-- BEFORE ADD TO CART -->
-              <div class="course-profile__action-cta">
-                <a class="action-btn" href="#">Add to cart</a>
-              </div>
-              <!-- AFTER CLICK ADD TO CART -->
-              <div class="course-profile__action-cta">
-                <a class="action-btn" href="#">Go to cart</a>
-              </div>
-
-              <div class="course-profile__action-cta">
-                <a class="action-btn" href="#">Add to wishlist</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="course-profile__course-description-wrapper">
-    <div class="container">
-      <div class="course-profile__course-description">
-        <h2 class="title">Course Description</h2>
-        <p class="content">
-          {{course.description}}
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="course-profile__more-courses">
-    <div class="container">
-      <div class="course-profile__more-courses-content">
-        <h3 class="course-profile__more-courses-heading">Discover More Courses</h3>
-        <div class="row" style="gap: 5px;">
-          {{#each moreCourses}}
-          <a style="text-decoration: none; color: inherit;" href="/course/{{_id}}"
-            class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <div class="box-displaying-course-card">
-              <img alt="{{title}}" width="100px" height="100px" class="box-displaying-course-card-thumb"
-                src="{{courseImg}}" />
-
-              <div class="d-flex justify-content-between flex-column mt-3 mb-3">
-                <div class="box-displaying-course-card-category">
-                  {{category}}
+            <div class="course-profile__details-display">
+              <img
+                alt="Course Image"
+                class="course-profile__course-thumb"
+                src="{{course.courseImg}}"
+              />
+              <div class="course-profile__stats-row">
+                <div class="course-profile__stats-item">
+                  <i
+                    class="fa fa-star course-profile__stats-icon"
+                    style="color: #f59c09"
+                  ></i>
+                  <span class="course-profile__stats-number">
+                    {{#if (eq course.enrolledUsers.length 0)}}
+                      N/A
+                    {{else}}
+                      4.7
+                    {{/if}}
+                  </span>
+                  <span class="course-profile__stats-title">RATING</span>
                 </div>
 
-                <!--<div>-->
-                <!--  <button class="btn btn-outline-danger btn-sm">-->
-                <!--    <i class="fa fa-heart"></i>-->
-                <!--  </button>-->
-                <!--  <button class="btn btn-outline-primary btn-sm">-->
-                <!--    <i class="fa fa-shopping-cart"></i>-->
-                <!--  </button>-->
-                <!--</div>-->
+                <div class="course-profile__stats-item">
+                  <i class="fa fa-user course-profile__stats-icon"></i>
+                  <span
+                    class="course-profile__stats-number"
+                  >{{course.enrolledUsers.length}}</span>
+                  <span class="course-profile__stats-title">STUDENTS</span>
+                </div>
+
+                <div class="course-profile__stats-item">
+                  <i class="fa fa-heart course-profile__stats-icon"></i>
+                  <span
+                    class="course-profile__stats-number"
+                  >{{course.favUsers.length}}</span>
+                  <span class="course-profile__stats-title">WISHLIST</span>
+                </div>
               </div>
-              <h4 class="box-displaying-course-card-title line-clamp">
-                {{title}}
-              </h4>
-              <p class="box-displaying-course-card-createdBy line-clamp">
-                {{user.firstName}} {{user.lastName}}
-              </p>
-              <p class="box-displaying-course-card-price">$
-                {{price}}
-              </p>
-              <p class="box-displaying-course-card-time">Uploaded on {{createdAt}}</p>
+              <div class="course-profile__course-price">${{course.price}}</div>
+
+              <div class="course-profile__course-action">
+                <!-- FOR STUDENT-->
+                <form
+                  action="/course/trial/{{course._id}}"
+                  method="POST"
+                  style="width: 100%;"
+                >
+                  <div class="course-profile__action-cta">
+                    <button class="action-btn">
+                      {{#if course.inTrial}}
+                        Cancel Trial
+                      {{else}}
+                        2-Day Free Trial
+                      {{/if}}
+                    </button>
+                  </div>
+                </form>
+
+                <!-- BEFORE ADD TO CART -->
+                <form
+                  action="/course/cart/{{course._id}}"
+                  method="POST"
+                  style="width: 100%;"
+                >
+                  <div class="course-profile__action-cta">
+                    <button class="action-btn">
+                      {{#if course.addedToCart}} Remove from cart {{else}}
+                        Add to cart
+                      {{/if}}
+                    </button>
+                  </div>
+                </form>
+
+                <!-- AFTER CLICK ADD TO CART -->
+                <div class="course-profile__action-cta">
+                  <a class="action-btn" href="/learner/order-placement">Go to
+                    cart</a>
+                </div>
+                <form
+                  style="width: 100%;"
+                  action="/course/fav/{{course._id}}"
+                  method="POST"
+                >
+                  <div class="course-profile__action-cta">
+                    <button class="action-btn">
+                      {{#if course.addedToWishlist}}
+                        Remove From wishlist
+                      {{else}}
+                        Add to wishlist
+                      {{/if}}
+                    </button>
+                  </div>
+                </form>
+
+              </div>
             </div>
-          </a>
-          {{/each}}
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+
+    <section class="course-profile__course-description-wrapper">
+      <div class="container">
+        <div class="course-profile__course-description">
+          <h2 class="title">Course Description</h2>
+          <p class="content">
+            {{course.description}}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="course-profile__more-courses">
+      <div class="container">
+        <div class="course-profile__more-courses-content">
+          <h3 class="course-profile__more-courses-heading">Discover More Courses</h3>
+          <div class="row" style="gap: 5px;">
+            {{#each moreCourses}}
+              <a
+                style="text-decoration: none; color: inherit;"
+                href="/course/{{_id}}"
+                class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"
+              >
+                <div class="box-displaying-course-card">
+                  <img
+                    alt="{{title}}"
+                    width="100px"
+                    height="100px"
+                    class="box-displaying-course-card-thumb"
+                    src="{{courseImg}}"
+                  />
+
+                  <div
+                    class="d-flex justify-content-between flex-column mt-3 mb-3"
+                  >
+                    <div class="box-displaying-course-card-category">
+                      {{category}}
+                    </div>
+
+                    <!--<div>-->
+                    <!--  <button class="btn btn-outline-danger btn-sm">-->
+                    <!--    <i class="fa fa-heart"></i>-->
+                    <!--  </button>-->
+                    <!--  <button class="btn btn-outline-primary btn-sm">-->
+                    <!--    <i class="fa fa-shopping-cart"></i>-->
+                    <!--  </button>-->
+                    <!--</div>-->
+                  </div>
+                  <h4 class="box-displaying-course-card-title line-clamp">
+                    {{title}}
+                  </h4>
+                  <p class="box-displaying-course-card-createdBy line-clamp">
+                    {{user.firstName}}
+                    {{user.lastName}}
+                  </p>
+                  <p class="box-displaying-course-card-price">$
+                    {{price}}
+                  </p>
+                  <p class="box-displaying-course-card-time">Uploaded on
+                    {{createdAt}}</p>
+                </div>
+              </a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 {{/if}}

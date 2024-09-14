@@ -44,7 +44,12 @@ const Course = new Schema({
       ref: "User",
     },
   ],
-
+  inTrialUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   carts: [
     {
       type: Schema.Types.ObjectId,

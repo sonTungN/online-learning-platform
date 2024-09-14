@@ -65,7 +65,6 @@ class HomeController {
         ]);
 
       const userId = req.session.user ? req.session.user.id : null; // Check if user is logged in
-        console.log(topInstructors)
       // Fetch the user's cart if logged in
       let userCart = [];
       if (userId) {
@@ -119,7 +118,7 @@ class HomeController {
         }
         return courseData;
       });
-      topInstructors= topInstructors.map(data =>{
+      topInstructors = topInstructors.map((data) => {
         const date = new Date(data.instructor.createdAt);
         const day = String(date.getDate()).padStart(2, "0");
         const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -127,13 +126,13 @@ class HomeController {
         let formattedData = {
           ...data,
           instructor: {
-           ...data.instructor,
+            ...data.instructor,
             createdAt: `${day}/${month}/${year}`,
           },
-        }
+        };
 
-        return formattedData
-      })
+        return formattedData;
+      });
       res.render("home", {
         title: "Homepage",
         styles: ["home.css", "bootstrap_v5.css"],
@@ -175,6 +174,14 @@ class HomeController {
       title: "FAQ",
       styles: ["faq.css"],
       scripts: ["faq.js"],
+      user: req.session.user,
+    });
+  }
+
+  thankyou(req, res, next) {
+    res.render("support/thank-you", {
+      title: "Thank You",
+      styles: ["thank-you.css", "bootstrap_v5.css"],
       user: req.session.user,
     });
   }

@@ -23,126 +23,55 @@
   <div class="learner-view-on-trial__courses-container">
     <div class="container">
       <div class="learner-view-on-trial__courses-content">
+        {{#each courses}}
         <div class="row">
           <div class="col-12">
             <div class="horizontal-displaying-courses-card d-flex">
               <div class="horizontal-displaying-courses-card-thumb">
                 <a href="#">
-                  <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
+                  <img src="{{courseImg}}" class="image" alt="{{title}}" />
                 </a>
               </div>
               <div class="horizontal-displaying-courses-card-content">
                 <div class="horizontal-displaying-courses-card-info">
-                  <h2 class="title">Investing In Stocks The Complete Course!</h2>
-                  <span class="category">WILDERNESS SURVIVING</span>
+                  <h2 class="title">
+                    {{title}}
+                  </h2>
+                  <span class="category">
+                    {{category}}
+                  </span>
                   <div class="details">
                     <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                    <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                    <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                    <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
+                    <span><i class="mr-3 fa fa-signal"></i>
+                      {{level}}
+                    </span>
+                    <span><i class="mr-3 fa fa-heart"></i>
+                      {{favUsers.length}}
+                    </span>
+                    <span><i class="mr-3 fa fa-user"></i>
+                      {{enrolledUsers.length}}
+                    </span>
                   </div>
                 </div>
                 <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
+                  ${{price}}
+                </span>
                 <div class="horizontal-displaying-courses-card-action ml-3">
-                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
-                  <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Cancel</button>
+                  <a href="/course/{{_id}}">
+                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i>
+                    View</button>
+                  </a>
+                  
+                  <button data-course-id="{{_id}}" class="btn btn-outline-danger deleteCourseButton"><i
+                      class="fa fa-trash"></i>
+                    Cancel</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="horizontal-displaying-courses-card d-flex">
-              <div class="horizontal-displaying-courses-card-thumb">
-                <a href="#">
-                  <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
-                </a>
-              </div>
-              <div class="horizontal-displaying-courses-card-content">
-                <div class="horizontal-displaying-courses-card-info">
-                  <h2 class="title">Investing In Stocks The Complete Course!</h2>
-                  <span class="category">WILDERNESS SURVIVING</span>
-                  <div class="details">
-                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                    <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                    <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                    <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
-                  </div>
-                </div>
-                <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
-                <div class="horizontal-displaying-courses-card-action ml-3">
-                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
-                  <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="horizontal-displaying-courses-card d-flex">
-              <div class="horizontal-displaying-courses-card-thumb">
-                <a href="#">
-                  <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
-                </a>
-              </div>
-              <div class="horizontal-displaying-courses-card-content">
-                <div class="horizontal-displaying-courses-card-info">
-                  <h2 class="title">Investing In Stocks The Complete Course!</h2>
-                  <span class="category">WILDERNESS SURVIVING</span>
-                  <div class="details">
-                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                    <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                    <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                    <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
-                  </div>
-                </div>
-                <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
-                <div class="horizontal-displaying-courses-card-action ml-3">
-                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
-                  <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="horizontal-displaying-courses-card d-flex">
-              <div class="horizontal-displaying-courses-card-thumb">
-                <a href="#">
-                  <img src="/assets/up-bc.jpg" class="image" alt="Course IMG">
-                </a>
-              </div>
-              <div class="horizontal-displaying-courses-card-content">
-                <div class="horizontal-displaying-courses-card-info">
-                  <h2 class="title">Investing In Stocks The Complete Course!</h2>
-                  <span class="category">WILDERNESS SURVIVING</span>
-                  <div class="details">
-                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
-                    <span><i class="mr-3 fa fa-signal"></i> Beginner</span>
-                    <span><i class="mr-3 fa fa-heart"></i> 69</span>
-                    <span><i class="mr-3 fa fa-user"></i> 265.7K</span>
-                  </div>
-                </div>
-                <span class="horizontal-displaying-courses-card-price">
-              $114.00
-            </span>
-                <div class="horizontal-displaying-courses-card-action ml-3">
-                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
-                  <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i> Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{/each}}
+
       </div>
     </div>
   </div>
@@ -150,7 +79,8 @@
   <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
     <div class="pop-up-notification-dialog__modal-content">
       <div class="pop-up-notification-dialog__modal-header">
-        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Cancel 2-day trial?</strong></h2>
+        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Cancel
+            2-day trial?</strong></h2>
       </div>
       <div class="pop-up-notification-dialog__modal-message">
         <p>Your trial enrollment for 2-day will be canceled. Do you confirm?</p>
@@ -172,15 +102,26 @@
   const deleteCourseModal = document.getElementById("deleteConfirmationModal");
   const cancelConfirmButton = document.getElementById("cancelConfirmButton");
   const deleteConfirmButton = document.getElementById("deleteConfirmButton");
+  let currentCourseId = null; // Variable to store the current course ID
 
+  // Event listener for delete buttons
   deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      currentCourseId = event.target.getAttribute("data-course-id");
       deleteCourseModal.classList.add("active");
       deleteCourseModal.style.display = "block";
     });
   });
 
+  // Event listener for confirm button
   deleteConfirmButton.addEventListener("click", () => {
+    if (currentCourseId) {
+      // Submit the form or send a request to delete the course
+      const form = document.forms["deleteCourseForm"];
+      form.action = `/course/trial/${currentCourseId}`; // Set the form action to delete the course
+      form.method = "POST";
+      form.submit();
+    }
     deleteCourseModal.classList.add("slideOut");
     setTimeout(() => {
       deleteCourseModal.classList.remove("active", "slideOut");
@@ -188,6 +129,7 @@
     }, 500);
   });
 
+  // Event listener for cancel button
   cancelConfirmButton.addEventListener("click", () => {
     deleteCourseModal.classList.add("slideOut");
     setTimeout(() => {
@@ -196,6 +138,7 @@
     }, 500);
   });
 
+  // Event listener for clicking outside the modal
   window.addEventListener("click", (event) => {
     if (event.target === deleteCourseModal) {
       deleteCourseModal.classList.add("slideOut");

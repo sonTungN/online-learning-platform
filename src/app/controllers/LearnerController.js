@@ -10,7 +10,6 @@ class LearnerController {
     const cart = await Cart.findOne({ user: userId })
       .populate("courses")
       .lean();
-    // console.log(cart);
     const totalPrice = cart.courses.reduce(
       (acc, course) => acc + course.price,
       0
@@ -36,24 +35,32 @@ class LearnerController {
     }
   }
 
-  viewPurchased(req, res, next) {
+  async viewPurchased(req, res, next) {
+    const userId = req.session.user.id;
+    const purchasedCourses = await Course.find({
+      enrolledUsers: { $in: [userId] },
+    }).lean();
     try {
       res.render("learner/view-courses", {
         title: "My learning",
         styles: ["learner/view-courses.css", "bootstrap_v5.css"],
         user: req.session.user,
+        purchasedCourses,
       });
     } catch (e) {
       next(e);
     }
   }
 
-  viewTrial(req, res, next) {
+  async viewTrial(req, res, next) {
     try {
+      const userId = req.session.user.id;
+      const courses = await Course.find({ inTrialUsers: userId }).lean();
       res.render("learner/on-trial", {
         title: "My learning",
         styles: ["learner/on-trial.css", "bootstrap_v5.css"],
         user: req.session.user,
+        courses,
       });
     } catch (e) {
       next(e);
@@ -92,7 +99,6 @@ class LearnerController {
 
         return data;
       });
-      console.log(favoriteCourses);
       // Render the wishlist page with the favorite courses
       res.render("learner/wishlist", {
         title: "My learning",
@@ -151,12 +157,47 @@ class LearnerController {
     }
   }
 
-  display(req, res, next) {
+  async display(req, res, next) {
     try {
+      const user = req.session.user || null;
+      const order = req.query.order || "asc";
+      const category = req.query.category
+        ? decodeURIComponent(req.query.category)
+        : "all";
+
+      let query = {};
+      if (category !== "all") {
+        query.category = { $regex: new RegExp(category, "i") }; // Case-insensitive match
+      }
+
+      let courses = await Course.find(query).lean();
+      courses = courses.sort((a, b) => {
+        if (order === "asc") {
+          return a.title.localeCompare(b.title);
+        } else if (order === "desc") {
+          return b.title.localeCompare(a.title);
+        }
+      });
+      if (user) {
+        const cart = await Cart.findOne({ user: user.id });
+        courses = courses.map((course) => {
+          const data = {
+            ...course,
+            addedToCart: cart.courses
+              .map((courseId) => courseId.toString())
+              .includes(course._id.toString()),
+          };
+          return data;
+        });
+      }
+      console.log(courses);
       res.render("learner/browse", {
         title: "Browse Courses",
         styles: ["learner/browse.css", "bootstrap_v5.css"],
-        user: req.session.user,
+        user,
+        courses,
+        category,
+        order
       });
     } catch (e) {
       next(e);

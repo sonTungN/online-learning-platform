@@ -1,5 +1,6 @@
 const Course = require("../models/Course");
 const Cart = require("../models/Cart");
+const User = require("../models/User");
 const mongoose = require("mongoose");
 const path = require("path");
 class CourseController {
@@ -61,14 +62,14 @@ class CourseController {
   async view(req, res, next) {
     try {
       const id = req.params.id;
-
+      const user = req.session.user ? req.session.user : null;
       // Check if the ID is a valid ObjectId
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.redirect("/"); // Or you might want to render an error page
       }
 
       // Fetch the current course and more courses
-      const [matchedCourse, moreCourses] = await Promise.all([
+      let [matchedCourse, moreCourses] = await Promise.all([
         Course.findById(id).populate("user").lean(),
         Course.find().populate("user").limit(4).lean(), // Fetch more courses
       ]);
@@ -77,7 +78,20 @@ class CourseController {
       if (!matchedCourse) {
         return res.redirect("/"); // Or you might want to render a 404 page
       }
-
+      if (user) {
+        const currentCart = await Cart.findOne({ user: user.id });
+        matchedCourse.addedToWishlist = matchedCourse.favUsers
+          .map((favUser) => favUser.toString()) // Convert ObjectIds to strings
+          .includes(user.id.toString()); // Convert user._id to a string
+        matchedCourse.addedToCart = currentCart.courses
+          .map((course) => course.toString())
+          .includes(matchedCourse._id.toString());
+        if (matchedCourse.inTrialUsers) {
+          matchedCourse.inTrial = matchedCourse.inTrialUsers
+            .map((userId) => userId.toString())
+            .includes(user.id.toString());
+        }
+      }
       // Filter out the current course from the moreCourses list
       const filteredMoreCourses = moreCourses.filter(
         (course) => course._id.toString() !== id
@@ -86,7 +100,7 @@ class CourseController {
       res.render("course/course-profile", {
         title: "Course Details",
         styles: ["course/course-profile.css", "bootstrap_v5.css"],
-        user: req.session.user,
+        user,
         course: matchedCourse,
         moreCourses: filteredMoreCourses, // Pass the filtered list
       });
@@ -187,7 +201,75 @@ class CourseController {
         })
       );
 
-      res.redirect("/learner/order-placement");
+      res.redirect("/thank-you");
+    } catch (error) {
+      next(error);
+      console.log(error);
+    }
+  }
+  async trial(req, res, next) {
+    try {
+      const courseId = req.params.id; // Course ID from the request params
+      const userId = req.session.user.id; // User ID from session (or from elsewhere)
+
+      // Validate if the courseId and userId are valid ObjectId
+      if (
+        !mongoose.Types.ObjectId.isValid(courseId) ||
+        !mongoose.Types.ObjectId.isValid(userId)
+      ) {
+        return res.status(400).send("Invalid course or user ID");
+      }
+
+      // Find the user by ID
+      const user = await User.findById(userId);
+
+      if (!user) {
+        return res.status(404).send("User not found");
+      }
+
+      // Check if the course is already in the trialCourses array
+      const isCourseInTrial = user.trialCourses.some(
+        (trial) => trial.course.toString() === courseId
+      );
+
+      if (isCourseInTrial) {
+        // Remove the course from the trialCourses array
+        user.trialCourses = user.trialCourses.filter(
+          (trial) => trial.course.toString() !== courseId
+        );
+
+        // Save the updated user document
+        await user.save();
+
+        // Remove the user from the inTrialUsers array of the Course
+        await Course.findByIdAndUpdate(
+          courseId,
+          { $pull: { inTrialUsers: userId } }, // $pull removes the user from the array
+          { new: true } // Return the updated document
+        );
+
+        const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
+        return res.redirect(referer);
+      }
+
+      // If the course is not in trial, add it to the trialCourses array
+      user.trialCourses.push({
+        course: courseId,
+        addedAt: new Date(), // You can use Date.now() as well
+      });
+
+      // Save the updated user document
+      await user.save();
+
+      // Update the Course model to add the user to inTrialUsers
+      await Course.findByIdAndUpdate(
+        courseId,
+        { $addToSet: { inTrialUsers: userId } }, // Use $addToSet to avoid duplicates
+        { new: true } // Return the updated document
+      );
+
+      const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
+      return res.redirect(referer);
     } catch (error) {
       next(error);
       console.log(error);

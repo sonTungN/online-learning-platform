@@ -1,18 +1,15 @@
 // src/routes/admin.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const AdminController = require('../app/controllers/AdminController');
+const AdminController = require("../app/controllers/AdminController");
 
-// Admin routes
-router.get('/', AdminController.index);
-router.get('/user/add', AdminController.addUser);
-router.get('/user/edit', AdminController.editUser);
-router.get('/user/view', AdminController.viewUser);
-
-// Admin routes for courses
-router.get('/course', AdminController.listCourses); 
-router.get('/course/add', AdminController.addCourse);  
-router.get('/course/edit', AdminController.editCourse);  
-router.get('/course/view', AdminController.viewCourse); 
+// Admin routes for users
+router.get("/user/add", AdminController.addUser);
+router.post("/user/add", AdminController.addUserPost); // Add new user (POST)
+router.get("/user/edit/:id", AdminController.editUser);
+router.post("/user/edit/:id", AdminController.editUserPost); // Edit user (POST)
+router.get("/user/view/:id", AdminController.viewUser);
+router.post("/user/delete/:id", AdminController.deleteUser); // Delete user (POST)
+router.get("/", AdminController.index);
 
 module.exports = router;
