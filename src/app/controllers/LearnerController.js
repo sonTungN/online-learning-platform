@@ -12,13 +12,13 @@ class LearnerController {
       .lean();
     const totalPrice = cart.courses.reduce(
       (acc, course) => acc + course.price,
-      0
+      0,
     );
     cart.courses = cart.courses.map((course) => {
       return {
         ...course,
         addedToWishlist: course.favUsers.some(
-          (user) => user._id.toString() === userId
+          (user) => user._id.toString() === userId,
         ),
       };
     });
@@ -129,7 +129,7 @@ class LearnerController {
   }
 
   // [GET] /learner/edit-profile
-  async editProfile(req, res, next) {
+  async edit(req, res, next) {
     try {
       // Find the user in the database
       const user = await User.findById(req.session.user.id).lean();
@@ -152,6 +152,30 @@ class LearnerController {
         userJson: JSON.stringify(user),
         currentUser: user,
       });
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  async editProfile(req, res, next) {
+    try {
+      // Log specific parts of req object
+      const body = req.body;
+      const file = req.file;
+      const id = req.session.user.id;
+      // Find and update user based on email
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: id }, // Query to find the user
+        body, // Data to update
+        { new: true, runValidators: true }, // Options to return the updated document and run validators
+      );
+
+      if (!updatedUser) {
+        return res.status(404).send("User not found");
+      }
+
+      // Send a response to the client
+      res.redirect("/learner/edit-profile");
     } catch (e) {
       next(e);
     }
@@ -197,7 +221,7 @@ class LearnerController {
         user,
         courses,
         category,
-        order
+        order,
       });
     } catch (e) {
       next(e);

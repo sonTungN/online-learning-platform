@@ -63,6 +63,10 @@ class CourseController {
   async view(req, res, next) {
     try {
       const user = req.session.user ? req.session.user : null;
+      if (!user) {
+        res.redirect("/user/sign-in");
+      }
+
       const userId = req.session.user.id;
       const currentUser = await User.findById(userId).lean();
 
@@ -107,7 +111,7 @@ class CourseController {
       }
       // Filter out the current course from the moreCourses list
       const filteredMoreCourses = moreCourses.filter(
-        (course) => course._id.toString() !== id
+        (course) => course._id.toString() !== id,
       );
 
       res.render("course/course-profile", {
@@ -214,7 +218,7 @@ class CourseController {
           await Course.findByIdAndUpdate(course._id, {
             $addToSet: { enrolledUsers: userId }, // Use $addToSet to avoid duplicates
           });
-        })
+        }),
       );
 
       res.redirect("/thank-you");
@@ -245,13 +249,13 @@ class CourseController {
 
       // Check if the course is already in the trialCourses array
       const isCourseInTrial = user.trialCourses.some(
-        (trial) => trial.course.toString() === courseId
+        (trial) => trial.course.toString() === courseId,
       );
 
       if (isCourseInTrial) {
         // Remove the course from the trialCourses array
         user.trialCourses = user.trialCourses.filter(
-          (trial) => trial.course.toString() !== courseId
+          (trial) => trial.course.toString() !== courseId,
         );
 
         // Save the updated user document
@@ -261,7 +265,7 @@ class CourseController {
         await Course.findByIdAndUpdate(
           courseId,
           { $pull: { inTrialUsers: userId } }, // $pull removes the user from the array
-          { new: true } // Return the updated document
+          { new: true }, // Return the updated document
         );
 
         const referer = req.get("referer") || "/"; // Default to homepage if no referer is found
@@ -281,7 +285,7 @@ class CourseController {
       await Course.findByIdAndUpdate(
         courseId,
         { $addToSet: { inTrialUsers: userId } }, // Use $addToSet to avoid duplicates
-        { new: true } // Return the updated document
+        { new: true }, // Return the updated document
       );
 
       const referer = req.get("referer") || "/"; // Default to homepage if no referer is found

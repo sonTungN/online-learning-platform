@@ -51,20 +51,21 @@
                   ${{this.price}}
                 </span>
                 <div class="horizontal-displaying-courses-card-action ml-3">
-                  <a href="/course/{{_id}}">
+                  <form action="/course/{{_id}}" method="GET">
                     <button class="btn btn-outline-primary"><i class="ion-information-circled"></i>
                       View</button>
-                  </a>
+                  </form>
+
                   <form action="/course/cart/{{_id}}" method="POST">
                     <button class="btn btn-outline-primary">
-                      {{#if addedToCart}} X Remove From Cart {{else}}
+                      {{#if addedToCart}} X Cart {{else}}
                       <i class="fa fa-shopping-cart"></i>
                       Cart
                       {{/if}}
                     </button>
                   </form>
 
-                  <form action="/course/fav/{{_id}}" method="POST">
+                  <form action="/course/fav/{{_id}}" method="POST" id="removeFromWishlist">
                     <button class="btn btn-outline-danger deleteCourseButton">
                       <i class="fa fa-trash"></i>
                       Remove
@@ -81,21 +82,6 @@
   </div>
   {{/each}}
 
-  {{! <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
-    <div class="pop-up-notification-dialog__modal-content">
-      <div class="pop-up-notification-dialog__modal-header">
-        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Remove
-            this course?</strong></h2>
-      </div>
-      <div class="pop-up-notification-dialog__modal-message">
-        <p>This course will be removed from your wishlist. Do you confirm?</p>
-      </div>
-      <div class="pop-up-notification-dialog__modal-buttons">
-        <button class="pop-up-notification-dialog__cancel-button" id="cancelConfirmButton">CANCEL</button>
-        <button class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">REMOVE</button>
-      </div>
-    </div>
-  </div> }}
   <!-- Hidden form -->
   <form method="POST" name="deleteCourseForm"></form>
 </main>

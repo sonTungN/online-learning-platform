@@ -18,7 +18,7 @@
               id="email"
               name="email"
               onblur="validateEmail()"
-              type="email"
+              type="text"
           />
         </div>
 
@@ -39,10 +39,6 @@
         </div>
 
         <div class="extension-group">
-          <div class="form-group extension-link">
-            <a href="/user/sign-in/guest">Continue as <strong>GUEST</strong></a>
-          </div>
-
           <div class="form-group extension-link">
             <a href="#">Forgot Password</a>
           </div>
@@ -78,10 +74,14 @@
   function validateEmail() {
     const email = document.getElementById("email");
     const pattern = /^\w+('-'?\w+)*@\w+('-'?\w+)*(\.\w{2,3})+$/;
-    if (!pattern.test(email.value)) {
+
+    if (email.value === "admin") {
+      clearError(email);
+      return true;
+    } else if (!pattern.test(email.value)) {
       showError(email, "Please enter a valid email address");
       return false;
-    } else {
+    } else  {
       clearError(email);
       return true;
     }

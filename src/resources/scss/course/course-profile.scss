@@ -89,6 +89,7 @@ a {
       padding: 10px 10px 10px 0;
       font-weight: 600;
       color: $color-purple-10;
+      text-decoration: none;
     }
   }
 }
@@ -361,6 +362,10 @@ a {
           .course-profile__details-display {
             position: static;
             box-shadow: none;
+
+            .course-profile__course-price {
+              padding: 10px 0;
+            }
           }
         }
       }
