@@ -7,13 +7,12 @@
 
 ### To start the server
 ```
+npm install
 npm start
 npm run watch
 ```
 
 ### Details
-There are some provided users/items in `data/`, (some of) their credentials are as below:
-
 | Member             | Sid      | Contribution (%) | Notes |
 |--------------------|----------|------------------|-------|
 | Nguyen Son Tung    | s3979348 | 35%              | None  |
