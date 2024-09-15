@@ -147,7 +147,6 @@ a {
     margin-right: 50px;
     font-size: 2rem;
     font-weight: 600;
-    font-family: $font-family_2;
     color: $color_4;
   }
 
@@ -192,7 +191,7 @@ a {
   &.active {
     .pop-up-notification-dialog__modal-content {
       opacity: 1;
-      transform: translate(-50%, -60%) scale(1);
+      transform: translate(-50%, -40%) scale(1);
       animation-name: slideIn;
     }
   }

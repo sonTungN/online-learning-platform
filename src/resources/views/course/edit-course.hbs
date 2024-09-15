@@ -88,13 +88,18 @@
 
 <!--About the desc, get the content through the input #descContent-->
 <script>
-  const courseJSON = {{{ courseJSON }}}
+  const courseJSON = {{{ courseJSON }}};
   const course = JSON.parse(JSON.stringify(courseJSON));
   const courseCategory = course.category;
   const courseLevel = course.level;
   // Set default values for the select elements
   document.getElementById("category").value = courseCategory;
-  document.getElementById("level").value = courseLevel
+  document.getElementById("level").value = courseLevel;
+
+  const displayedCategory = document.querySelector(".instructor-add-course__category");
+  displayedCategory.textContent = courseCategory;
+
+
   const editCourseForm = document.getElementById('instructorAddCourseForm')
   // Form submission
   const courseImgInput = document.getElementById("courseImg");

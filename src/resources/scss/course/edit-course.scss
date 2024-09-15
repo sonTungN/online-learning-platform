@@ -143,14 +143,13 @@ a {
       }
     }
     textarea {
-      /* Full width for inputs and selects */
-      width: 100%;
+      width: 100%; /* Full width for inputs and selects */
       padding: 15px; /* Increase padding for height */
       margin-bottom: 20px; /* Add space between fields */
       border-radius: 5px; /* Optional: Rounded corners */
       border: 1.5px solid $color-black-70;
       box-sizing: border-box; /* Make sure padding fits inside the width */
-      font-size: 16px; /* Larger font size for readability */
+      font-size: 1.4rem; /* Larger font size for readability */
       resize: none;
     }
   }
@@ -182,8 +181,8 @@ a {
   }
 
   .instructor-add-course__category {
-    max-width: 200px;
-    width: 200px;
+    max-width: 300px;
+    width: 250px;
     border: 1px solid $color-black-75;
     margin: 20px 0;
     font-size: 1.4rem;

@@ -168,11 +168,23 @@ a {
 
     input[type="text"],
     input[type="file"],
+    textarea,
     select {
       width: 100%;
       padding: 10px;
       border: 1.5px solid $color-black-70;
       border-radius: 4px;
+    }
+
+    textarea {
+      width: 100%; /* Full width for inputs and selects */
+      padding: 15px; /* Increase padding for height */
+      margin-bottom: 20px; /* Add space between fields */
+      border-radius: 5px; /* Optional: Rounded corners */
+      border: 1.5px solid $color-black-70;
+      box-sizing: border-box; /* Make sure padding fits inside the width */
+      font-size: 1.4rem; /* Larger font size for readability */
+      resize: none;
     }
 
     .instructor-add-course__desc-box {
@@ -214,17 +226,6 @@ a {
       &:hover {
         background: lighten($color-black-90, 30%);
       }
-    }
-    textarea {
-      width: 100%; /* Full width for inputs and selects */
-      padding: 15px; /* Increase padding for height */
-      margin-bottom: 20px; /* Add space between fields */
-      border-radius: 5px; /* Optional: Rounded corners */
-      border: 1.5px solid $color-black-70;
-      box-sizing: border-box; /* Make sure padding fits inside the width */
-      font-size: 16px; /* Larger font size for readability */
-      resize: none;
-      
     }
   }
 }

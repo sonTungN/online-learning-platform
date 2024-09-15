@@ -63,6 +63,18 @@ a {
     color: $color-black-80;
   }
 
+  .category {
+    display: inline-block;
+    width: fit-content;
+    margin: 10px 8px 10px 0;
+    padding: 6px;
+    background-color: $color-yellow-10;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-black-80;
+    text-transform: uppercase;
+  }
+
   .stats-row {
     display: flex;
     gap: 40px;
@@ -89,10 +101,12 @@ a {
       color: $color-black-80;
     }
 
-    .bio {
+    .bio,
+    .bio a {
       width: 100%;
       font-size: 1.6rem;
-      font-weight: 400;
+      font-weight: 500;
+      color: $color-black-80;
       line-height: 1.4;
     }
   }
