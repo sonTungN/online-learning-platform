@@ -11,10 +11,6 @@
     "multer": "^1.4.5-lts.1",
     "prettier": "^3.3.3"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.4",
-    "sass": "^1.77.8"
-  },
   "name": "online-learning",
   "version": "1.0.0",
   "description": "",
@@ -34,4 +30,8 @@
     "url": "https://github.com/sonTungN/online-learning-platform/issues"
   },
   "homepage": "https://github.com/sonTungN/online-learning-platform#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "sass": "^1.77.8"
+  }
 }

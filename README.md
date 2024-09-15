@@ -1,35 +1,29 @@
-# online-learning-platform
+# WebProgramming Project - Online Learning Platform
 
-```
-npm i express express-handlebars mongoose bcrypt connect-mongo multer
-npm i node-mon sass --save-dev
-```
+## Getting started
 
-## If there is anything wrong with nodemon while starting the server
+### Prerequisite
+- Install the MongoDB Compass and run the application to use the localhost:3000
 
-```
-npm uninstall nodemon
-npm install nodemon --save-dev
-```
-
-## Reset the node_modules
-
-```
-npm cache clean --force
-rm -rf node_modules package-lock.json
-npm install
-npm i express express-handlebars mongoose bcrypt connect-mongo multer
-npm i node-mon sass --save-dev
-```
-
-## To start the server
-
+### To start the server
 ```
 npm start
-```
-
-then on other terminal
-
-```
 npm run watch
 ```
+
+### Details
+There are some provided users/items in `data/`, (some of) their credentials are as below:
+
+| Member             | Sid      | Contribution (%) | Notes |
+|--------------------|----------|------------------|-------|
+| Nguyen Son Tung    | s3979348 | 35%              | None  |
+| Trinh Nguyen Ha    | s3981134 | 35%              | None  |
+| Lam Quang Tram Anh | s4023681 | 15%              | None  |
+| Nguyen Minh Khai   | s3995223 | 15%              | None  |
+
+
+### Notes
+Please follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification while commit.
+
+### Youtube Video
+- Link: https://youtu.be/ay2kaLlYLOE
