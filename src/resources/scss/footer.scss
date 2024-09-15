@@ -1,0 +1,120 @@
+@import "variables";
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer-container {
+  background: $color-black-20;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  gap: 1.5rem;
+  margin-bottom: 20px;
+  padding: 10px 24px 40px;
+}
+
+.footer-box {
+  .footer-heading {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .footer-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-item {
+    .footer-item-link {
+      color: $color-black-80;
+
+      &:hover {
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  .footer-social-btn {
+    .bx {
+      font-size: 1.6rem;
+      color: $color-black-80;
+      padding: 8px;
+      background: $color-black-30;
+      border-radius: 4px;
+      &:hover {
+        background: $color-black-55;
+        color: $color-black-00;
+      }
+    }
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  span {
+    display: flex;
+    align-items: center;
+  }
+  i {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+}
+
+.footer-copyright {
+  padding: 2px 10px;
+  text-align: center;
+  background: $color-black-30;
+
+  .github-link {
+    font-weight: 600;
+    color: $color-black-80;
+
+    &:hover {
+      color: lighten($color-black-80, 30%);
+    }
+
+    .github-icon {
+      margin-left: 3px;
+      width: 16px;
+    }
+  }
+}
+
+@media (max-width: 1058px) {
+  .footer {
+    padding: 50px 60px;
+  }
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 50px 4%;
+  }
+}

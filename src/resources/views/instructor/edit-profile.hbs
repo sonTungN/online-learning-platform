@@ -1,0 +1,240 @@
+<main class="instructor-edit-profile">
+  {{#if currentUser}}
+  <div class="container">
+
+    <div class="instructor-edit-profile__sidebar">
+      <div class="instructor-edit-profile__image-section">
+        <img src="/assets/uploads/default.png" alt="Profile Image" class="instructor-edit-profile__avatar">
+        <div class="instructor-edit-profile__brief">
+          <div class="instructor-edit-profile__name">{{currentUser.firstName}} {{currentUser.lastName}} </div>
+          <div class="instructor-edit-profile__accountType">
+            {{currentUser.accountType}}
+          </div>
+        </div>
+      </div>
+
+      <div class="instructor-edit-profile__displayed-view">
+        <a class="instructor-edit-profile__displayed-link current" href="#!">Edit Profile</a>
+        <a class="instructor-edit-profile__displayed-link" href="/instructor/add-course">Add Course</a>
+      </div>
+    </div>
+
+
+    <div class="instructor-edit-profile__profile-section">
+      <div class="instructor-edit-profile__profile-heading">
+        <h1 class="instructor-edit-profile__heading">Personal profile</h1>
+        <p class="instructor-edit-profile__desc">Add information about yourself</p>
+      </div>
+
+      <div class="instructor-edit-profile__form-section">
+        <form method="POST" id="instructorEditProfileForm" action="/instructor/edit-profile">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" value="{{currentUser.firstName}}" type="text"
+              onblur="validateFirstName()" />
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" value="{{currentUser.lastName}}" type="text"
+              onblur="validateLastName()" />
+          </div>
+
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" value="{{currentUser.phone}}" type="text" onblur="validatePhone()" />
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text" value="{{currentUser.address}}" onblur="validateAddress()" />
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" value="{{currentUser.city}}" onblur="validateCity()" />
+          </div>
+          <div class="form-group">
+            <label for="schoolName">School Name</label>
+            <input id="schoolName" name="schoolName" value="{{currentUser.schoolName}}" type="text"
+              onblur="validateSchoolName()" />
+          </div>
+
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input id="jobTitle" name="jobTitle" value="{{currentUser.jobTitle}}" type="text"
+              onblur="validateJobTitle()" />
+          </div>
+
+          <div class="form-group">
+            <label for="specialization">Specialization</label>
+            <select id="specialization" multiple name="specialization[]">
+              <option value="Wilderness Survival">Wilderness Survival</option>
+              <option value="Knots and Lashings">Knots and Lashings</option>
+              <option value="STEM">STEM</option>
+              <option value="Teamwork and Leadership">Teamwork and Leadership</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <button type="submit">
+              <strong>SAVE</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
+</main>
+
+<!--About the bio, get the content through the input #bioContent-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const userJson = {{{ userJson }}};
+  const user = JSON.parse(JSON.stringify(userJson));
+  const specializationSelect = document.getElementById("specialization");
+  const userSpecializations = new Set(user.specialization || []);
+
+  Array.from(specializationSelect.options).forEach(option => {
+    if (userSpecializations.has(option.value)) {
+      option.selected = true;
+    } else {
+      option.selected = false;
+    }
+  });
+});
+  // Form submission
+  document.getElementById("instructorEditProfileForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Move the content from the `contenteditable` bio section to the hidden input
+      // const bioContent = document.getElementById('bio').innerText.trim();
+      // document.getElementById('bioContent').value = bioContent;
+      let isSubmittable =
+        validatePhone() &&
+        validateFirstName() &&
+        validateLastName() &&
+        validateCity() &&
+        validateAddress() &&
+        validateSchoolName() &&
+        validateJobTitle();
+
+      if (isSubmittable) {
+        this.submit()
+      }
+    });
+
+  // At least 10 digits
+  function validatePhone() {
+    const phone = document.getElementById("phone");
+    const phonePattern = /^\d{10,}$/;
+    if (!phonePattern.test(phone.value.replace(/\D/g, ""))) {
+      showError(
+        phone,
+        "Please enter a valid phone number (at least 10 digits)",
+      );
+      return false;
+    } else {
+      clearError(phone);
+      return true;
+    }
+  }
+
+  // Required
+  function validateFirstName() {
+    const firstName = document.getElementById("firstName");
+    if (firstName.value.trim() === "") {
+      showError(firstName, "First name is required");
+      return false;
+    } else {
+      clearError(firstName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateLastName() {
+    const lastName = document.getElementById("lastName");
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Last name is required");
+      return false;
+    } else {
+      clearError(lastName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateAddress() {
+    const lastName = document.getElementById("address");
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Address is required");
+      return false;
+    } else {
+      clearError(lastName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateCity() {
+    const city = document.getElementById("city");
+    if (city.value.trim() === "") {
+      showError(city, "City is required");
+      return false;
+    } else {
+      clearError(city);
+      return true;
+    }
+  }
+
+  // Required
+  function validateSchoolName() {
+    const schoolName = document.getElementById("schoolName");
+    if (schoolName.value.trim() === "") {
+      showError(schoolName, "School name is required");
+      return false;
+    } else {
+      clearError(schoolName);
+      return true;
+    }
+  }
+
+  // Required
+  function validateJobTitle() {
+    const jobTitle = document.getElementById("jobTitle");
+    if (jobTitle.value.trim() === "") {
+      showError(jobTitle, "Job title is required");
+      return false;
+    } else {
+      clearError(jobTitle);
+      return true;
+    }
+  }
+
+  // Error Message Display
+  function showError(input, message) {
+    const formGroup = input.closest(".form-group");
+    let errorMessage = formGroup.querySelector(".error-message");
+    if (!errorMessage) {
+      errorMessage = document.createElement("div");
+      errorMessage.className = "error-message";
+      formGroup.appendChild(errorMessage);
+    }
+    errorMessage.textContent = message;
+    input.classList.add("error");
+  }
+
+  // Error Message Clear
+  function clearError(input) {
+    const formGroup = input.closest(".form-group");
+    const errorMessage = formGroup.querySelector(".error-message");
+    if (errorMessage) {
+      errorMessage.remove();
+    }
+    input.classList.remove("error");
+  }
+</script>

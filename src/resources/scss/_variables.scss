@@ -1,5 +1,64 @@
-$primary-color: #333;
-$background-color: #f4f4f4;
-$border-color: #ddd;
-$text-color: #333;
+// FONTS
+$font-family_1: Poppins, sans-serif;
+$font-family_2: Serif, serif;
+$icon-font: ionicons;
+
+// COLOR
+$color-black-100: #000000;
+$color-black-90: #1f1f1f; // $background-color_3 button-color
+$color-black-80: #2c2f31; // $background-color_4, $color_4
+$color-black-75: #484547; // $input-color
+$color-black-70: #4d4d4d; // $border-color input-color
+$color-black-60: #666666;
+$color-black-55: #6a6f73; // $sub-heading-color, $color_3
+$color-black-50: #808080;
+$color-black-40: #999999;
+$color-black-30: #b3b3b3;
+$color-black-20: #cccccc;
+$color-black-10: #f4f4f4; // $background-color_0
+$color-black-00: #ffffff; // $background-color_1, $color_1
+
+$color-yellow-40: #ffca28;
+$color-yellow-30: #ffd54f;
+$color-yellow-20: #ffe082;
+$color-yellow-10: #eceb98; // $background-color_8
+
+$color-red-100: #ff0000; // $error-color
+$color-red-80: #ff3333;
+$color-red-60: #ff6666;
+$color-red-40: #ff9999;
+$color-red-20: #ffcccc;
+$color-red-00: #ffffff;
+
+$color-purple-50: #494ee2;
+$color-purple-45: #6065e7;
+$color-purple-40: #787dec;
+$color-purple-30: #9094f2;
+$color-purple-20: #a8acf7;
+$color-purple-10: #c0c4fc; // $color_7
+
+$color-orange-100: #ffa033;
+$color-orange-90: #ffa000; // $border-courses-card
+
+// COLOR
+$background-color_0: #f4f4f4;
+$background-color_1: #ffffff;
+$background-color_2: #1f1e1d;
+$background-color_3: #1f1f1fff;
+$background-color_4: #2c2f31;
+$background-color_8: #eceb98;
+
+$heading-color: #2d2f31;
+$sub-heading-color: #6a6f73;
+$title-heading-color: #2d2f31;
+
+$color_1: #ffffff;
+$color_3: #6a6f73;
+$color_4: #2d2f31;
+$color_7: #c0c4fc;
 $error-color: #ff0000;
+
+// BORDER
+$border-color: #4e4b51;
+$input-color: #484547;
+$border-courses-card: #ffa000;

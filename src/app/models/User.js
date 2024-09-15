@@ -26,11 +26,11 @@ const User = new Schema({
   city: { type: String, required: true, maxlength: 20 },
   zipcode: { type: String, required: true, minLength: 4, maxLength: 6 },
   country: { type: String, required: true },
-
+  createdAt: Date,
   accountType: {
     type: String,
     required: true,
-    enum: ["LEARNER", "INSTRUCTOR"],
+    enum: ["LEARNER", "INSTRUCTOR", "GUEST"],
   },
 
   schoolName: {
@@ -53,6 +53,58 @@ const User = new Schema({
       return this.accountType === "INSTRUCTOR";
     },
   },
+  cart: {
+    type: Schema.Types.ObjectId,
+    ref: "Cart",
+  },
+  // Add a list of courses created by this user (optional)
+  courses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+
+  // Add a list of courses wishlisted by this user (optional)
+  favCourses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+
+  // Add a list of courses enrolled by this user (optional)
+  enrolledCourses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
+  ],
+  trialCourses: [
+    {
+      course: {
+        type: Schema.Types.ObjectId,
+        ref: "Course",
+      },
+      addedAt: {
+        type: Date,
+        default: Date.now
+      },
+    },
+  ],
+
+  favInstructors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
+  favByUsers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", User);

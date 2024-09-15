@@ -1,0 +1,107 @@
+{{#if currentUser}}
+<main class="instructor-profile bootstrap-v5">
+
+  <div class="container">
+    <div class="instructor-profile__details-container">
+      <div class="instructor-profile__details-content">
+        <div class="heading">INSTRUCTOR</div>
+        <h1 class="name">
+          {{currentUser.firstName}} {{currentUser.lastName}}
+        </h1>
+        <!-- ONCE -->
+        <p class="desc">
+          {{currentUser.jobTitle}}
+        </p>
+
+        <!-- MULTIPLE -->
+        <p class="desc">
+          {{#each currentUser.specialization}}
+          {{this}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </p>
+
+        <div class="stats-row">
+          <div class="stats-item">
+            <div class="stats-title">Total students</div>
+            <p class="stats-number"><strong>2,859,029</strong></p>
+          </div>
+
+          <div class="stats-item">
+            <div class="stats-title">Reviews</div>
+            <p class="stats-number"><strong>872,118</strong></p>
+          </div>
+        </div>
+
+        <div class="instructor-bio">
+          <h2 class="title">About Me</h2>
+          <p class="bio">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Accusamus consequatur consequuntur debitis dolorem doloribus eaque
+            enim esse fugiat, magnam quibusdam quis quod repudiandae velit! A
+            ad dolore, fugiat ipsum itaque laudantium maiores nesciunt,
+            obcaecati quae quaerat quis repellat temporibus. Cumque
+            dignissimos ipsa labore maxime, molestiae nobis non obcaecati
+            officia velit?
+          </p>
+        </div>
+      </div>
+      <div class="instructor-profile__details-display">
+        <img alt="Profile Image" class="avatar" src="{{currentUser.profileImg}}" />
+        <div class="profile-action">
+          <div class="profile-action-cta">
+            <a class="action-btn" href="/instructor/edit-profile">Edit Profile</a>
+          </div>
+
+          <div class="profile-action-cta">
+            <a class="action-btn" href="/instructor/add-course">Add Course</a>
+          </div>
+
+          <div class="profile-action-cta">
+            <a class="action-btn" href="/instructor/courses">View Courses</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="instructor-profile__instructor-courses mt-5">
+    <div class="container">
+      <div class="instructor-profile__courses-container">
+        <h3 class="section-heading">My Courses</h3>
+
+        {{#if courses}}
+          <div class="row" style="gap: 5px;">
+            {{#each courses}}
+              <a style="text-decoration: none;" href="/course/{{_id}}" class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                <div class="box-displaying-course-card">
+                  <img width="100px" height="100px" alt="Course 1" class="box-displaying-course-card-thumb" src="{{courseImg}}" />
+
+                  <div class="d-flex justify-content-between flex-column mt-3 mb-3">
+                    <div class="box-displaying-course-card-category">
+                      {{category}}
+                    </div>
+                  </div>
+                  <h4 class="box-displaying-course-card-title line-clamp">
+                    {{title}}
+                  </h4>
+                  <p class="box-displaying-course-card-createdBy line-clamp">
+                    {{currentUser.firstName}} {{currentUser.lastName}}
+                  </p>
+                  <p class="box-displaying-course-card-price">${{price}}</p>
+                  <p class="box-displaying-course-card-time">Uploaded on {{createdAt}}</p>
+                </div>
+              </a>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="notification">No course is added.
+            <a class="notification-link" href="/instructor/add-course">Add course.</a>
+          </p>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+</main>
+{{/if}}

@@ -1,0 +1,112 @@
+<main class="instructor-view-courses bootstrap-v5">
+  <div class="instructor-view-courses__header">
+    <div class="container">
+      <h1 class="instructor-view-courses__heading">View Courses</h1>
+      <p class="instructor-view-courses__desc">View all your published courses</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="instructor-view-courses__courses-container">
+      <!-- COURSE 1-->
+      {{#each courses}}
+      <div class="row">
+        <div class="col-12">
+          <div class="horizontal-displaying-courses-card d-flex">
+            <div class="horizontal-displaying-courses-card-thumb">
+              <img src="{{courseImg}}" class="image" alt="Course IMG">
+            </div>
+            <div class="horizontal-displaying-courses-card-content">
+              <div class="horizontal-displaying-courses-card-info">
+                <h2 class="title line-clamp">{{title}}</h2>
+                <div class="horizontal-displaying-courses-card-category">
+                  <span class="category">{{category}}</span>
+                </div>
+                <div class="details">
+                  <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
+                  <span><i class="mr-3 fa fa-signal"></i> {{level}}</span>
+                  <span><i class="mr-3 fa fa-heart"></i> {{favUsers.length}}</span>
+                  <span><i class="mr-3 fa fa-user"></i> {{enrolledUsers.length}}</span>
+                </div>
+              </div>
+              <span class="horizontal-displaying-courses-card-price">
+                ${{price}}
+              </span>
+              <div class="horizontal-displaying-courses-card-action ml-3">
+                <a href="/course/edit-course/{{_id}}"><button class="btn btn-outline-primary"><i
+                      class="fa fa-pencil"></i> Edit</button></a>
+                <button class="btn btn-outline-danger deleteCourseButton" data-id="{{_id}}"><i class="fa fa-trash"></i>
+                  Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+
+  <form method="POST" class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
+    <div class="pop-up-notification-dialog__modal-content">
+      <div class="pop-up-notification-dialog__modal-header">
+        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Delete this course?</strong></h2>
+      </div>
+      <div class="pop-up-notification-dialog__modal-message">
+        <p>This course will be deleted. Do you confirm the deletion?</p>
+      </div>
+      <div class="pop-up-notification-dialog__modal-buttons">
+        <button type="button" class="pop-up-notification-dialog__cancel-button" id="cancelConfirmButton">CANCEL</button>
+        <button type="submit" class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">DELETE</button>
+      </div>
+    </div>
+  </form>
+  <!-- Hidden form -->
+  <form method="POST" name="deleteCourseForm"></form>
+</main>
+
+<!-- MODAL SCRIPT -->
+<!-- Handling the delete course in another script tag above -->
+<script>
+  const deleteButtons = document.querySelectorAll(".deleteCourseButton");
+  const deleteCourseModal = document.getElementById("deleteConfirmationModal");
+  const cancelConfirmButton = document.getElementById("cancelConfirmButton");
+  const deleteConfirmButton = document.getElementById("deleteConfirmButton");
+  let courseIdToDelete = null;
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      // Get the course ID from the data-id attribute
+      courseIdToDelete = e.target.getAttribute("data-id");
+
+      // Set the form's action to the delete route for this course
+      deleteCourseModal.setAttribute("action", `/course/${courseIdToDelete}?_method=DELETE`);
+
+      // Show the modal
+      deleteCourseModal.classList.add("active");
+      deleteCourseModal.style.display = "block";
+    });
+  });
+
+
+  deleteConfirmButton.addEventListener("click", () => {
+    // Submit the form, which now has the correct action path for deletion
+    deleteCourseModal.submit();
+  });
+  cancelConfirmButton.addEventListener("click", () => {
+    deleteCourseModal.classList.add("slideOut");
+    setTimeout(() => {
+      deleteCourseModal.classList.remove("active", "slideOut");
+      deleteCourseModal.style.display = "none";
+    }, 500);
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === deleteCourseModal) {
+      deleteCourseModal.classList.add("slideOut");
+      setTimeout(() => {
+        deleteCourseModal.classList.remove("active", "slideOut");
+        deleteCourseModal.style.display = "none";
+      }, 500);
+    }
+  });
+</script>

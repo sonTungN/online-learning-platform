@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="refactor: update credential UI design for `sign-in` and `sign-up`">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers">
+    <list default="true" id="a8d61a92-6a61-402b-ad65-45120e349e05" name="Changes" comment="fix: fix typo error in order-placement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-in.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/sign-up.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/sign-up.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/order-placement.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/learner/wishlist.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/scss/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/nav-bar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/scss/reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/scss/reset.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -31,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="popup" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,9 +57,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.CourseController.js.executor": "Run",
+    "Node.js.LearnerController.js.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "validation",
-    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/img",
+    "git-widget-placeholder": "instructorProfile",
+    "javascript.nodejs.core.library.configured.version": "20.15.1",
+    "javascript.nodejs.core.library.typings.version": "20.15.0",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,14 +72,42 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Node.js.CourseController.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "navBarInInstructorProfile",
+    "javascript.nodejs.core.library.configured.version": "20.15.1",
+    "javascript.nodejs.core.library.typings.version": "20.15.0",
+    "last_opened_file_path": "/Users/nguyensontung/Desktop/online-learning/src/public/assets/thumbs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/nguyensontung/Desktop/online-learning/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/public/assets/img" />
+      <recent name="$PROJECT_DIR$/src/public/assets/thumbs" />
+      <recent name="$PROJECT_DIR$/src/app/controllers" />
+      <recent name="$PROJECT_DIR$/src/routes" />
+      <recent name="$PROJECT_DIR$/src/resources/views/instructor" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/public/js" />
+      <recent name="$PROJECT_DIR$/src/resources/views/support" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -115,6 +148,9 @@
       <workItem from="1724855385806" duration="14391000" />
       <workItem from="1725001975103" duration="693000" />
       <workItem from="1725008395371" duration="27753000" />
+      <workItem from="1725444141445" duration="3000" />
+      <workItem from="1725827867194" duration="35901000" />
+      <workItem from="1725827867194" duration="25976000" />
     </task>
     <task id="LOCAL-00003" summary="remove: delete `node.module` package">
       <option name="closed" value="true" />
@@ -236,30 +272,231 @@
       <option name="project" value="LOCAL" />
       <updated>1725141199242</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor: modify folder js folder name and apply scripts inside `hbs` file">
+      <option name="closed" value="true" />
+      <created>1725468307564</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725468307564</updated>
+    </task>
+    <task id="LOCAL-00019" summary="refactor: modify coding format and comments">
+      <option name="closed" value="true" />
+      <created>1725469975170</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725469975170</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add: adding headTag views for contents in `&lt;head&gt;`">
+      <option name="closed" value="true" />
+      <created>1725470002222</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470002222</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`">
+      <option name="closed" value="true" />
+      <created>1725470090408</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470090408</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add: adding scripts for rendering in `main` layout">
+      <option name="closed" value="true" />
+      <created>1725470128423</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1725470128423</updated>
+    </task>
+    <task id="LOCAL-00023" summary="refactor: modify homepage view for featured instructors">
+      <option name="closed" value="true" />
+      <created>1725505156715</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725505156715</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add: using `multer` to store the profile image path">
+      <option name="closed" value="true" />
+      <created>1725512031931</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725512031931</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add: setting multer config">
+      <option name="closed" value="true" />
+      <created>1725512163157</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725512163157</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`">
+      <option name="closed" value="true" />
+      <created>1725532230346</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725532230346</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chore: implement primitive design for Instructor Profile Page">
+      <option name="closed" value="true" />
+      <created>1725570118850</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725570118851</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`">
+      <option name="closed" value="true" />
+      <created>1725652099083</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1725652099083</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: handle the dialog slideOut with delete confirmation button">
+      <option name="closed" value="true" />
+      <created>1725780695129</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1725780695129</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix: fix edit profile routes and icon size">
+      <option name="closed" value="true" />
+      <created>1725781585288</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1725781585288</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add: implement course `edit-course` with comprehensive inputs, and remove some in `add-course` views">
+      <option name="closed" value="true" />
+      <created>1725788235981</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725788235981</updated>
+    </task>
+    <task id="LOCAL-00032" summary="change: change font size for description box in `edit-profile`">
+      <option name="closed" value="true" />
+      <created>1725788262167</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1725788262167</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add: implement cart on nav-bar and add button for course-profile">
+      <option name="closed" value="true" />
+      <created>1725867883869</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1725867883869</updated>
+    </task>
+    <task id="LOCAL-00034" summary="add: implement `CART` order-placement for learners with basic routes and controller.">
+      <option name="closed" value="true" />
+      <created>1725890488688</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890488688</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: fix typo error in order-placement">
+      <option name="closed" value="true" />
+      <created>1725890574885</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890574885</updated>
+    </task>
+    <task id="LOCAL-00036" summary="change: use new font in `variables and `fix price font-family in all views">
+      <option name="closed" value="true" />
+      <created>1725890996035</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890996035</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers">
+      <option name="closed" value="true" />
+      <created>1725904368704</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1725904368704</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00034" summary="add: implement `CART` order-placement for learners with basic routes and controller.">
+      <option name="closed" value="true" />
+      <created>1725890488688</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890488688</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix: fix typo error in order-placement">
+      <option name="closed" value="true" />
+      <created>1725890574885</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1725890574885</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change: implement changed route into form action" />
-    <MESSAGE value="fix: update prettier config and fix label tag ID error" />
-    <MESSAGE value="docs: update README.md" />
-    <MESSAGE value="remove: delete `node.module` package" />
-    <MESSAGE value="add: implement the UI design for sign-in" />
-    <MESSAGE value="chore: refactor file name" />
-    <MESSAGE value="add. refactor file name" />
-    <MESSAGE value="chore: refactor and update db config `connect` function" />
-    <MESSAGE value="add: implement sign-in UI design and styles" />
-    <MESSAGE value="add: update sign-up UI design and styles" />
-    <MESSAGE value="add: implement input validation for sign-in UI" />
-    <MESSAGE value="add: handle store `User` with input data and hashed password" />
-    <MESSAGE value="add: handle `authentication` for user login" />
-    <MESSAGE value="add: implement `session` for user with primitive config" />
-    <MESSAGE value="chore: change enum format in model" />
     <MESSAGE value="add: handle validation in `User` modal and change middleware folder name" />
+    <MESSAGE value="refactor: group views into folder `support`" />
     <MESSAGE value="refactor: update credential UI design for `sign-in` and `sign-up`" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: update credential UI design for `sign-in` and `sign-up`" />
+    <MESSAGE value="add: handle login with `GUEST` accountType" />
+    <MESSAGE value="refactor: modify folder js folder name and apply scripts inside `hbs` file" />
+    <MESSAGE value="refactor: modify coding format and comments" />
+    <MESSAGE value="add: adding headTag views for contents in `&lt;head&gt;`" />
+    <MESSAGE value="fix: handle logo click redirect to homepage and fix `href` link in `nav-bar`" />
+    <MESSAGE value="add: adding scripts for rendering in `main` layout" />
+    <MESSAGE value="refactor: modify homepage view for featured instructors" />
+    <MESSAGE value="add: using `multer` to store the profile image path" />
+    <MESSAGE value="add: setting multer config" />
+    <MESSAGE value="add: implement display user details on `homepage`, refactor the UI design,and fix bugs for incorrect src in `about-us` and `home`" />
+    <MESSAGE value="chore: implement primitive design for Instructor Profile Page" />
+    <MESSAGE value="add: implement `Instructor` profile views and fix nav-bar overwritten styles" />
+    <MESSAGE value="add: implement instructor `EDIT` profile view, and update the validation for address, with the auto checked lerner radio in `sign-up`" />
+    <MESSAGE value="add: implement instructor `add-course` views, and synchronize `edit-profile` with the `add-course` view" />
+    <MESSAGE value="add: implement instructor `add-course` views, and synchronize `edit-profile` with the `add-course` view" />
+    <MESSAGE value="fix: handle the dialog slideOut with delete confirmation button" />
+    <MESSAGE value="fix: fix edit profile routes and icon size" />
+    <MESSAGE value="add: implement course `edit-course` with comprehensive inputs, and remove some in `add-course` views" />
+    <MESSAGE value="change: change font size for description box in `edit-profile`" />
+    <MESSAGE value="add: implement cart on nav-bar and add button for course-profile" />
+    <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
+    <MESSAGE value="fix: fix typo error in order-placement" />
+    <MESSAGE value="change: use new font in `variables and `fix price font-family in all views" />
+    <MESSAGE value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: implement learners views `purchased`, `on-trial`, `wishlist` to store courses, and implement basic routes and controllers" />
+    <MESSAGE value="add: implement `CART` order-placement for learners with basic routes and controller." />
+    <MESSAGE value="fix: fix typo error in order-placement" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fix typo error in order-placement" />
   </component>
 </project>

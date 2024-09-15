@@ -1,0 +1,63 @@
+{{#if currentUser}}
+<main class="instructor-profile bootstrap-v5">
+  <div class="container">
+    <div class="instructor-profile__details-container">
+      <div class="instructor-profile__details-content">
+        <div class="heading">LEARNER</div>
+        <h1 class="name">
+          {{currentUser.firstName}} {{currentUser.lastName}}
+        </h1>
+        <!-- ONCE -->
+        <p class="desc">
+          {{currentUser.jobTitle}}
+        </p>
+
+        <!-- MULTIPLE -->
+        <p class="desc">
+          {{#each currentUser.specialization}}
+          {{this}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </p>
+
+        <div class="stats-row">
+          <div class="stats-item">
+            <div class="stats-title">Email</div>
+            <p class="stats-number"><strong>{{currentUser.email}}</strong></p>
+          </div>
+
+          <div class="stats-item">
+            <div class="stats-title">School</div>
+            <p class="stats-number"><strong>{{currentUser.schoolName}}</strong></p>
+          </div>
+        </div>
+
+        <div class="instructor-bio">
+          <h2 class="title">About Me</h2>
+          <p class="bio">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Accusamus consequatur consequuntur debitis dolorem doloribus eaque
+            enim esse fugiat, magnam quibusdam quis quod repudiandae velit! A
+            ad dolore, fugiat ipsum itaque laudantium maiores nesciunt,
+            obcaecati quae quaerat quis repellat temporibus. Cumque
+            dignissimos ipsa labore maxime, molestiae nobis non obcaecati
+            officia velit?
+          </p>
+        </div>
+      </div>
+      <div class="instructor-profile__details-display">
+        <img alt="Profile Image" class="avatar" src="{{currentUser.profileImg}}" />
+        <div class="profile-action">
+          <div class="profile-action-cta d-flex flex-column">
+            <a class="action-btn" href="/learner/edit-profile">Edit Profile</a>
+            <a class="action-btn" href="/learner/my-courses/purchased">My Learning</a>
+            <a class="action-btn" href="/learner/my-courses/wishlist">My Wishlist</a>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+{{/if}}

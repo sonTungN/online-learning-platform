@@ -1,0 +1,214 @@
+<main class="learner-order-placement bootstrap-v5">
+  <div class="container">
+    <div class="learner-order-placement__header">
+      <h1 class="learner-order-placement__heading">Order Placement</h1>
+      <p class="learner-order-placement__desc">View all your order courses</p>
+    </div>
+
+    <div class="learner-order-placement__order-container">
+      <div class="learner-order-placement__courses_container">
+        {{#each cart.courses}}
+        <div class="row">
+          <div class="col-12">
+            <div class="horizontal-displaying-courses-card d-flex">
+              <div class="horizontal-displaying-courses-card-thumb">
+                <img src="{{courseImg}}" class="image" alt="{{title}}" />
+              </div>
+              <div class="horizontal-displaying-courses-card-content">
+                <div class="horizontal-displaying-courses-card-info">
+                  <h2 class="title">
+                    {{title}}
+                  </h2>
+                  <span class="category">
+                    {{category}}
+                  </span>
+                  <div class="details">
+                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
+                    <span><i class="mr-3 fa fa-signal"></i>
+                      {{level}}
+                    </span>
+                    <span><i class="mr-3 fa fa-heart"></i>
+                      {{favUsers.length}}
+                    </span>
+                    <span><i class="mr-3 fa fa-user"></i>
+                      {{enrolledUsers.length}}
+                    </span>
+                  </div>
+                </div>
+                <span class="horizontal-displaying-courses-card-price">
+                  ${{price}}
+                </span>
+                <div class="horizontal-displaying-courses-card-action ml-3">
+                  <form action="/course/fav/{{_id}}" method="POST">
+
+                    <button class="btn btn-outline-primary">
+                      {{#if addedToWishlist}} X Unlike {{else}}
+                      <i class="fa fa-heart"></i>
+                      Favourite
+                      {{/if}}
+                    </button>
+                  </form>
+                  <form action="/course/cart/{{_id}}" method="POST">
+                    <button class="btn btn-outline-danger deleteCourseButton"><i class="fa fa-trash"></i>
+                      Remove
+                    </button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="learner-order-placement__checkout-container">
+        <div class="learner-order-placement__order-details">
+          <div class="learner-order-placement__details-heading">Total:</div>
+          <div class="learner-order-placement__details-current-price">${{totalPrice}}</div>
+          <!-- The discount for access option 7 days-->
+          <div class="learner-order-placement__details-past-price">$114.00</div>
+        </div>
+
+        <div class="learner-order-placement__payment-method">
+          <div class="learner-order-placement__heading">Payment Method</div>
+          <p class="learner-order-placement__desc">Choose your payment method</p>
+
+          <div class="learner-order-placement__payment-method-box-container">
+            <div class="learner-order-placement__payment-method-box">
+              <svg class="credit-icon icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path
+                  d="M512 80c8.8 0 16 7.2 16 16l0 32L48 128l0-32c0-8.8 7.2-16 16-16l448 0zm16 144l0 192c0 8.8-7.2 16-16 16L64 432c-8.8 0-16-7.2-16-16l0-192 480 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24l48 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-112 0z" />
+              </svg>
+              <span class="title">Card</span>
+            </div>
+
+            <div class="learner-order-placement__payment-method-box">
+              <svg class="paypal-icon icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path
+                  d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4 .7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9 .7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z" />
+              </svg>
+              <span class="title">Paypal</span>
+            </div>
+
+            <div class="learner-order-placement__payment-method-box">
+              <svg class="apple-icon icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path
+                  d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+              </svg>
+              <span class="title">Apple</span>
+            </div>
+          </div>
+
+          <div class="learner-order-placement__payment-method-form">
+            <form method="POST" action="/course/payment">
+              <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input id="cardNumber" name="cardNumber" type="text" />
+              </div>
+
+              <div class="learner-order-placement__card-details">
+                <div class="form-group">
+                  <label for="expires">Expires</label>
+                  <select name="expires" id="expires">
+                    <option value="-1" disabled selected>Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="year">Year</label>
+                  <select name="year" id="year">
+                    <option value="-1" disabled selected>Year</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="cvc">CVC</label>
+                  <input id="cvc" name="cvc" type="text" placeholder="CVC" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="accessOption">Access Options</label>
+                <select name="accessOption" id="accessOption">
+                  <option value="permanent" selected>Permanent</option>
+                  <option value="7-day">7-Day Access</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <button type="submit">
+                  <strong>Checkout</strong>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ACCESS OPTION and PAYMENT METHOD -->
+<script>
+  const accessOption = document.getElementById("accessOption");
+  const currentPriceElement = document.querySelector(".learner-order-placement__details-current-price");
+  const pastPriceElement = document.querySelector(".learner-order-placement__details-past-price");
+  const paymentMethodBoxes = document.querySelectorAll(".learner-order-placement__payment-method-box");
+
+  // Store the original price for future calculations
+  const originalPriceValue = parseFloat(currentPriceElement.textContent.replace("$", ""));
+
+  // Handle payment method box clicks
+  paymentMethodBoxes.forEach(box => {
+    box.addEventListener("click", () => {
+      paymentMethodBoxes.forEach(b => b.classList.remove("active"));
+      box.classList.add("active");
+    });
+  });
+
+  // Handle access option changes
+  accessOption.addEventListener("change", () => {
+    const accessValue = accessOption.value;
+
+    if (accessValue === "7-day") {
+      const salePrice = Math.ceil(originalPriceValue / 7);
+      pastPriceElement.style.display = "block";
+      pastPriceElement.textContent = formatPrice(originalPriceValue);
+      currentPriceElement.textContent = formatPrice(salePrice);
+    } else if (accessValue === "permanent") {
+      pastPriceElement.style.display = "none";
+      currentPriceElement.textContent = formatPrice(originalPriceValue);
+    }
+  });
+
+  function formatPrice(price) {
+    return `$${price.toFixed(2)}`;
+  }
+
+</script>
+
+<!-- MODAL SCRIPT -->
+<!-- Handling the delete course in another script tag above -->
+<script>
+
+</script>

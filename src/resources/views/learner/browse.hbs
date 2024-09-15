@@ -1,0 +1,127 @@
+<main class="learner-browse-courses bootstrap-v5">
+  <div class="learner-browse-courses__header">
+    <div class="container">
+      <h1 class="learner-browse-courses__heading">All Courses</h1>
+      <p class="learner-browse-courses__desc">Browse your courses with filter</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="learner-browse-courses__browse-main">
+      <div class="learner-browse-courses__sidebar">
+        <div class="sidebar-header">
+          <i class="fa fa-filter icon-filter"></i>
+          <h3 class="sidebar-heading">Filter</h3>
+        </div>
+
+        <form id="filterForm" action="/learner/browse-courses" method="GET">
+          <!-- Sort by Name -->
+          <div class="sidebar-section">
+            <h4 class="sidebar-section-heading">Sort by Name</h4>
+            <label>
+              <input type="radio" name="order" value="asc" {{#if (eq order "asc" )}}checked{{/if}} />
+              <svg class="icon-sort-az" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <!-- SVG Path for Ascending -->
+              </svg>
+              Ascending
+            </label>
+            <label>
+              <input type="radio" name="order" value="desc" {{#if (eq order "desc" )}}checked{{/if}} />
+              <svg class="icon-sort-az" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <!-- SVG Path for Descending -->
+              </svg>
+              Descending
+            </label>
+          </div>
+
+          <!-- Sort by Category -->
+          <div class="sidebar-section">
+            <h4 class="sidebar-section-heading">Sort by Category</h4>
+            <label>
+              <input type="radio" name="category" value="all" {{#if (eq category "all" )}}checked{{/if}} />
+              All
+            </label>
+            <label>
+              <input type="radio" name="category" value="Wilderness Survival" {{#if (eq category "Wilderness Survival"
+                )}}checked{{/if}} />
+              Wilderness Survival
+            </label>
+            <label>
+              <input type="radio" name="category" value="STEM" {{#if (eq category "STEM" )}}checked{{/if}} />
+              STEM
+            </label>
+            <label>
+              <input type="radio" name="category" value="Knots and Lashings" {{#if (eq category "Knots and Lashings"
+                )}}checked{{/if}} />
+              Knots and Lashings
+            </label>
+            <label>
+              <input type="radio" name="category" value="Teamwork and Leadership" {{#if (eq
+                category "Teamwork and Leadership" )}}checked{{/if}} />
+              Teamwork and Leadership
+            </label>
+          </div>
+        </form>
+      </div>
+
+      <!-- Course Listings -->
+      <div class="learner-browse-courses__courses-content">
+        <div class="learner-browse-courses__courses-container">
+          {{#each courses}}
+          <div class="row">
+            <div class="col-12">
+              <div class="horizontal-displaying-courses-card d-flex">
+                <div class="horizontal-displaying-courses-card-thumb">
+                  <img src="{{courseImg}}" class="image" alt="{{title}}" />
+                </div>
+                <div class="horizontal-displaying-courses-card-content">
+                  <div class="horizontal-displaying-courses-card-info">
+                    <h2 class="title line-clamp">{{title}}</h2>
+                    <div class="horizontal-displaying-courses-card-category">
+                      <span class="category">{{category}}</span>
+                    </div>
+                    <div class="details">
+                      <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
+                      <span><i class="mr-3 fa fa-signal"></i> {{level}}</span>
+                      <span><i class="mr-3 fa fa-heart"></i> {{favUsers.length}}</span>
+                      <span><i class="mr-3 fa fa-user"></i> {{enrolledUsers.length}}</span>
+                    </div>
+                  </div>
+                  <span class="horizontal-displaying-courses-card-price">${{price}}</span>
+                  <div class="horizontal-displaying-courses-card-action ml-3">
+                    <a href="/course/{{_id}}">
+                      <button class="btn btn-outline-primary"><i class="ion-information-circled"></i> View</button>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Keep radio buttons mutually exclusive
+    const sidebarSections = document.querySelectorAll(".sidebar-section");
+    sidebarSections.forEach(section => {
+      const radios = section.querySelectorAll('input[type="radio"]');
+      radios.forEach(radio => {
+        radio.addEventListener("change", function () {
+          if (this.checked) {
+            radios.forEach(rb => {
+              if (rb !== this)
+                rb.checked = false;
+            });
+            document.getElementById('filterForm').submit();
+          }
+        });
+      });
+    });
+  });
+</script>

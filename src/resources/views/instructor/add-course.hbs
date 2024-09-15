@@ -1,0 +1,179 @@
+<main class="instructor-add-course">
+  <div class="container">
+    <div class="instructor-add-course__sidebar">
+      <div class="instructor-add-course__image-section">
+        <img src="/assets/uploads/default.png" alt="Profile Image" class="instructor-add-course__avatar" />
+        <div class="instructor-add-course__brief">
+          <div class="instructor-add-course__name">{{currentUser.firstName}} {{currentUser.lastName}}</div>
+          <div class="instructor-add-course__accountType">{{currentUser.accountType}}</div>
+        </div>
+      </div>
+
+      <div class="instructor-add-course__displayed-view">
+        <a class="instructor-add-course__displayed-link" href="/instructor/edit-profile">Edit Profile</a>
+        <a class="instructor-add-course__displayed-link current" href="#!">Add
+          Course</a>
+      </div>
+    </div>
+
+    <div class="instructor-add-course__profile-section">
+      <div class="instructor-add-course__profile-heading">
+        <h1 class="instructor-add-course__heading">Add Course</h1>
+        <p class="instructor-add-course__desc">Create new course as an
+          instructor</p>
+      </div>
+
+      <div class="instructor-add-course__form-section">
+        <form method="POST" id="instructorAddCourseForm" action="/instructor/add-course" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="title">Course Title</label>
+            <input id="title" name="title" placeholder="Enter course title" type="text" onblur="validateTitle()"/>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Course Description</label>
+            <textarea name="description" id="description" placeholder="Enter description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Course Category</label>
+            <select name="category" id="category" onblur="validateCategory()">
+              <option value="-1" disabled selected>-- Select Category --</option>
+              <option value="Wilderness Survival">Wilderness Survival</option>
+              <option value="Knots and Lashings">Knots and Lashings</option>
+              <option value="STEM">STEM</option>
+              <option value="Teamwork and Leadership">Teamwork and Leadership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="level">Course Level</label>
+            <select name="level" id="level" onblur="validateLevel()">
+              <option value="-1" disabled selected>-- Select Level --</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Expert">Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="courseImg">Course Image</label>
+            <input accept="image/*" id="courseImg" name="courseImg" type="file" />
+          </div>
+          <div class="form-group">
+            <label for="price">Course Price </label>
+            <input id="price" name="price" placeholder="Enter course price" type="text" onblur="validatePrice()"/>
+          </div>
+          <div class="form-group">
+            <button type="submit">
+              <strong>CREATE</strong>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--About the desc, get the content through the input #descContent-->
+<script>
+  // Form submission
+  document.getElementById("instructorAddCourseForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isSubmittable =
+            validateTitle() &&
+            validateCategory() &&
+            validateLevel() &&
+            validateImage() &&
+            validatePrice();
+
+        if (isSubmittable) {
+          this.submit();
+        }
+      });
+
+  // Required
+  function validateTitle() {
+    const title = document.getElementById("title");
+    if (title.value.trim() === "") {
+      showError(title, "Course title is required");
+      return false;
+    } else {
+      clearError(title);
+      return true;
+    }
+  }
+
+  // Required
+  function validateImage() {
+    const image = document.getElementById("courseImg");
+    if (image.files.length === 0) {
+      showError(image, "Course image is required");
+      return false;
+    } else {
+      clearError(image);
+      return true;
+    }
+  }
+
+  // Required
+  function validateLevel() {
+    const level = document.getElementById("level");
+    if (level.value === "-1") {
+      showError(level, "Please select a course level");
+      return false;
+    } else {
+      clearError(level);
+      return true;
+    }
+  }
+
+  // Required
+  function validateCategory() {
+    const category = document.getElementById("category");
+    if (category.value === "-1") {
+      showError(category, "Please select a course category");
+      return false;
+    } else {
+      clearError(category);
+      return true;
+    }
+  }
+
+  // Required and Check Float
+  function validatePrice() {
+    const price = document.getElementById("price");
+    const priceRegex = /^\d+(\.\d{1,2})?$/;
+
+    if (price.value.trim() === "" || !priceRegex.test(price.value)) {
+      showError(price, "Please enter a valid price (e.g., 10 or 10.99).");
+      return false;
+    } else {
+      clearError(price);
+      return true;
+    }
+  }
+
+  // Error Message Display
+  function showError(input, message) {
+    const formGroup = input.closest(".form-group");
+    let errorMessage = formGroup.querySelector(".error-message");
+    if (!errorMessage) {
+      errorMessage = document.createElement("div");
+      errorMessage.className = "error-message";
+      formGroup.appendChild(errorMessage);
+    }
+    errorMessage.textContent = message;
+    input.classList.add("error");
+  }
+
+  // Error Message Clear
+  function clearError(input) {
+    const formGroup = input.closest(".form-group");
+    const errorMessage = formGroup.querySelector(".error-message");
+    if (errorMessage) {
+      errorMessage.remove();
+    }
+    input.classList.remove("error");
+  }
+</script>

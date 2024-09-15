@@ -1,0 +1,236 @@
+@import "../variables";
+
+a {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family_1;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  background: $color-black-10;
+}
+
+a {
+  text-decoration: none;
+}
+
+.instructor-add-course {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 1200px;
+  margin: 0 auto;
+  background: $color-black-00;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+// HEADER
+.instructor-add-course__profile-header {
+  border-bottom: 1px solid $color-black-75;
+
+  .instructor-add-course__heading,
+  .instructor-add-course__desc {
+    text-align: center;
+  }
+
+  .instructor-add-course__heading {
+    margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .instructor-add-course__desc {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+}
+
+// PROFILE SECTION
+.instructor-add-course__profile-section {
+  display: flex;
+}
+
+// FORM SECTION
+.instructor-add-course__form-section {
+  width: 70%;
+  padding: 20px 40px;
+
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $color-black-70;
+      border-radius: 4px;
+    }
+
+    input[name="price"] {
+      padding-left: 25px;
+    }
+
+    .icon-dollar-sign {
+      position: absolute;
+      width: 16px;
+      top: 39px;
+      left: 9px;
+    }
+
+    .instructor-add-course__desc-box {
+      width: 100%;
+      max-height: 150px;
+      padding: 10px;
+      font-size: 1.4rem;
+      border: 1px solid $color-black-70;
+      border-radius: 4px;
+      overflow-y: auto;
+      outline: none;
+    }
+
+    .error-message {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 0.8em;
+      font-weight: 500;
+      color: $color-red-100;
+    }
+
+    input.error,
+    select.error {
+      border-color: $color-red-100;
+    }
+
+    button[type="submit"] {
+      display: block;
+      min-width: 130px;
+      border: none;
+      border-radius: 4px;
+      margin-top: 30px;
+      padding: 12px;
+      background: $color-black-90;
+      font-size: 1.6rem;
+      color: $color-black-00;
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($color-black-90, 30%);
+      }
+    }
+    textarea {
+      /* Full width for inputs and selects */
+      width: 100%;
+      padding: 15px; /* Increase padding for height */
+      margin-bottom: 20px; /* Add space between fields */
+      border-radius: 5px; /* Optional: Rounded corners */
+      border: 1.5px solid $color-black-70;
+      box-sizing: border-box; /* Make sure padding fits inside the width */
+      font-size: 16px; /* Larger font size for readability */
+      resize: none;
+    }
+  }
+}
+
+// side-pane
+.instructor-add-course__side-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+
+  border-left: 1px solid $color-black-75;
+
+  // IMAGE SECTION
+  .instructor-add-course__image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .instructor-add-course__thumb {
+      width: calc(100% - 20px);
+      height: 240px;
+      margin-top: 10px;
+      border: 2px solid $color-black-70;
+      object-fit: cover;
+    }
+  }
+
+  .instructor-add-course__category {
+    max-width: 200px;
+    width: 200px;
+    border: 1px solid $color-black-75;
+    margin: 20px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2.4;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 1300px) {
+  .instructor-add-course {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    .instructor-add-course__profile-header {
+      .instructor-add-course__heading {
+        font-size: 2.4rem;
+      }
+
+      .instructor-add-course__desc {
+        font-size: 1.6rem;
+      }
+    }
+
+    .instructor-add-course__profile-section {
+      flex-direction: column-reverse;
+    }
+
+    .instructor-add-course__form-section,
+    .instructor-add-course__side-pane {
+      width: 100%;
+    }
+
+    .instructor-add-course__side-pane {
+      border: none;
+      border-bottom: 1px solid $color-black-70;
+
+      .instructor-add-course__thumb {
+        max-width: 300px;
+        height: 200px;
+      }
+    }
+  }
+}

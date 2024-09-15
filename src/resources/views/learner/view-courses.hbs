@@ -1,0 +1,136 @@
+<main class="learner-view-courses bootstrap-v5">
+  <div class="learner-view-courses__header">
+    <div class="container">
+      <h1 class="learner-view-courses__heading">My Learning</h1>
+      <div class="learner-view-courses__navbar-container">
+        <ul class="learner-view-courses__navbar">
+          <li class="learner-view-courses__item active">
+            <a class="learner-view-courses__item-link">Purchased</a>
+          </li>
+
+          <li class="learner-view-courses__item">
+            <a class="learner-view-courses__item-link" href="/learner/my-courses/trial">On Trial</a>
+          </li>
+
+          <li class="learner-view-courses__item">
+            <a class="learner-view-courses__item-link" href="/learner/my-courses/wishlist">Wishlist</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="learner-view-courses__courses-container">
+    <div class="container">
+      <div class="learner-view-courses__courses-content">
+        {{#each purchasedCourses}}
+        <div class="row">
+          <div class="col-12">
+            <div class="horizontal-displaying-courses-card d-flex">
+              <div class="horizontal-displaying-courses-card-thumb">
+                <a href="/course/{{_id}}">
+                  <img src="{{courseImg}}" class="image" alt="{{title}}" />
+                </a>
+              </div>
+              <div class="horizontal-displaying-courses-card-content">
+                <div class="horizontal-displaying-courses-card-info">
+                  <h2 class="title">
+                    {{title}}
+                  </h2>
+                  <span class="category">
+                    {{category}}
+                  </span>
+                  <div class="details">
+                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
+                    <span><i class="mr-3 fa fa-signal"></i>
+                      {{level}}
+                    </span>
+                    <span><i class="mr-3 fa fa-heart"></i>
+                      {{favUsers.length}}
+                    </span>
+                    <span><i class="mr-3 fa fa-user"></i>
+                      {{enrolledUsers.length}}
+                    </span>
+                  </div>
+                </div>
+                <span class="horizontal-displaying-courses-card-price">
+                  ${{price}}
+                </span>
+                <div class="horizontal-displaying-courses-card-action ml-3">
+                  <a href="/course/{{_id}}">
+                    <button class="btn btn-outline-primary">
+                      <i class="ion-information-circled"></i>
+                      View
+                    </button>
+                  </a>
+
+                  <button class="btn btn-outline-secondary deleteCourseButton">
+                    <i class="ion-share"></i>
+                    Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
+    <div class="pop-up-notification-dialog__modal-content">
+      <div class="pop-up-notification-dialog__modal-header">
+        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Share this
+            course?
+          </strong></h2>
+      </div>
+      <div class="pop-up-notification-dialog__modal-message">
+        <p>Do you want to share this course?</p>
+      </div>
+      <div class="pop-up-notification-dialog__modal-buttons">
+        <button class="pop-up-notification-dialog__cancel-button" id="cancelConfirmButton">CANCEL</button>
+        <button class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">SHARE</button>
+      </div>
+    </div>
+  </div>
+  <!-- Hidden form -->
+  <form method="POST" name="deleteCourseForm"></form>
+</main>
+
+<!-- MODAL SCRIPT -->
+<!-- Handling the delete course in another script tag above -->
+<script>
+  const deleteButtons = document.querySelectorAll(".deleteCourseButton"); const
+    deleteCourseModal = document.getElementById("deleteConfirmationModal"); const
+      cancelConfirmButton = document.getElementById("cancelConfirmButton"); const
+        deleteConfirmButton = document.getElementById("deleteConfirmButton");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      deleteCourseModal.classList.add("active"); deleteCourseModal.style.display =
+        "block";
+    });
+  }); deleteConfirmButton.addEventListener("click", () => {
+    deleteCourseModal.classList.add("slideOut"); setTimeout(() => {
+      deleteCourseModal.classList.remove("active", "slideOut");
+      deleteCourseModal.style.display = "none";
+    }, 500);
+  });
+  cancelConfirmButton.addEventListener("click", () => {
+    deleteCourseModal.classList.add("slideOut"); setTimeout(() => {
+      deleteCourseModal.classList.remove("active", "slideOut");
+      deleteCourseModal.style.display = "none";
+    }, 500);
+  });
+  window.addEventListener("click", (event) => {
+    if (event.target ===
+      deleteCourseModal) {
+        deleteCourseModal.classList.add("slideOut");
+      setTimeout(() => {
+        deleteCourseModal.classList.remove("active", "slideOut");
+        deleteCourseModal.style.display = "none";
+      }, 500);
+    }
+  });
+</script>

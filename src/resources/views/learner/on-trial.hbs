@@ -1,0 +1,151 @@
+<main class="learner-view-on-trial bootstrap-v5">
+  <div class="learner-view-on-trial__header">
+    <div class="container">
+      <h1 class="learner-view-on-trial__heading">My Learning</h1>
+      <div class="learner-view-on-trial__navbar-container">
+        <ul class="learner-view-on-trial__navbar">
+          <li class="learner-view-on-trial__item">
+            <a class="learner-view-on-trial__item-link" href="/learner/my-courses/purchased">Purchased</a>
+          </li>
+
+          <li class="learner-view-on-trial__item active">
+            <a class="learner-view-on-trial__item-link">On Trial</a>
+          </li>
+
+          <li class="learner-view-on-trial__item">
+            <a class="learner-view-on-trial__item-link" href="/learner/my-courses/wishlist">Wishlist</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="learner-view-on-trial__courses-container">
+    <div class="container">
+      <div class="learner-view-on-trial__courses-content">
+        {{#each courses}}
+        <div class="row">
+          <div class="col-12">
+            <div class="horizontal-displaying-courses-card d-flex">
+              <div class="horizontal-displaying-courses-card-thumb">
+                <a href="#">
+                  <img src="{{courseImg}}" class="image" alt="{{title}}" />
+                </a>
+              </div>
+              <div class="horizontal-displaying-courses-card-content">
+                <div class="horizontal-displaying-courses-card-info">
+                  <h2 class="title">
+                    {{title}}
+                  </h2>
+                  <span class="category">
+                    {{category}}
+                  </span>
+                  <div class="details">
+                    <span><i class="mr-3 fa fa-clock-o"></i> 6 hours</span>
+                    <span><i class="mr-3 fa fa-signal"></i>
+                      {{level}}
+                    </span>
+                    <span><i class="mr-3 fa fa-heart"></i>
+                      {{favUsers.length}}
+                    </span>
+                    <span><i class="mr-3 fa fa-user"></i>
+                      {{enrolledUsers.length}}
+                    </span>
+                  </div>
+                </div>
+                <span class="horizontal-displaying-courses-card-price">
+                  ${{price}}
+                </span>
+                <div class="horizontal-displaying-courses-card-action ml-3">
+                  <a href="/course/{{_id}}">
+                  <button class="btn btn-outline-primary"><i class="ion-information-circled"></i>
+                    View</button>
+                  </a>
+                  
+                  <button data-course-id="{{_id}}" class="btn btn-outline-danger deleteCourseButton"><i
+                      class="fa fa-trash"></i>
+                    Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pop-up-notification-dialog__modal" id="deleteConfirmationModal">
+    <div class="pop-up-notification-dialog__modal-content">
+      <div class="pop-up-notification-dialog__modal-header">
+        <h2 class="pop-up-notification-dialog__modal-heading"><strong>Cancel
+            2-day trial?</strong></h2>
+      </div>
+      <div class="pop-up-notification-dialog__modal-message">
+        <p>Your trial enrollment for 2-day will be canceled. Do you confirm?</p>
+      </div>
+      <div class="pop-up-notification-dialog__modal-buttons">
+        <button class="pop-up-notification-dialog__cancel-button" id="cancelConfirmButton">CLOSE</button>
+        <button class="pop-up-notification-dialog__delete-button" id="deleteConfirmButton">CANCEL</button>
+      </div>
+    </div>
+  </div>
+  <!-- Hidden form -->
+  <form method="POST" name="deleteCourseForm"></form>
+</main>
+
+<!-- MODAL SCRIPT -->
+<!-- Handling the delete course in another script tag above -->
+<script>
+  const deleteButtons = document.querySelectorAll(".deleteCourseButton");
+  const deleteCourseModal = document.getElementById("deleteConfirmationModal");
+  const cancelConfirmButton = document.getElementById("cancelConfirmButton");
+  const deleteConfirmButton = document.getElementById("deleteConfirmButton");
+  let currentCourseId = null; // Variable to store the current course ID
+
+  // Event listener for delete buttons
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      currentCourseId = event.target.getAttribute("data-course-id");
+      deleteCourseModal.classList.add("active");
+      deleteCourseModal.style.display = "block";
+    });
+  });
+
+  // Event listener for confirm button
+  deleteConfirmButton.addEventListener("click", () => {
+    if (currentCourseId) {
+      // Submit the form or send a request to delete the course
+      const form = document.forms["deleteCourseForm"];
+      form.action = `/course/trial/${currentCourseId}`; // Set the form action to delete the course
+      form.method = "POST";
+      form.submit();
+    }
+    deleteCourseModal.classList.add("slideOut");
+    setTimeout(() => {
+      deleteCourseModal.classList.remove("active", "slideOut");
+      deleteCourseModal.style.display = "none";
+    }, 500);
+  });
+
+  // Event listener for cancel button
+  cancelConfirmButton.addEventListener("click", () => {
+    deleteCourseModal.classList.add("slideOut");
+    setTimeout(() => {
+      deleteCourseModal.classList.remove("active", "slideOut");
+      deleteCourseModal.style.display = "none";
+    }, 500);
+  });
+
+  // Event listener for clicking outside the modal
+  window.addEventListener("click", (event) => {
+    if (event.target === deleteCourseModal) {
+      deleteCourseModal.classList.add("slideOut");
+      setTimeout(() => {
+        deleteCourseModal.classList.remove("active", "slideOut");
+        deleteCourseModal.style.display = "none";
+      }, 500);
+    }
+  });
+</script>

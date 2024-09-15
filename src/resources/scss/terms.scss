@@ -1,0 +1,48 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-family_1;
+  background-color: #f1f1f1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.content-container {
+  padding: 2rem 10rem 2rem 10rem;
+  color: #000000;
+}
+
+.h3-tag {
+  margin: 2rem;
+}
+
+.p-tag,
+.li-tag {
+  opacity: 80%;
+}
+
+/*tablet*/
+@media (max-width: 1199px) {
+  .content-container {
+    padding: 4rem;
+  }
+}
+
+/*smartphone*/
+@media (max-width: 767px) {
+  .content-container {
+    padding: 4rem;
+  }
+}

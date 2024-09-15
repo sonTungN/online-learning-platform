@@ -1,0 +1,246 @@
+<nav class="navbar">
+  <div class="navbar__logo">
+    <img alt="logo" class="navbar__logo-img" src="/assets/car.jpg" />
+    <a class="navbar__logo-text" href="/">SCOUTSKILLZ</a>
+  </div>
+  <ul class="navbar__menu">
+    <li class="navbar__item">
+      <a class="navbar__link" href="/">Home</a>
+    </li>
+    <li class="navbar__item dropdown">
+      <a class="navbar__link">Categories</a>
+      <!-- Dropdown menu -->
+      <ul class="dropdown-menu">
+        <li class="dropdown-item">
+          <a href="#!">
+            <i class="ion-ios-navigate-outline"></i>
+            Wilderness Survival
+          </a>
+        </li>
+        <li class="dropdown-item">
+          <a href="#!">
+            <i class="ion-ios-infinite-outline"></i>
+            Knots and Lashings
+          </a>
+        </li>
+        <li class="dropdown-item">
+          <a href="#!">
+            <i class="ion-ios-flask-outline"></i>
+            STEM
+          </a>
+        </li>
+        <li class="dropdown-item">
+          <a href="#!">
+            <i class="ion-ios-briefcase-outline"></i>
+            Teamwork and Leadership
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/learner/browse-courses">Browse</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/about-us">About Us</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/pricing">Pricing</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="/faq">FAQs</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link" href="#!">Contact us</a>
+    </li>
+
+    {{#if user}}
+    <li class="navbar__item">
+      <div class="navbar__link">
+        <a class="navbar__link-container" href="/learner/order-placement">
+          <span class="navbar__link-title">Cart</span>
+          <i class="fa fa-shopping-cart navbar__cart-icon">
+            <span id='cart-quantity' class="navbar__cart-qty">
+              &#33;
+            </span>
+          </i>
+        </a>
+      </div>
+    </li>
+    <li class="navbar__item">
+      <div class="navbar__link">
+        <a class="navbar__link-container" href="{{user.profileLink}}">
+          <img src="{{user.displayImg}}" alt="ProfileImg" class="navbar__avatar" />
+          <span class="navbar__link-title" href="#!">{{user.displayName}}</span>
+        </a>
+      </div>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link logout-action-cta" href="/user/logout">Log Out</a>
+    </li>
+    {{else}}
+    <li class="navbar__item">
+      <a class="navbar__link" href="/user/sign-in">Login</a>
+    </li>
+    <li class="navbar__item">
+      <a class="navbar__link signup-action-cta" href="/user/sign-up">Register</a>
+    </li>
+    {{/if}}
+  </ul>
+  <div class="navbar__hamburger">
+    <span class="navbar__line"></span>
+    <span class="navbar__line"></span>
+    <span class="navbar__line"></span>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="navbar__logo">
+    <img alt="logo" class="navbar__logo-img" src="/assets/car.jpg" />
+    <h1 class="navbar__logo-text"><a href="/">SCOUTSKILLZ</a></h1>
+  </div>
+  <div class="sidebar-nav">
+    <ul>
+      <li>
+        <a href="/">
+          <i class="ion-ios-home-outline"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="chev">
+        <a href="#!">
+          <i class="ion-ios-list-outline"></i>
+          <span>Categories</span>
+        </a>
+        <!-- Nav Flyout for Categories -->
+        <ul class="nav-flyout">
+          <li>
+            <a href="#!">
+              <i class="ion-ios-navigate-outline"></i>
+              Wilderness Survival
+            </a>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="ion-ios-infinite-outline"></i>
+              Knots and Lashings
+            </a>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="ion-ios-flask-outline"></i>
+              STEM
+            </a>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="ion-ios-people-outline"></i>
+              Teamwork Leadership
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="/learer/browse-courses">
+          <i class="ion-ios-search"></i>
+          <span>Browse</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about-us">
+          <i class="ion-ios-information-outline"></i>
+          <span>About us</span>
+        </a>
+      </li>
+      <li>
+        <a href="/pricing">
+          <i class="ion-ios-pricetag-outline"></i>
+          <span>Pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="/faq">
+          <i class="ion-ios-help-outline"></i>
+          <span>FAQs</span>
+        </a>
+      </li>
+      <li>
+        <a href="#!">
+          <i class="ion-ios-contact-outline"></i>
+          <span>Contact us</span>
+        </a>
+      </li>
+      {{#if user}}
+      <li>
+        <a href="#!">
+          <i class="ion-ios-cart-outline"></i>
+          <span>My Cart</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#!">
+          <i class="ion-person"></i>
+          <span>{{user.displayName}}</span>
+        </a>
+      </li>
+      <li>
+        <a class="action-cta" href="/user/logout">
+          <i class="ion-log-out"></i>
+          <span>Log Out</span>
+        </a>
+      </li>
+      {{else}}
+      <li>
+        <a href="/user/sign-in">
+          <i class="ion-log-in"></i>
+          <span>Login</span>
+        </a>
+      </li>
+      <li>
+        <a class="action-cta" href="/user/sign-up">
+          <i class="ion-person-add"></i>
+          <span>Register</span>
+        </a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</aside>
+<div class="overlay"></div>
+
+<script>
+  const mobileNav = document.querySelector(".navbar__hamburger");
+  const navbar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".overlay");
+
+  const toggleNav = () => {
+    navbar.classList.toggle("active");
+    mobileNav.classList.toggle("navbar__hamburger-active");
+    overlay.classList.toggle("active");
+  };
+
+  // Hide sidebar and overlay if clicking outside the sidebar
+  const closeNavOnClickOutside = (event) => {
+    if (navbar.classList.contains("active") &&
+      !navbar.contains(event.target) &&
+      !mobileNav.contains(event.target)) {
+      navbar.classList.remove("active");
+      mobileNav.classList.remove("navbar__hamburger-active");
+      overlay.classList.remove("active");
+    }
+  };
+
+  // Hide sidebar and overlay if the screen is resized to be wider
+  const closeNavOnResize = () => {
+    if (window.innerWidth > 780 && navbar.classList.contains("active")) {
+      navbar.classList.remove("active");
+      mobileNav.classList.remove("navbar__hamburger-active");
+      overlay.classList.remove("active");
+    }
+  };
+
+  // Add event listeners
+  mobileNav.addEventListener("click", toggleNav);
+  overlay.addEventListener("click", closeNavOnClickOutside);
+  window.addEventListener("resize", closeNavOnResize);
+</script>
