@@ -65,6 +65,8 @@ class HomeController {
         ]);
 
       const userId = req.session.user ? req.session.user.id : null; // Check if user is logged in
+      const user = req.session.user ? req.session.user : null;
+
       // Fetch the user's cart if logged in
       let userCart = [];
       if (userId) {
@@ -133,11 +135,15 @@ class HomeController {
 
         return formattedData;
       });
+
       res.render("home", {
         title: "Homepage",
         styles: ["home.css", "bootstrap_v5.css"],
         isHome: true,
         user: req.session.user,
+        userJson: JSON.stringify(user),
+        currentUser: user,
+        isLearner: user && user.accountType === "LEARNER",
         recentCourses,
         featuredCourses,
         newlyInstructors,

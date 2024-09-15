@@ -147,7 +147,7 @@ class InstructorController {
         userJson: JSON.stringify(user),
         currentUser: user,
 
-        isInstructor: user.accountType,
+        isInstructor: user.accountType == "INSTRUCTOR",
       });
     } catch (e) {
       next(e);
